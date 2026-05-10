@@ -2,11 +2,22 @@
 
 ### Robotics & Automation Engineer | Embedded Systems Specialist
 
-I am a Robotics & Automation Engineering student (Honors in Embedded Systems) at Symbiosis Institute of Technology, Pune. I have experience working on mechanical design, low-level system programming, and real-time embedded systems.
+I am a Robotics & Automation Engineering student (Honors in Embedded Systems) at Symbiosis Institute of Technology, Pune. I have experience working on , low-level system programming,  real-time embedded systems and mechanical design.
 
-* 🤖 **Team Robominds (Design Lead & Co-Head):** Steered a cross-functional team to a 90/100 Stage I qualification score for DD Robocon 2026.
-* ⚙️ **Key Projects:** Built a **3D-Printed Prosthetic Hand with EMG Control** utilizing ESP32, MQTT, and real-time computer vision. Designed a full drone assembly for **Robofest** in Siemens NX with optimized aerodynamic balance, and engineered obstacle-clearing robot chassis.
-* 🔭 **Interests:** Computer architecture, LLVM/Clang, autonomous navigation (SLAM), and IoT development.
+---
+
+### 🚀 Featured Projects & Leadership
+
+🤖 **Team Robominds | Design Lead & Co-Head**
+* Steered a cross-functional team to a 90/100 Stage I qualification score for DD Robocon 2026.
+* Engineered and designed complex obstacle-clearing robot chassis.
+
+🦾 **3D-Printed Prosthetic Hand**
+* Built a prosthetic hand featuring EMG control alongside a Computer Vision-based control system.
+* Utilized ESP32, MQTT protocols, and real-time computer vision for actuation and command processing.
+
+🚁 **Drone Design for Robofest**
+* Designed a full drone assembly in Siemens NX with a focus on optimized aerodynamic balance and structural integrity.
 
 ---
 
@@ -33,7 +44,7 @@ I am a Robotics & Automation Engineering student (Honors in Embedded Systems) at
 
 ---
 
-### 📫 Let's Connect!
+### Contact - abhishekp135531@gmail.com 
 
 * [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abhishek-singh-a2003b287/)
 * [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/Fe3ws_)
