@@ -1,4 +1,4 @@
-# Hi there, I'm Abhishek Prakash Singh 👋
+# Hi there, I'm Abhishek Singh 👋
 
 ### Robotics & Automation Engineer | Embedded Systems Specialist
 
