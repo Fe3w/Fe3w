@@ -18,7 +18,7 @@ https://github.com/user-attachments/assets/18fe45f4-467c-4aaa-97d2-063ad31eb409
 
 [![LinkedIn Post](https://img.shields.io/badge/LinkedIn-View%20Post-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/posts/abhishek-singh-a2003b287_robocon2026-teamrobominds-automation-ugcPost-7438862846412771328-uZSR)
 
-🦾 **3D-Printed Prosthetic Hand**
+🦾 **3D-Printed EMG/Computer Vision Controlled Hand**
 * Built a prosthetic hand featuring EMG control alongside a Computer Vision-based control system.
 * Utilized ESP32, MQTT protocols, and real-time computer vision for actuation and command processing.
 
