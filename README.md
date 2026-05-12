@@ -12,7 +12,17 @@ I am a Robotics & Automation Engineering student (Honors in Embedded Systems) at
 🤖 **Team Robominds | Design Lead & Co-Head**
 * Steered a cross-functional team to a 90/100 Stage I qualification score for DD Robocon 2026.
 * Engineered and designed complex obstacle-clearing robot chassis.
-## Robocon 2026
+## Robocon 2026 Demo
+
+<p align="center">
+  <a href="https://www.linkedin.com/posts/abhishek-singh-a2003b287_robocon2026-teamrobominds-automation-ugcPost-7438862846412771328-uZSR">
+    <img src="images/robocon-preview.png" width="700">
+  </a>
+</p>
+
+<p align="center">
+  Click the image to watch the full demo on LinkedIn
+</p>
 
 [![LinkedIn Post](https://img.shields.io/badge/LinkedIn-View%20Post-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/posts/abhishek-singh-a2003b287_robocon2026-teamrobominds-automation-ugcPost-7438862846412771328-uZSR)
 
