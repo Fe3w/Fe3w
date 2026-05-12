@@ -14,21 +14,7 @@ I am a Robotics & Automation Engineering student (Honors in Embedded Systems) at
 * Engineered and designed complex obstacle-clearing robot chassis.
 
   
-
 https://github.com/user-attachments/assets/18fe45f4-467c-4aaa-97d2-063ad31eb409
-
-
-## Robocon 2026 Demo
-
-<p align="center">
-  <a href="https://www.linkedin.com/posts/abhishek-singh-a2003b287_robocon2026-teamrobominds-automation-ugcPost-7438862846412771328-uZSR">
-    <img src="https://img.shields.io/badge/Watch-LinkedIn%20Video-0A66C2?style=for-the-badge&logo=linkedin" />
-  </a>
-</p>
-
-<p align="center">
-  Click the image to watch the full demo on LinkedIn
-</p>
 
 [![LinkedIn Post](https://img.shields.io/badge/LinkedIn-View%20Post-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/posts/abhishek-singh-a2003b287_robocon2026-teamrobominds-automation-ugcPost-7438862846412771328-uZSR)
 
