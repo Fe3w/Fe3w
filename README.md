@@ -1,7 +1,5 @@
 
-
-
-
+https://github.com/user-attachments/assets/1f63cb8e-624d-42df-a676-d73537d68324
 # Hi there, I'm Abhishek Singh 👋
 
 ### Robotics & Automation Engineer | Embedded Systems Specialist
@@ -15,11 +13,12 @@ I am a Robotics & Automation Engineering student (Honors in Embedded Systems) at
 🤖 **Team Robominds | Design Lead & Co-Head**
 * Steered a cross-functional team to a 90/100 Stage I qualification score for DD Robocon 2026.
 * Engineered and designed complex obstacle-clearing robot chassis.
-
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7438862846412771328?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
 🦾 **3D-Printed Prosthetic Hand**
 * Built a prosthetic hand featuring EMG control alongside a Computer Vision-based control system.
 * Utilized ESP32, MQTT protocols, and real-time computer vision for actuation and command processing.
 
+Uploading Hand Control by Computer-Vision over MQTT & ESP32.mp4…
 
 
 🚁 **Drone Design for Robofest**
