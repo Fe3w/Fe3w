@@ -12,7 +12,10 @@ I am a Robotics & Automation Engineering student (Honors in Embedded Systems) at
 🤖 **Team Robominds | Design Lead & Co-Head**
 * Steered a cross-functional team to a 90/100 Stage I qualification score for DD Robocon 2026.
 * Engineered and designed complex obstacle-clearing robot chassis.
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7438862846412771328?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+## Robocon 2026
+
+[![LinkedIn Post](https://img.shields.io/badge/LinkedIn-View%20Post-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/posts/abhishek-singh-a2003b287_robocon2026-teamrobominds-automation-ugcPost-7438862846412771328-uZSR)
+
 🦾 **3D-Printed Prosthetic Hand**
 * Built a prosthetic hand featuring EMG control alongside a Computer Vision-based control system.
 * Utilized ESP32, MQTT protocols, and real-time computer vision for actuation and command processing.
