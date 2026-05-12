@@ -20,7 +20,7 @@ I am a Robotics & Automation Engineering student (Honors in Embedded Systems) at
 * Built a prosthetic hand featuring EMG control alongside a Computer Vision-based control system.
 * Utilized ESP32, MQTT protocols, and real-time computer vision for actuation and command processing.
 
-https://github.com/user-attachments/assets/527dd70f-ad0f-4bd0-8523-9bc9a0a22211
+
 
 🚁 **Drone Design for Robofest**
 * Designed a full drone assembly in Siemens NX with a focus on optimized aerodynamic balance and structural integrity.
