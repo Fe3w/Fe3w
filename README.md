@@ -1,3 +1,7 @@
+
+
+
+
 # Hi there, I'm Abhishek Singh 👋
 
 ### Robotics & Automation Engineer | Embedded Systems Specialist
@@ -15,7 +19,7 @@ I am a Robotics & Automation Engineering student (Honors in Embedded Systems) at
 🦾 **3D-Printed Prosthetic Hand**
 * Built a prosthetic hand featuring EMG control alongside a Computer Vision-based control system.
 * Utilized ESP32, MQTT protocols, and real-time computer vision for actuation and command processing.
-
+https://github.com/user-attachments/assets/527dd70f-ad0f-4bd0-8523-9bc9a0a22211
 🚁 **Drone Design for Robofest**
 * Designed a full drone assembly in Siemens NX with a focus on optimized aerodynamic balance and structural integrity.
 <p align="center">
