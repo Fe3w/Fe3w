@@ -12,7 +12,12 @@ I am a Robotics & Automation Engineering student (Honors in Embedded Systems) at
 🤖 **Team Robominds | Design Lead & Co-Head**
 * Steered a cross-functional team to a 90/100 Stage I qualification score for DD Robocon 2026.
 * Engineered and designed complex obstacle-clearing robot chassis.
-* 
+
+  
+
+https://github.com/user-attachments/assets/18fe45f4-467c-4aaa-97d2-063ad31eb409
+
+
 ## Robocon 2026 Demo
 
 <p align="center">
