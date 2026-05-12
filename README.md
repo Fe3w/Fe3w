@@ -18,9 +18,10 @@ I am a Robotics & Automation Engineering student (Honors in Embedded Systems) at
 
 🚁 **Drone Design for Robofest**
 * Designed a full drone assembly in Siemens NX with a focus on optimized aerodynamic balance and structural integrity.
-<img width="586" height="377" alt="Screenshot from 2026-05-12 08-27-09" src="https://github.com/user-attachments/assets/b2e3c0e5-843c-44f1-af15-eaf6705dd7a5" />
-<img width="1453" height="787" alt="Screenshot 2025-10-19 214706" src="https://github.com/user-attachments/assets/4cfe013f-7190-41ad-a7d0-d2e637cecb79" />
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b2e3c0e5-843c-44f1-af15-eaf6705dd7a5" width="40%" />
+  <img src="https://github.com/user-attachments/assets/4cfe013f-7190-41ad-a7d0-d2e637cecb79" width="55%" />
+</p>
 ---
 
 ### 🛠️ Languages, Tools & Concepts
