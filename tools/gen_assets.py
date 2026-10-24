@@ -64,11 +64,11 @@ def hero(t):
     body += [
         f'<text x="56" y="84" font-family="{MONO}" font-size="13" fill="{t["green"]}">~/fe3w $ cat README.md</text>',
         f'<text x="54" y="158" font-family="{SANS}" font-size="64" font-weight="800" fill="{t["text"]}">Abhishek</text>',
-        f'<text x="54" y="226" font-family="{SANS}" font-size="64" font-weight="800" fill="{t["text"]}">Prakash Singh<tspan fill="{t["green"]}">.</tspan></text>',
-        f'<text x="56" y="272" font-family="{SANS}" font-size="19" fill="{t["muted"]}">Compilers · CPU/GPU performance · Systems software · Physical AI</text>',
-        f'<text x="56" y="312" font-family="{MONO}" font-size="13.5" fill="{t["muted"]}">robot arms <tspan fill="{t["green"]}">→</tspan> CUDA kernels '
+        f'<text x="54" y="226" font-family="{SANS}" font-size="64" font-weight="800" fill="{t["text"]}">Singh<tspan fill="{t["green"]}">.</tspan></text>',
+        f'<text x="56" y="272" font-family="{SANS}" font-size="19" fill="{t["muted"]}">Compilers · CPU/GPU performance · Autonomous systems</text>',
+        f'<text x="56" y="312" font-family="{MONO}" font-size="13.5" fill="{t["muted"]}">autonomous systems <tspan fill="{t["green"]}">→</tspan> CUDA kernels '
         f'<tspan fill="{t["green"]}">→</tspan> LLVM IR <tspan fill="{t["green"]}">→</tspan> silicon</text>',
-        f'<rect class="cur" x="452" y="300" width="9" height="16" fill="{t["green"]}"/>',
+        f'<rect class="cur" x="494" y="300" width="9" height="16" fill="{t["green"]}"/>',
     ]
     # SM / warp scheduler panel
     px, py, pw, ph = 772, 64, 396, 236
@@ -93,7 +93,7 @@ def hero(t):
         body.append(f'<text x="{x}" y="{my+22}" text-anchor="middle" font-family="{MONO}" font-size="10.5" fill="{t["muted"]}">{name}</text>')
     for i in range(3):
         body.append(f'<circle r="3.5" fill="{t["orange"]}"><animateMotion path="M{px+350} {my} H{px+40}" dur="3s" begin="{i}s" repeatCount="indefinite"/></circle>')
-    return svg(W, H, "".join(body), "Abhishek Prakash Singh — compilers, CPU/GPU performance, systems software, physical AI")
+    return svg(W, H, "".join(body), "Abhishek Singh — compilers, CPU/GPU performance, systems software, autonomous systems")
 
 
 # ───────────────────────────── TERMINAL ─────────────────────────────
@@ -120,7 +120,7 @@ def terminal():
                     f'<text x="50" y="{y}" font-family="{MONO}" font-size="14" fill="{mut}">{inner}</text></g>')
 
     cmd(1, 78, "whoami", 0.4, 0.6)
-    out(104, f'abhishek prakash singh <tspan fill="{grn}">—</tspan> robotics engineer, working down the stack toward compilers &amp; silicon', 1.2)
+    out(104, f'abhishek singh <tspan fill="{grn}">—</tspan> engineer for autonomous systems, working down the stack to compilers &amp; silicon', 1.2)
     cmd(2, 142, "cat now.txt", 2.0, 0.7)
     items = ["llvm loop-optimization advisor · new-PM analysis pass",
              "mini C-like compiler → LLVM IR → native executable",
@@ -138,7 +138,7 @@ def terminal():
 # ───────────────────────────── STACK ─────────────────────────────
 def stack(t):
     W, H = 1200, 282
-    cards = [("01", "Physical AI", "VLMs · ROS 2 · Isaac Sim", "robots that see and act", t["blue"]),
+    cards = [("01", "Autonomy", "VLMs · ROS 2 · Isaac Sim", "systems that perceive and act", t["blue"]),
              ("02", "Kernels", "CUDA · OpenMP · AVX2/FMA", "make the math fast", t["orange"]),
              ("03", "Compilers", "LLVM IR · passes · codegen", "make the code fast", t["green"]),
              ("04", "Silicon", "SMs · caches · Tensor Cores", "know why it's fast", t["text"])]
@@ -161,7 +161,7 @@ def stack(t):
                     f'<animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.92;1" dur="4.5s" begin="{k*1.5}s" repeatCount="indefinite"/></circle>')
     body.append(f'<text x="40" y="{cy+30}" font-family="{MONO}" font-size="11" fill="{t["muted"]}">higher level</text>')
     body.append(f'<text x="{W-40}" y="{cy+30}" text-anchor="end" font-family="{MONO}" font-size="11" fill="{t["muted"]}">closer to the metal →</text>')
-    return svg(W, H, "".join(body), "The stack: physical AI, kernels, compilers, silicon")
+    return svg(W, H, "".join(body), "The stack: autonomy, kernels, compilers, silicon")
 
 
 # ───────────────────────────── SPEEDUP CHART ─────────────────────────────

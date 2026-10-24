@@ -1,34 +1,18 @@
 <!--
-  ════════════════════════════════════════════════════════════════════
-   PLACEHOLDER GUIDE  (this comment is invisible on GitHub)
-  ════════════════════════════════════════════════════════════════════
-   Every cat image is a placeholder. Search this file for "PLACEHOLDER".
-
-   ▶ VIDEO (this is what gives you a play / pause player):
-     1. Open README.md on github.com → ✏️ Edit.
-     2. Drag your .mp4 / .mov into the editor. GitHub uploads it and inserts
-        a link like  https://github.com/user-attachments/assets/<id>
-     3. Put that URL on its OWN line with a blank line above and below,
-        and delete the whole placeholder <p>…</p> block.
-        ⚠ It only becomes a player when it is a bare URL — not inside
-          <p>, <div>, <table> or <a>.
-     Limit: 10 MB per video on a free account (100 MB on paid).
-
-   ▣ IMAGE / PLOT: save it in assets/media/ and change the img src from
-     assets/placeholder-image.svg (or -plot.svg) to your file.
-
-   ⏳ RESULTS: replace every ⏳ in the tables with your measured numbers.
-
-   🎨 GRAPHICS: edit tools/gen_assets.py (text, numbers, colours) and run
-     python tools/gen_assets.py  to regenerate everything in assets/.
+  PLACEHOLDERS (invisible on GitHub) — only 6 left, search "PLACEHOLDER".
+  VIDEO: edit this file on github.com, drag the .mp4 in, keep the generated
+         https://github.com/user-attachments/assets/<id> URL on its own line
+         (blank line above & below) and delete the placeholder <p> block.
+         A bare URL = GitHub's player with play/pause. 10 MB limit (free).
+  IMAGE: put files in assets/media/ and point the <img src> at them.
 -->
 
 <div align="center">
 
-<picture><source media="(prefers-color-scheme: light)" srcset="assets/light/hero.svg" /><img src="assets/hero.svg" width="100%" alt="Abhishek Prakash Singh — compilers, CPU/GPU performance, systems software, physical AI, with an animated GPU warp scheduler" /></picture>
+<picture><source media="(prefers-color-scheme: light)" srcset="assets/light/hero.svg" /><img src="assets/hero.svg" width="100%" alt="Abhishek Singh — compilers, CPU/GPU performance, autonomous systems, with an animated GPU warp scheduler" /></picture>
 
 <a href="https://github.com/Fe3w">
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&pause=1400&color=1A7F37&center=true&vCenter=true&width=760&lines=Making+code+fast+%E2%80%94+then+proving+why+it%27s+fast.;LLVM+passes+%C2%B7+CUDA+kernels+%C2%B7+Roofline+analysis;From+robot+arms+down+to+Tensor+Cores." /><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&pause=1400&color=7EE787&center=true&vCenter=true&width=760&lines=Making+code+fast+%E2%80%94+then+proving+why+it%27s+fast.;LLVM+passes+%C2%B7+CUDA+kernels+%C2%B7+Roofline+analysis;From+robot+arms+down+to+Tensor+Cores." alt="Typing headline" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&pause=1400&color=1A7F37&center=true&vCenter=true&width=760&lines=Making+code+fast+%E2%80%94+then+proving+why+it%27s+fast.;LLVM+passes+%C2%B7+CUDA+kernels+%C2%B7+Roofline+analysis;From+autonomous+systems+down+to+Tensor+Cores." /><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&pause=1400&color=7EE787&center=true&vCenter=true&width=760&lines=Making+code+fast+%E2%80%94+then+proving+why+it%27s+fast.;LLVM+passes+%C2%B7+CUDA+kernels+%C2%B7+Roofline+analysis;From+autonomous+systems+down+to+Tensor+Cores." alt="Typing headline" /></picture>
 </a>
 
 </div>
@@ -38,7 +22,7 @@
   <a href="#stack"><code>02 STACK</code></a> ·
   <a href="#performance"><code>03 PERFORMANCE</code></a> ·
   <a href="#compilers"><code>04 COMPILERS</code></a> ·
-  <a href="#physical-ai"><code>05 PHYSICAL AI</code></a> ·
+  <a href="#autonomy"><code>05 AUTONOMY</code></a> ·
   <a href="#builds"><code>06 BUILDS</code></a> ·
   <a href="#contact"><code>07 CONTACT</code></a>
 </p>
@@ -59,11 +43,11 @@
 
 ### `01 — WHOAMI`
 
-Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbiosis Institute of Technology, Pune, **working my way down the stack**. I started with robots that see and move. Now most of my time goes to what sits underneath them: the kernels, the compilers and the hardware that decide how fast any of it runs.
+Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbiosis Institute of Technology, Pune, **working my way down the stack**. I started with autonomous systems that perceive, decide and act. Now most of my time goes to what sits underneath them: the kernels, the compilers and the hardware that decide how fast any of it runs.
 
 - 🔭 **Currently building:** an LLVM loop-analysis pass, a C-like compiler with an LLVM IR backend, and an ML-workload extension to my roofline study
 - 🎯 **Looking for:** internships in compiler optimization, CPU/GPU performance engineering, systems software and accelerated computing
-- 💬 **Ask me about:** roofline models, why a GEMM is memory-bound until it isn't, LLVM's new pass manager, ROS 2 visual servoing
+- 💬 **Ask me about:** roofline models, why a GEMM is memory-bound until it isn't, LLVM's new pass manager, perception-to-control pipelines in ROS 2
 - 🏁 **Off-keyboard:** led design for Team Robominds to the DD Robocon 2026 National Finals at IIT Delhi
 
 ---
@@ -72,7 +56,7 @@ Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbios
 
 ### `02 — STACK`
 
-<picture><source media="(prefers-color-scheme: light)" srcset="assets/light/stack.svg" /><img src="assets/stack.svg" width="100%" alt="The stack: physical AI, kernels, compilers, silicon" /></picture>
+<picture><source media="(prefers-color-scheme: light)" srcset="assets/light/stack.svg" /><img src="assets/stack.svg" width="100%" alt="The stack: autonomy, kernels, compilers, silicon" /></picture>
 
 <p>
   <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/C++-eaeef2?style=for-the-badge&logo=cplusplus&logoColor=1a7f37" /><img src="https://img.shields.io/badge/C++-0b0f14?style=for-the-badge&logo=cplusplus&logoColor=7ee787" alt="C++" /></picture>
@@ -88,7 +72,7 @@ Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbios
   <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Git-eaeef2?style=for-the-badge&logo=git&logoColor=1a7f37" /><img src="https://img.shields.io/badge/Git-0b0f14?style=for-the-badge&logo=git&logoColor=7ee787" alt="Git" /></picture>
 </p>
 
-| Compilers & performance | Parallel & GPU | Robotics & embedded | ML & vision |
+| Compilers & performance | Parallel & GPU | Autonomy & embedded | ML & vision |
 |---|---|---|---|
 | LLVM / Clang · LLVM IR | CUDA · PTX · WMMA | ROS 2 (Humble / Jazzy) · Gazebo | Qwen2.5-VL · InternVL3.5 fine-tuning |
 | New-pass-manager plugins | OpenMP · AVX2 / FMA | NVIDIA Isaac Sim · Dobot Magician | Synthetic data pipelines |
@@ -103,39 +87,28 @@ Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbios
 ### `03 — PERFORMANCE ENGINEERING`
 
 #### ⚡ Heterogeneous CPU/GPU Performance Analysis & Roofline Profiling
-<sub><code>Honors project · 2026</code> · core benchmarks ✅ · ML-workload extension ⏳ · <code>C++ · OpenMP · AVX2/FMA · CUDA · WMMA · VTune · Nsight Compute</code></sub>
+<sub><code>Honors project · 2026</code> · core benchmarks ✅ · ML-workload extension in progress · <code>C++ · OpenMP · AVX2/FMA · CUDA · WMMA · VTune · Nsight Compute</code></sub>
 
 How far are textbook kernels from what the hardware can actually do, and *why*? I benchmarked baseline kernels on an **Intel Core i7-13650HX** and an **NVIDIA RTX 4060 Laptop GPU**, optimized them step by step, and used profiling plus Roofline analysis to explain each gap: memory bandwidth, core utilization, register pressure, occupancy.
 
 <picture><source media="(prefers-color-scheme: light)" srcset="assets/light/speedup.svg" /><img src="assets/speedup.svg" width="100%" alt="Speedup chart: CPU GEMM 121.6x, dot product 13.3x, vector add 12.7x, GPU TF32 GEMM 3.7x" /></picture>
 
-| Kernel | Device | Baseline | Optimized | Speedup | What moved the needle |
-|---|---|---|---|---|---|
-| GEMM | CPU | 0.707 GFLOP/s | **86.03 GFLOP/s** | **121.6×** | cache blocking · OpenMP · AVX2/FMA |
-| Dot product | CPU | ⏳ | ⏳ | **13.3×** | ⏳ |
-| Vector add | CPU | ⏳ | ⏳ | **12.7×** | ⏳ |
-| Reduction | GPU | ⏳ | ⏳ | ⏳ | reduction optimization |
-| GEMM (TF32) | GPU | ⏳ | **2,679 GFLOP/s** | **3.7×** | WMMA Tensor Cores · shared-memory tiling |
+| Kernel | Device | Throughput | Speedup | Key techniques |
+|---|---|---|---|---|
+| GEMM | CPU | 0.707 → **86.03 GFLOP/s** | **121.6×** | cache blocking · OpenMP · AVX2/FMA |
+| Dot product | CPU | — | **13.3×** | OpenMP · AVX2/FMA |
+| Vector add | CPU | — | **12.7×** | OpenMP · AVX2/FMA |
+| GEMM (TF32) | GPU | **2,679 GFLOP/s** | **3.7×** | WMMA Tensor Cores · shared-memory tiling |
 
 <sub>Correctness: every output validated against a reference implementation · TF32 GEMM max relative error <b>0.0686%</b>.</sub>
 
-<!-- PLACEHOLDER: roofline plots. Export from your plotting script / Nsight as PNG → assets/media/ -->
-<table>
-  <tr>
-    <td width="50%" align="center"><img src="assets/placeholder-plot.svg" width="100%" alt="Placeholder: CPU roofline plot" /><br><sub>📈 <b>CPU roofline</b> · i7-13650HX, baseline vs optimized kernels plotted against bandwidth & compute ceilings · <i>plot coming soon</i></sub></td>
-    <td width="50%" align="center"><img src="assets/placeholder-plot.svg" width="100%" alt="Placeholder: GPU roofline / Nsight Compute view" /><br><sub>📈 <b>GPU roofline / Nsight Compute</b> · RTX 4060, occupancy & memory-throughput view of the TF32 GEMM · <i>screenshot coming soon</i></sub></td>
-  </tr>
-</table>
+<!-- PLACEHOLDER 1/6: roofline plot (PNG/SVG from your data) → assets/media/ -->
+<p align="center"><img src="assets/placeholder-plot.svg" width="80%" alt="Placeholder: roofline plot" /><br><sub>📈 <b>Roofline</b> · baseline vs optimized kernels against the bandwidth & compute ceilings of each device</sub></p>
 
-<!-- PLACEHOLDER: GPU project video. Replace this whole <p> block with the bare user-attachments URL (see guide at top). -->
-<p align="center"><img src="assets/placeholder-video.svg" width="80%" alt="Placeholder: benchmark walkthrough video" /><br><sub>🎬 <b>Benchmark walkthrough</b> · baseline → optimized runs, Nsight profile, final speedup · 60–90 s · <i>video coming soon</i></sub></p>
+<!-- PLACEHOLDER 2/6: GPU project video. Replace this whole <p> block with the bare user-attachments URL (see guide at top). -->
+<p align="center"><img src="assets/placeholder-video.svg" width="80%" alt="Placeholder: benchmark walkthrough video" /><br><sub>🎬 <b>Benchmark walkthrough</b> · baseline → optimized runs, Nsight profile, final speedup · 60–90 s</sub></p>
 
-**ML-workload extension** <sub>⏳ in progress</sub>
-
-| Workload | CPU | GPU | Roofline verdict | Notes |
-|---|---|---|---|---|
-| ⏳ workload 1 | ⏳ | ⏳ | ⏳ memory / compute bound | ⏳ |
-| ⏳ workload 2 | ⏳ | ⏳ | ⏳ | ⏳ |
+**Next:** extending the study to ML workloads (in progress).
 
 📄 [**Project report**](https://drive.google.com/file/d/1Iqg1ht8dw_D7Ud5cnDXnYjy3pSv4l__W/view?usp=sharing)
 
@@ -150,94 +123,30 @@ How CPU, GPU and TPU/NPU architectures evolved for deep learning, and how the co
 
 <a id="compilers"></a>
 
-### `04 — COMPILERS`
+### `04 — COMPILERS` <sub>in progress</sub>
 
-#### 🔍 LLVM Loop Optimization Advisor
-<sub><code>C++ · LLVM · CMake</code> · ⏳ in progress</sub>
+Building the compiler side from both ends: a tool that **reads** optimized IR, and a compiler that **writes** it.
 
-An **analysis-only new-pass-manager plugin** that makes loop structure and the things that block optimization visible at the IR level, without modifying the IR. It reports loop structure, memory accesses and control-flow properties.
-
-```bash
-# ⏳ PLACEHOLDER: replace with your real build + run commands
-cmake -B build && cmake --build build
-opt -load-pass-plugin=./build/⏳.so -passes="⏳" -disable-output examples/⏳.ll
-```
-
-```text
-⏳ PLACEHOLDER: paste real pass output here, e.g. one nested loop
-   function     : ⏳
-   loop depth   : ⏳
-   trip count   : ⏳
-   mem accesses : ⏳
-   flags        : ⏳
-```
-
-| Regression test | What it checks | Status |
+| Project | What it does | Stack |
 |---|---|---|
-| Simple loop | basic structure & trip count | ⏳ |
-| Nested loops | depth, nesting, induction variables | ⏳ |
-| Reductions | accumulator detection | ⏳ |
-| Unknown trip count | reporting when the bound isn't static | ⏳ |
-| Dependent accesses | memory patterns that may introduce dependencies | ⏳ |
-
-#### 🛠️ Mini C-like Compiler → LLVM IR
-<sub><code>C++ · LLVM</code> · ⏳ in progress</sub>
-
-A small compiler for a defined C-like subset, built to understand the full path from source text to a native binary.
-
-```mermaid
-flowchart LR
-  S[source] --> L[lexer] --> P[parser] --> A[AST + symbol table] --> C[semantic checks]
-  C --> IR[LLVM IR] --> V[verifier] --> O[optimization passes] --> N[native executable]
-```
-
-- [ ] Lexer · parser · AST
-- [ ] Symbol table & semantic checks
-- [ ] IR for arithmetic expressions
-- [ ] IR for `if / else`
-- [ ] IR for `while` loops
-- [ ] Verifier + `opt` passes + native codegen
-
-<table>
-  <tr><th width="50%">source</th><th width="50%">emitted LLVM IR</th></tr>
-  <tr>
-    <td>
-
-```c
-// ⏳ PLACEHOLDER: a small program
-// in your language
-```
-
-</td>
-    <td>
-
-```llvm
-; ⏳ PLACEHOLDER: the IR your
-; compiler emits for it
-```
-
-</td>
-  </tr>
-</table>
-
-<!-- PLACEHOLDER: compiler demo video. Replace this <p> block with the bare user-attachments URL. -->
-<p align="center"><img src="assets/placeholder-video.svg" width="80%" alt="Placeholder: compiler demo video" /><br><sub>🎬 <b>Compiler demo</b> · source → IR → <code>opt</code> → running binary, in one terminal · 30–60 s · <i>video coming soon</i></sub></p>
+| 🔍 **LLVM Loop Optimization Advisor** | Analysis-only new-pass-manager plugin that reports loop structure, memory accesses and control-flow properties, without modifying the IR. Regression tests cover nested loops, reductions, unknown trip counts and dependent accesses. | C++ · LLVM · CMake |
+| 🛠️ **Mini C-like compiler** | Lexer → parser → AST → semantic checks → LLVM IR for arithmetic, `if/else` and `while`, then the LLVM verifier, optimization passes and native codegen. | C++ · LLVM |
 
 ---
 
-<a id="physical-ai"></a>
+<a id="autonomy"></a>
 
-### `05 — PHYSICAL AI & ROBOTICS`
+### `05 — AUTONOMOUS SYSTEMS`
 
-#### 🤖 Neuro-Symbolic Robotic Sorting · VLM pipeline
-<sub><code>B.Tech project · 2026</code> · ⏳ in progress · <code>Python · Isaac Sim · Dobot Magician · Qwen2.5-VL · InternVL3.5</code></sub>
+#### 🤖 Neuro-Symbolic Autonomous Sorting · VLM pipeline
+<sub><code>B.Tech project · 2026</code> · in progress · <code>Python · Isaac Sim · Dobot Magician · Qwen2.5-VL · InternVL3.5</code></sub>
 
-A vision-language-guided sorting system that turns *"put the red parts in the left bin"* into arm motion, and explains each decision. Model predictions become segmentation masks, depth turns them into 3D targets, rule-based symbolic logic makes the sort decision, and inverse kinematics drives a Dobot Magician. Everything is validated in NVIDIA Isaac Sim first. To cut API dependence and latency, I'm fine-tuning smaller open-weight VLMs on synthetic data filtered for consistency.
+A vision-language-guided sorting system for autonomous manipulation that turns *"put the red parts in the left bin"* into arm motion, and explains each decision. Model predictions become segmentation masks, depth turns them into 3D targets, rule-based symbolic logic makes the sort decision, and inverse kinematics drives a Dobot Magician. Everything is validated in NVIDIA Isaac Sim first. To cut API dependence and latency, I'm fine-tuning smaller open-weight VLMs on synthetic data filtered for consistency.
 
-<!-- PLACEHOLDER: main VLM demo video. Replace this <p> block with the bare user-attachments URL. -->
-<p align="center"><img src="assets/placeholder-video.svg" width="80%" alt="Placeholder: VLM sorting demo video" /><br><sub>🎬 <b>VLM sorting demo</b> · instruction → prediction → mask → 3D target → arm motion in Isaac Sim · 60–90 s · <i>video coming soon</i></sub></p>
+<!-- PLACEHOLDER 3/6: VLM demo video. Replace this <p> block with the bare user-attachments URL. -->
+<p align="center"><img src="assets/placeholder-video.svg" width="80%" alt="Placeholder: VLM sorting demo video" /><br><sub>🎬 <b>VLM sorting demo</b> · instruction → prediction → mask → 3D target → arm motion in Isaac Sim · 60–90 s</sub></p>
 
-<!-- PLACEHOLDER: three stills from the pipeline → assets/media/ -->
+<!-- PLACEHOLDER 4–6/6: three stills from the pipeline → assets/media/ -->
 <table>
   <tr>
     <td width="33%" align="center"><img src="assets/placeholder-image.svg" width="100%" alt="Placeholder: Isaac Sim scene" /><br><sub>🖼️ <b>Isaac Sim scene</b> · workspace + Dobot Magician</sub></td>
@@ -257,20 +166,10 @@ flowchart LR
   SYN[synthetic data<br/>multi-model + consistency filter] -.fine-tune.-> VLM
 ```
 
-| Metric | Hosted API baseline | Fine-tuned open-weight VLM |
-|---|---|---|
-| Localization error (px) | ⏳ | ⏳ |
-| Sort decision accuracy | ⏳ | ⏳ |
-| Inference latency | ⏳ | ⏳ |
-| Pick success in Isaac Sim | ⏳ | ⏳ |
-
-#### 🎯 ROS 2 Green-Target Tracking + LiDAR Safety
+#### 🎯 Autonomous Target Tracking + LiDAR Safety (ROS 2)
 <sub><code>Python · ROS 2 Humble · Gazebo · TurtleBot3 · OpenCV</code> · [**repo →**](https://github.com/Fe3w/Pepermint_task1_abhishek)</sub>
 
 A two-node ROS 2 package: HSV segmentation and contour centroids feed a proportional visual-servoing controller; the robot spins to reacquire a lost target, and a LiDAR check (0.5 m in a 20° frontal cone) stops it before a collision. All gains and thresholds are ROS 2 parameters, with a one-command launch file.
-
-<!-- PLACEHOLDER: Gazebo demo video. Replace this <p> block with the bare user-attachments URL. -->
-<p align="center"><img src="assets/placeholder-video.svg" width="80%" alt="Placeholder: ROS 2 tracking demo video" /><br><sub>🎬 <b>Gazebo run</b> · follow target → lose it → search → LiDAR stop · 30–45 s · <i>video coming soon</i></sub></p>
 
 ---
 
@@ -338,7 +237,7 @@ Drone assembly in Siemens NX, focused on packaging, structural layout and balanc
 
 <div align="center">
 
-**Working on compilers, GPU performance or robots that need to run faster? Say hello.**
+**Working on compilers, GPU performance or autonomous systems that need to run faster? Say hello.**
 
 <a href="mailto:abhishekp135531@gmail.com"><img src="https://img.shields.io/badge/Email-0b0f14?style=for-the-badge&logo=gmail&logoColor=7ee787" alt="Email" /></a>
 <a href="https://www.linkedin.com/in/abhishek-singh-a2003b287/"><img src="https://img.shields.io/badge/LinkedIn-0b0f14?style=for-the-badge&logo=linkedin&logoColor=7ee787" alt="LinkedIn" /></a>
@@ -346,7 +245,7 @@ Drone assembly in Siemens NX, focused on packaging, structural layout and balanc
 <a href="https://leetcode.com/u/Abhishek_P_S_/"><img src="https://img.shields.io/badge/LeetCode-0b0f14?style=for-the-badge&logo=leetcode&logoColor=7ee787" alt="LeetCode" /></a>
 <a href="https://x.com/Fe3ws_"><img src="https://img.shields.io/badge/@Fe3ws__-0b0f14?style=for-the-badge&logo=x&logoColor=7ee787" alt="X" /></a>
 
-`COMPILERS · GPU PERFORMANCE · PHYSICAL AI` · Pune, Maharashtra, IN
+`COMPILERS · GPU PERFORMANCE · AUTONOMOUS SYSTEMS` · Pune, Maharashtra, IN
 
 <picture><source media="(prefers-color-scheme: light)" srcset="assets/light/footer.svg" /><img src="assets/footer.svg" width="100%" alt="" /></picture>
 
