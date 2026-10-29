@@ -1,31 +1,9 @@
 <!--
-  PLACEHOLDERS (invisible on GitHub) — 2 left (GPU section), search "PLACEHOLDER".
-  VIDEO: edit this file on github.com, drag the .mp4 in, keep the generated
-         https://github.com/user-attachments/assets/<id> URL on its own line
-         (blank line above & below) and delete the placeholder <p> block.
-         A bare URL = GitHub's player with play/pause. 10 MB limit (free).
-  IMAGE: put files in assets/media/ and point the <img src> at them.
-  VIDEO 1 / VIDEO 2: replace the lines VIDEO_1_VLM and VIDEO_2_ROS2 with
-         the uploaded URLs (search for them).
+  Placeholders left: 2 (GPU section) — search "PLACEHOLDER".
+  Videos: a bare https://github.com/user-attachments/assets/<id> URL on its own
+  line (blank line above and below) renders as GitHub's video player.
+  Banner graphics: edit tools/gen_assets.py, run  python tools/gen_assets.py
 -->
-
-
-
-https://github.com/user-attachments/assets/113927a2-1523-44bc-97b1-f1e8f54ed114
-
-
-
-https://github.com/user-attachments/assets/8b71ba75-8a89-4cfd-ae5a-b8ca14dbee04
-
-
-
-https://github.com/user-attachments/assets/fcea9351-c6b0-4003-a7d3-23be096ce114
-
-
-
-https://github.com/user-attachments/assets/73e80c46-536a-4183-9f34-c6f3d2ca61bc
-
-
 
 <div align="center">
 
@@ -62,8 +40,6 @@ https://github.com/user-attachments/assets/73e80c46-536a-4183-9f34-c6f3d2ca61bc
 <a id="whoami"></a>
 
 ### `01 — WHOAMI`
-
-<a href="https://x.com/Ki11_5trike" title="Hourglass art by @Ki11_5trike"><img align="right" width="210" src="assets/media/art-hourglass.gif" alt="Animated glitch-art hourglass by @Ki11_5trike" /></a>
 
 Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbiosis Institute of Technology, Pune, **working my way down the stack**. I started with autonomous systems that perceive, decide and act. Now most of my time goes to what sits underneath them: the kernels, the compilers and the hardware that decide how fast any of it runs.
 
@@ -165,11 +141,9 @@ Building the compiler side from both ends: a tool that **reads** optimized IR, a
 
 A vision-language-guided sorting system for autonomous manipulation that turns *"put the red parts in the left bin"* into arm motion, and explains each decision. Model predictions become segmentation masks, depth turns them into 3D targets, rule-based symbolic logic makes the sort decision, and inverse kinematics drives a Dobot Magician. Each task is validated in NVIDIA Isaac Sim, then run on the physical arm. To cut API dependence and latency, I'm fine-tuning smaller open-weight VLMs on synthetic data filtered for consistency.
 
-**▶ Isaac Sim run** · *"pick up the green cube and place it next to the cylinder"*: the VLM reads the scene, the planner avoids the other objects, the arm executes
+**▶ Simulation: language-conditioned pick-and-place in NVIDIA Isaac Sim** · task: *"pick up the green cube and place it next to the cylinder"*. The VLM interprets the scene, the planner avoids the remaining objects, and the arm executes the placement.
 
-<!-- ▼ VIDEO 1 — drag vlm-isaac-sim.mp4 onto the empty line below (keep blank lines around it) ▼ -->
-
-VIDEO_1_VLM
+https://github.com/user-attachments/assets/113927a2-1523-44bc-97b1-f1e8f54ed114
 
 **🔧 On the real Dobot Magician** · phone camera, ArUco markers that map pixels to the robot frame, and live object detection with pick coordinates in mm, checked against the arm's reach envelope
 
@@ -193,15 +167,18 @@ flowchart LR
   SYN[synthetic data<br/>multi-model + consistency filter] -.fine-tune.-> VLM
 ```
 
-#### 🎯 Autonomous Target Tracking + LiDAR Safety (ROS 2)
+#### 🎯 Vision-Based Target Tracking with LiDAR Collision Avoidance (ROS 2)
 <sub><code>Python · ROS 2 Humble · Gazebo · TurtleBot3 · OpenCV</code> · [**repo →**](https://github.com/Fe3w/Pepermint_task1_abhishek)</sub>
 
 A two-node ROS 2 package: HSV segmentation and contour centroids feed a proportional visual-servoing controller; the robot spins to reacquire a lost target, and a LiDAR check (0.5 m in a 20° frontal cone) stops it before a collision. All gains and thresholds are ROS 2 parameters, with a one-command launch file.
 
-<!-- ▼ VIDEO 2 — drag ros2-target-tracking.mp4 onto the empty line below (keep blank lines around it) ▼ -->
+**▶ Target search, acquisition and pursuit** · the TurtleBot3 rotates in place to locate the target, then follows it using proportional visual servoing on the image-centre error.
 
-VIDEO_2_ROS2
+https://github.com/user-attachments/assets/8b71ba75-8a89-4cfd-ae5a-b8ca14dbee04
 
+**▶ LiDAR-based collision avoidance** · as the robot closes in, the frontal-cone range check commands zero velocity before contact.
+
+https://github.com/user-attachments/assets/fcea9351-c6b0-4003-a7d3-23be096ce114
 
 ---
 
@@ -209,17 +186,17 @@ VIDEO_2_ROS2
 
 ### `06 — MORE BUILDS & LEADERSHIP`
 
+#### ✋ EMG + Computer-Vision Robotic Hand
+3D-printed hand driven by EMG input and a real-time OpenCV/MediaPipe gesture tracker; commands stream over MQTT to an ESP32 with **<100 ms** actuator response. I wrote the ESP32 subscriber firmware and made CAD changes for mechanical alignment.
+
+https://github.com/user-attachments/assets/1f63cb8e-624d-42df-a676-d73537d68324
+
 #### 🏁 Team Robominds · DD Robocon 2026 — Design Lead & Co-Head
 <sub>Jan – Jun 2026</sub>
 
 Led a **30-member** cross-functional team through rapid design iterations: **90/100** in the preliminary round and a place in the **National Finals (Stage 3) at IIT Delhi**. Owned planning and technical decisions on component selection, structural load analysis and actuation design under strict weight and geometry limits, following a V-Model lifecycle. [Event update on LinkedIn →](https://www.linkedin.com/posts/abhishek-singh-a2003b287_robocon2026-teamrobominds-automation-ugcPost-7438862846412771328-uZSR)
 
 https://github.com/user-attachments/assets/18fe45f4-467c-4aaa-97d2-063ad31eb409
-
-#### ✋ EMG + Computer-Vision Robotic Hand
-3D-printed hand driven by EMG input and a real-time OpenCV/MediaPipe gesture tracker; commands stream over MQTT to an ESP32 with **<100 ms** actuator response. I wrote the ESP32 subscriber firmware and made CAD changes for mechanical alignment.
-
-https://github.com/user-attachments/assets/1f63cb8e-624d-42df-a676-d73537d68324
 
 #### 🚁 Drone CAD for Robofest
 Drone assembly in Siemens NX, focused on packaging, structural layout and balance.
