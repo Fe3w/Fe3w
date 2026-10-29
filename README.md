@@ -5,8 +5,8 @@
          (blank line above & below) and delete the placeholder <p> block.
          A bare URL = GitHub's player with play/pause. 10 MB limit (free).
   IMAGE: put files in assets/media/ and point the <img src> at them.
-  VLM:   optional — for GitHub's own player, drag VLM_with_Issac_Sim.mp4
-         into the editor and put its URL on its own line under the GIF.
+  VIDEO 1 / VIDEO 2: replace the lines VIDEO_1_VLM and VIDEO_2_ROS2 with
+         the uploaded URLs (search for them).
 -->
 
 <div align="center">
@@ -145,9 +145,11 @@ Building the compiler side from both ends: a tool that **reads** optimized IR, a
 
 A vision-language-guided sorting system for autonomous manipulation that turns *"put the red parts in the left bin"* into arm motion, and explains each decision. Model predictions become segmentation masks, depth turns them into 3D targets, rule-based symbolic logic makes the sort decision, and inverse kinematics drives a Dobot Magician. Each task is validated in NVIDIA Isaac Sim, then run on the physical arm. To cut API dependence and latency, I'm fine-tuning smaller open-weight VLMs on synthetic data filtered for consistency.
 
-**▶ Isaac Sim run** · *"pick up the green cube and place it next to the cylinder"*: the VLM reads the scene, the planner avoids the other objects, the arm executes (preview at 6× speed, click for the full video)
+**▶ Isaac Sim run** · *"pick up the green cube and place it next to the cylinder"*: the VLM reads the scene, the planner avoids the other objects, the arm executes
 
-<p align="center"><a href="https://youtu.be/Q4h_GVDPg7k"><img src="assets/media/vlm-preview.gif" width="100%" alt="Isaac Sim: VLM-guided Dobot Magician picks up a green cube and places it next to a cylinder" /></a><br><sub>🎬 <a href="https://youtu.be/Q4h_GVDPg7k"><b>Watch the full run on YouTube →</b></a></sub></p>
+<!-- ▼ VIDEO 1 — drag vlm-isaac-sim.mp4 onto the empty line below (keep blank lines around it) ▼ -->
+
+VIDEO_1_VLM
 
 **🔧 On the real Dobot Magician** · phone camera, ArUco markers that map pixels to the robot frame, and live object detection with pick coordinates in mm, checked against the arm's reach envelope
 
@@ -175,6 +177,11 @@ flowchart LR
 <sub><code>Python · ROS 2 Humble · Gazebo · TurtleBot3 · OpenCV</code> · [**repo →**](https://github.com/Fe3w/Pepermint_task1_abhishek)</sub>
 
 A two-node ROS 2 package: HSV segmentation and contour centroids feed a proportional visual-servoing controller; the robot spins to reacquire a lost target, and a LiDAR check (0.5 m in a 20° frontal cone) stops it before a collision. All gains and thresholds are ROS 2 parameters, with a one-command launch file.
+
+<!-- ▼ VIDEO 2 — drag ros2-target-tracking.mp4 onto the empty line below (keep blank lines around it) ▼ -->
+
+VIDEO_2_ROS2
+
 
 ---
 
