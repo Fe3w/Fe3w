@@ -70,14 +70,10 @@ def hero(t):
         f'<tspan fill="{t["green"]}">→</tspan> LLVM IR <tspan fill="{t["green"]}">→</tspan> silicon</text>',
         f'<rect class="cur" x="494" y="300" width="9" height="16" fill="{t["green"]}"/>',
     ]
-    # hourglass art panel (animated GIF embedded as data URI; art by @Ki11_5trike)
-    import base64
-    gif = os.path.join(os.path.dirname(os.path.abspath(__file__)), "hero-hourglass.gif")
-    b64 = base64.b64encode(open(gif, "rb").read()).decode()
+    # empty frame for the hourglass art; tools/make_hero_gif.py composites the
+    # animated GIF into it (GitHub blocks images embedded inside SVGs)
     px, py, pw, ph = 912, 14, 216, 332
-    body.append(f'<defs><clipPath id="art"><rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="14"/></clipPath></defs>')
-    body.append(f'<image x="{px}" y="{py}" width="{pw}" height="{ph}" clip-path="url(#art)" preserveAspectRatio="xMidYMid slice" href="data:image/gif;base64,{b64}"/>')
-    body.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="14" fill="none" stroke="{t["line"]}"/>')
+    body.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="14" fill="{t["panel"]}" stroke="{t["line"]}"/>')
     body.append(f'<text transform="translate({px+pw+22} {py+ph}) rotate(-90)" font-family="{MONO}" font-size="10.5" fill="{t["muted"]}">art · @Ki11_5trike</text>')
     return svg(W, H, "".join(body), "Abhishek Singh — compilers, CPU/GPU performance, systems software, autonomous systems")
 
@@ -258,6 +254,7 @@ if __name__ == "__main__":
         write(os.path.join(base, "speedup.svg"), speedup(t))
         write(os.path.join(base, "footer.svg"), footer(t))
     write(os.path.join(ROOT, "terminal.svg"), terminal())
+    # then run tools/make_hero_gif.py to build assets/hero.gif + assets/light/hero.gif
     for k in ("video", "image", "plot"):
         write(os.path.join(ROOT, f"placeholder-{k}.svg"), placeholder(k))
     print("assets written to", os.path.abspath(ROOT))

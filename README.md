@@ -2,12 +2,13 @@
   Placeholders left: 2 (GPU section) — search "PLACEHOLDER".
   Videos: a bare https://github.com/user-attachments/assets/<id> URL on its own
   line (blank line above and below) renders as GitHub's video player.
-  Banner graphics: edit tools/gen_assets.py, run  python tools/gen_assets.py
+  Graphics: edit tools/gen_assets.py, run  python tools/gen_assets.py  then
+            python tools/make_hero_gif.py  (banner = hero.gif)
 -->
 
 <div align="center">
 
-<picture><source media="(prefers-color-scheme: light)" srcset="assets/light/hero.svg" /><img src="assets/hero.svg" width="100%" alt="Abhishek Singh — compilers, CPU/GPU performance, autonomous systems, with an animated GPU warp scheduler" /></picture>
+<picture><source media="(prefers-color-scheme: light)" srcset="assets/light/hero.gif" /><img src="assets/hero.gif" width="100%" alt="Abhishek Singh — compilers, CPU/GPU performance, autonomous systems, with an animated GPU warp scheduler" /></picture>
 
 <a href="https://github.com/Fe3w">
   <picture><source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&pause=1400&color=1A7F37&center=true&vCenter=true&width=760&lines=Making+code+fast+%E2%80%94+then+proving+why+it%27s+fast.;LLVM+passes+%C2%B7+CUDA+kernels+%C2%B7+Roofline+analysis;From+autonomous+systems+down+to+Tensor+Cores." /><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&pause=1400&color=7EE787&center=true&vCenter=true&width=760&lines=Making+code+fast+%E2%80%94+then+proving+why+it%27s+fast.;LLVM+passes+%C2%B7+CUDA+kernels+%C2%B7+Roofline+analysis;From+autonomous+systems+down+to+Tensor+Cores." alt="Typing headline" /></picture>
