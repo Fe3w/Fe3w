@@ -1,10 +1,12 @@
 <!--
-  PLACEHOLDERS (invisible on GitHub) — only 6 left, search "PLACEHOLDER".
+  PLACEHOLDERS (invisible on GitHub) — 2 left (GPU section), search "PLACEHOLDER".
   VIDEO: edit this file on github.com, drag the .mp4 in, keep the generated
          https://github.com/user-attachments/assets/<id> URL on its own line
          (blank line above & below) and delete the placeholder <p> block.
          A bare URL = GitHub's player with play/pause. 10 MB limit (free).
   IMAGE: put files in assets/media/ and point the <img src> at them.
+  VLM:   optional — for GitHub's own player, drag VLM_with_Issac_Sim.mp4
+         into the editor and put its URL on its own line under the GIF.
 -->
 
 <div align="center">
@@ -102,10 +104,10 @@ How far are textbook kernels from what the hardware can actually do, and *why*? 
 
 <sub>Correctness: every output validated against a reference implementation · TF32 GEMM max relative error <b>0.0686%</b>.</sub>
 
-<!-- PLACEHOLDER 1/6: roofline plot (PNG/SVG from your data) → assets/media/ -->
+<!-- PLACEHOLDER 1/2: roofline plot (PNG/SVG from your data) → assets/media/ -->
 <p align="center"><img src="assets/placeholder-plot.svg" width="80%" alt="Placeholder: roofline plot" /><br><sub>📈 <b>Roofline</b> · baseline vs optimized kernels against the bandwidth & compute ceilings of each device</sub></p>
 
-<!-- PLACEHOLDER 2/6: GPU project video. Replace this whole <p> block with the bare user-attachments URL (see guide at top). -->
+<!-- PLACEHOLDER 2/2: GPU project video. Replace this whole <p> block with the bare user-attachments URL (see guide at top). -->
 <p align="center"><img src="assets/placeholder-video.svg" width="80%" alt="Placeholder: benchmark walkthrough video" /><br><sub>🎬 <b>Benchmark walkthrough</b> · baseline → optimized runs, Nsight profile, final speedup · 60–90 s</sub></p>
 
 **Next:** extending the study to ML workloads (in progress).
@@ -141,19 +143,22 @@ Building the compiler side from both ends: a tool that **reads** optimized IR, a
 #### 🤖 Neuro-Symbolic Autonomous Sorting · VLM pipeline
 <sub><code>B.Tech project · 2026</code> · in progress · <code>Python · Isaac Sim · Dobot Magician · Qwen2.5-VL · InternVL3.5</code></sub>
 
-A vision-language-guided sorting system for autonomous manipulation that turns *"put the red parts in the left bin"* into arm motion, and explains each decision. Model predictions become segmentation masks, depth turns them into 3D targets, rule-based symbolic logic makes the sort decision, and inverse kinematics drives a Dobot Magician. Everything is validated in NVIDIA Isaac Sim first. To cut API dependence and latency, I'm fine-tuning smaller open-weight VLMs on synthetic data filtered for consistency.
+A vision-language-guided sorting system for autonomous manipulation that turns *"put the red parts in the left bin"* into arm motion, and explains each decision. Model predictions become segmentation masks, depth turns them into 3D targets, rule-based symbolic logic makes the sort decision, and inverse kinematics drives a Dobot Magician. Each task is validated in NVIDIA Isaac Sim, then run on the physical arm. To cut API dependence and latency, I'm fine-tuning smaller open-weight VLMs on synthetic data filtered for consistency.
 
-<!-- PLACEHOLDER 3/6: VLM demo video. Replace this <p> block with the bare user-attachments URL. -->
-<p align="center"><img src="assets/placeholder-video.svg" width="80%" alt="Placeholder: VLM sorting demo video" /><br><sub>🎬 <b>VLM sorting demo</b> · instruction → prediction → mask → 3D target → arm motion in Isaac Sim · 60–90 s</sub></p>
+**▶ Isaac Sim run** · *"pick up the green cube and place it next to the cylinder"*: the VLM reads the scene, the planner avoids the other objects, the arm executes (preview at 6× speed, click for the full video)
 
-<!-- PLACEHOLDER 4–6/6: three stills from the pipeline → assets/media/ -->
+<p align="center"><a href="https://youtu.be/Q4h_GVDPg7k"><img src="assets/media/vlm-preview.gif" width="100%" alt="Isaac Sim: VLM-guided Dobot Magician picks up a green cube and places it next to a cylinder" /></a><br><sub>🎬 <a href="https://youtu.be/Q4h_GVDPg7k"><b>Watch the full run on YouTube →</b></a></sub></p>
+
+**🔧 On the real Dobot Magician** · phone camera, ArUco markers that map pixels to the robot frame, and live object detection with pick coordinates in mm, checked against the arm's reach envelope
+
 <table>
   <tr>
-    <td width="33%" align="center"><img src="assets/placeholder-image.svg" width="100%" alt="Placeholder: Isaac Sim scene" /><br><sub>🖼️ <b>Isaac Sim scene</b> · workspace + Dobot Magician</sub></td>
-    <td width="33%" align="center"><img src="assets/placeholder-image.svg" width="100%" alt="Placeholder: VLM prediction to mask" /><br><sub>🖼️ <b>VLM point → mask</b> · predicted pixel vs segmentation</sub></td>
-    <td width="33%" align="center"><img src="assets/placeholder-image.svg" width="100%" alt="Placeholder: depth to 3D target" /><br><sub>🖼️ <b>Depth → 3D target</b> · point fed to inverse kinematics</sub></td>
+    <td width="50%" align="center"><img src="assets/media/dobot-lab-setup.jpg" width="100%" alt="Dobot Magician on the lab bench with ArUco markers and test objects" /><br><sub><b>Bench setup</b> · Dobot Magician, ArUco markers, test objects</sub></td>
+    <td width="50%" align="center"><img src="assets/media/dobot-aruco-calibration.jpg" width="100%" alt="Numbered ArUco calibration markers detected in the camera image" /><br><sub><b>Calibration</b> · numbered ArUco markers link camera pixels to robot coordinates</sub></td>
   </tr>
 </table>
+
+<p align="center"><img src="assets/media/dobot-detection-1.jpg" width="100%" alt="Height map and live camera view with detected objects and their robot-frame coordinates" /><br><img src="assets/media/dobot-detection-2.jpg" width="100%" alt="The same detection after the objects are rearranged" /><br><sub><b>Live detection</b> · height map (left) and camera view (right): each object is labelled with its x / y in mm and checked against the dashed reach rings. The second frame shows a rearranged scene.</sub></p>
 
 ```mermaid
 flowchart LR
