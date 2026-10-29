@@ -11,12 +11,13 @@ import os
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets")
 
 THEMES = {
-    "dark": dict(bg="#0b0f14", panel="#111820", line="#243041", text="#e6edf3",
-                 muted="#8b949e", green="#7ee787", orange="#ffa657", blue="#79c0ff",
-                 faint="#18212c"),
-    "light": dict(bg="#f6f8fa", panel="#ffffff", line="#d0d7de", text="#1f2328",
-                  muted="#59636e", green="#1a7f37", orange="#bc4c00", blue="#0969da",
-                  faint="#e6eaef"),
+    # "green" = primary accent (violet), "orange" = secondary accent (magenta)
+    "dark": dict(bg="#0e0a18", panel="#151024", line="#2c2342", text="#ede9fe",
+                 muted="#9a90b5", green="#c4a7ff", orange="#ff6fb5", blue="#8ab4ff",
+                 faint="#1d1630"),
+    "light": dict(bg="#faf8ff", panel="#ffffff", line="#ddd6f3", text="#1f1733",
+                  muted="#6b6386", green="#7c3aed", orange="#c0267d", blue="#3b5bdb",
+                  faint="#efeafb"),
 }
 MONO = "'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace"
 SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif"
@@ -55,16 +56,21 @@ def hero(t):
     body = [css,
             '<defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">'
             f'<circle cx="2" cy="2" r="1.1" fill="{t["line"]}"/></pattern>'
-            f'<radialGradient id="glow" cx="80%" cy="45%" r="45%"><stop offset="0" stop-color="{t["green"]}" stop-opacity=".10"/>'
-            f'<stop offset="1" stop-color="{t["green"]}" stop-opacity="0"/></radialGradient></defs>',
+            f'<radialGradient id="glow" cx="84%" cy="50%" r="42%"><stop offset="0" stop-color="{t["green"]}" stop-opacity=".22"/>'
+            f'<stop offset="1" stop-color="{t["green"]}" stop-opacity="0"/></radialGradient>'
+            f'<radialGradient id="glow2" cx="8%" cy="100%" r="55%"><stop offset="0" stop-color="{t["orange"]}" stop-opacity=".10"/>'
+            f'<stop offset="1" stop-color="{t["orange"]}" stop-opacity="0"/></radialGradient>'
+            '<filter id="halo" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="16"/></filter>'
+            f'<linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{t["green"]}"/><stop offset="1" stop-color="{t["orange"]}"/></linearGradient></defs>',
             f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="18" fill="{t["bg"]}" stroke="{t["line"]}"/>',
             f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="18" fill="url(#dots)" opacity=".7"/>',
-            f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="18" fill="url(#glow)"/>']
+            f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="18" fill="url(#glow)"/>',
+            f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="18" fill="url(#glow2)"/>']
     # left text
     body += [
         f'<text x="56" y="84" font-family="{MONO}" font-size="13" fill="{t["green"]}">~/fe3w $ cat README.md</text>',
         f'<text x="54" y="158" font-family="{SANS}" font-size="64" font-weight="800" fill="{t["text"]}">Abhishek</text>',
-        f'<text x="54" y="226" font-family="{SANS}" font-size="64" font-weight="800" fill="{t["text"]}">Singh<tspan fill="{t["green"]}">.</tspan></text>',
+        f'<text x="54" y="226" font-family="{SANS}" font-size="64" font-weight="800" fill="{t["text"]}">Singh<tspan fill="{t["orange"]}">.</tspan></text>',
         f'<text x="56" y="272" font-family="{SANS}" font-size="19" fill="{t["muted"]}">Compilers · CPU/GPU performance · Autonomous systems</text>',
         f'<text x="56" y="312" font-family="{MONO}" font-size="13.5" fill="{t["muted"]}">autonomous systems <tspan fill="{t["green"]}">→</tspan> CUDA kernels '
         f'<tspan fill="{t["green"]}">→</tspan> LLVM IR <tspan fill="{t["green"]}">→</tspan> silicon</text>',
@@ -73,7 +79,8 @@ def hero(t):
     # empty frame for the hourglass art; tools/make_hero_gif.py composites the
     # animated GIF into it (GitHub blocks images embedded inside SVGs)
     px, py, pw, ph = 912, 14, 216, 332
-    body.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="14" fill="{t["panel"]}" stroke="{t["line"]}"/>')
+    body.append(f'<rect x="{px+6}" y="{py+10}" width="{pw-12}" height="{ph-20}" rx="18" fill="url(#edge)" opacity=".45" filter="url(#halo)"/>')
+    body.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="14" fill="{t["panel"]}"/>')
     body.append(f'<text transform="translate({px+pw+22} {py+ph}) rotate(-90)" font-family="{MONO}" font-size="10.5" fill="{t["muted"]}">art · @Ki11_5trike</text>')
     return svg(W, H, "".join(body), "Abhishek Singh — compilers, CPU/GPU performance, systems software, autonomous systems")
 
@@ -81,10 +88,10 @@ def hero(t):
 # ───────────────────────────── TERMINAL ─────────────────────────────
 def terminal():
     W, H = 1200, 352
-    bg, bar, txt, mut, grn, org = "#0d1117", "#161b22", "#e6edf3", "#8b949e", "#7ee787", "#ffa657"
+    bg, bar, txt, mut, grn, org = "#0e0a18", "#171126", "#ede9fe", "#9a90b5", "#c4a7ff", "#ff6fb5"
     cw = 9.05  # approx char width at 15px mono
     body = [f'<style>.cur{{animation:blink 1.1s steps(1) infinite}}@keyframes blink{{50%{{opacity:0}}}}</style>',
-            f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="14" fill="{bg}" stroke="#30363d"/>',
+            f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="14" fill="{bg}" stroke="#2c2342"/>',
             f'<path d="M1 15 a14 14 0 0 1 14 -14 H{W-15} a14 14 0 0 1 14 14 V40 H1 Z" fill="{bar}"/>',
             '<circle cx="26" cy="21" r="6" fill="#ff5f57"/><circle cx="46" cy="21" r="6" fill="#febc2e"/><circle cx="66" cy="21" r="6" fill="#28c840"/>',
             f'<text x="{W/2}" y="26" text-anchor="middle" font-family="{MONO}" font-size="12" fill="{mut}">abhishek@fe3w: ~</text>']
@@ -188,7 +195,7 @@ def speedup(t):
 # ───────────────────────────── CAT PLACEHOLDER ─────────────────────────────
 def placeholder(kind):
     W, H = 960, 540
-    bg, line, mut, grn, org, txt = "#11161d", "#3a4552", "#8b949e", "#7ee787", "#ffa657", "#e6edf3"
+    bg, line, mut, grn, org, txt = "#120d1f", "#3a2f55", "#9a90b5", "#c4a7ff", "#ff6fb5", "#ede9fe"
     badge = {"video": "VIDEO", "image": "IMAGE", "plot": "RESULT / PLOT"}[kind]
     noun = {"video": "video", "image": "image", "plot": "result"}[kind]
     bw = len(badge) * 8.4 + (46 if kind == "video" else 28)
@@ -199,7 +206,7 @@ def placeholder(kind):
     body = [f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="22" fill="{bg}"/>',
             f'<rect x="10" y="10" width="{W-20}" height="{H-20}" rx="16" fill="none" stroke="{line}" stroke-width="2" stroke-dasharray="10 9">'
             f'<animate attributeName="stroke-dashoffset" from="0" to="-38" dur="2.4s" repeatCount="indefinite"/></rect>',
-            f'<rect x="26" y="24" width="{bw:.0f}" height="32" rx="16" fill="#1c2430" stroke="{line}"/>', icon,
+            f'<rect x="26" y="24" width="{bw:.0f}" height="32" rx="16" fill="#1d1630" stroke="{line}"/>', icon,
             f'<text x="{tx}" y="45" font-family="{MONO}" font-size="13" font-weight="700" fill="{txt}">{badge}</text>',
             f'<text x="{W-30}" y="45" text-anchor="end" font-family="{MONO}" font-size="12" fill="{mut}">placeholder.svg</text>',
             # tail (swishing)
@@ -207,7 +214,7 @@ def placeholder(kind):
             f'<animateTransform attributeName="transform" type="rotate" values="0 560 318;-10 560 318;0 560 318" dur="2.2s" repeatCount="indefinite"/></path>',
             # head
             f'<path d="M395 255 C 395 202 424 180 440 177 L 432 124 L 471 166 C 477 165 483 165 489 166 L 528 124 L 520 177 '
-            f'C 536 180 565 202 565 255 C 565 302 526 322 480 322 C 434 322 395 302 395 255 Z" fill="#1a212b" stroke="{mut}" stroke-width="4" stroke-linejoin="round"/>',
+            f'C 536 180 565 202 565 255 C 565 302 526 322 480 322 C 434 322 395 302 395 255 Z" fill="#1a1328" stroke="{mut}" stroke-width="4" stroke-linejoin="round"/>',
             f'<path d="M440 140 L 446 168 M520 140 L 514 168" stroke="{org}" stroke-width="3" stroke-linecap="round" opacity=".7"/>',
             f'<ellipse cx="451" cy="248" rx="10" ry="12" fill="{grn}">{blink}</ellipse>',
             f'<ellipse cx="509" cy="248" rx="10" ry="12" fill="{grn}">{blink}</ellipse>',
@@ -215,12 +222,12 @@ def placeholder(kind):
             f'<path d="M480 276 Q472 290 462 283 M480 276 Q488 290 498 283" fill="none" stroke="{mut}" stroke-width="3" stroke-linecap="round"/>',
             f'<path d="M432 272 L372 262 M432 282 L370 288 M528 272 L588 262 M528 282 L590 288" stroke="{mut}" stroke-width="2.5" stroke-linecap="round"/>',
             f'<line x1="330" y1="336" x2="630" y2="336" stroke="{line}" stroke-width="4" stroke-linecap="round"/>',
-            f'<ellipse cx="445" cy="330" rx="22" ry="11" fill="#1a212b" stroke="{mut}" stroke-width="4"/>',
-            f'<ellipse cx="515" cy="330" rx="22" ry="11" fill="#1a212b" stroke="{mut}" stroke-width="4"/>',
+            f'<ellipse cx="445" cy="330" rx="22" ry="11" fill="#1a1328" stroke="{mut}" stroke-width="4"/>',
+            f'<ellipse cx="515" cy="330" rx="22" ry="11" fill="#1a1328" stroke="{mut}" stroke-width="4"/>',
             f'<text x="{W/2}" y="404" text-anchor="middle" font-family="{MONO}" font-size="26" font-weight="700" fill="{grn}">{noun.upper()} PENDING</text>',
             f'<text x="{W/2}" y="440" text-anchor="middle" font-family="{SANS}" font-size="18" fill="{mut}">this cat is holding the spot until the real {noun} arrives</text>']
     if kind == "video":
-        body.append(f'<circle cx="{W-70}" cy="{H-70}" r="30" fill="#1c2430" stroke="{line}" stroke-width="2"/>'
+        body.append(f'<circle cx="{W-70}" cy="{H-70}" r="30" fill="#1d1630" stroke="{line}" stroke-width="2"/>'
                     f'<polygon points="{W-79},{H-86} {W-79},{H-54} {W-54},{H-70}" fill="{org}"/>')
     return svg(W, H, "".join(body), f"Placeholder: {noun} coming soon")
 

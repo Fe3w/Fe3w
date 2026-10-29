@@ -11,7 +11,7 @@
 <picture><source media="(prefers-color-scheme: light)" srcset="assets/light/hero.gif" /><img src="assets/hero.gif" width="100%" alt="Abhishek Singh — compilers, CPU/GPU performance, autonomous systems, with an animated GPU warp scheduler" /></picture>
 
 <a href="https://github.com/Fe3w">
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&pause=1400&color=1A7F37&center=true&vCenter=true&width=760&lines=Making+code+fast+%E2%80%94+then+proving+why+it%27s+fast.;LLVM+passes+%C2%B7+CUDA+kernels+%C2%B7+Roofline+analysis;From+autonomous+systems+down+to+Tensor+Cores." /><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&pause=1400&color=7EE787&center=true&vCenter=true&width=760&lines=Making+code+fast+%E2%80%94+then+proving+why+it%27s+fast.;LLVM+passes+%C2%B7+CUDA+kernels+%C2%B7+Roofline+analysis;From+autonomous+systems+down+to+Tensor+Cores." alt="Typing headline" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&pause=1400&color=7C3AED&center=true&vCenter=true&width=760&lines=Making+code+fast+%E2%80%94+then+proving+why+it%27s+fast.;LLVM+passes+%C2%B7+CUDA+kernels+%C2%B7+Roofline+analysis;From+autonomous+systems+down+to+Tensor+Cores." /><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&pause=1400&color=C4A7FF&center=true&vCenter=true&width=760&lines=Making+code+fast+%E2%80%94+then+proving+why+it%27s+fast.;LLVM+passes+%C2%B7+CUDA+kernels+%C2%B7+Roofline+analysis;From+autonomous+systems+down+to+Tensor+Cores." alt="Typing headline" /></picture>
 </a>
 
 </div>
@@ -27,11 +27,11 @@
 </p>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Pune,_IN-eaeef2?style=flat-square&logo=googlemaps&logoColor=1a7f37" /><img src="https://img.shields.io/badge/Pune,_IN-0b0f14?style=flat-square&logo=googlemaps&logoColor=7ee787" alt="Pune, India" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/B.Tech-class_of_2027-eaeef2?style=flat-square" /><img src="https://img.shields.io/badge/B.Tech-class_of_2027-0b0f14?style=flat-square" alt="B.Tech class of 2027" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Honors-Embedded_Systems-eaeef2?style=flat-square" /><img src="https://img.shields.io/badge/Honors-Embedded_Systems-0b0f14?style=flat-square" alt="Honors in Embedded Systems" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/DD_Robocon_2026-National_Finalist-eaeef2?style=flat-square" /><img src="https://img.shields.io/badge/DD_Robocon_2026-National_Finalist-0b0f14?style=flat-square" alt="DD Robocon 2026 National Finalist" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/open_to-compiler_%2F_perf_internships-eaeef2?style=flat-square" /><img src="https://img.shields.io/badge/open_to-compiler_%2F_perf_internships-0b0f14?style=flat-square" alt="Open to compiler and performance internships" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Pune,_IN-efeafb?style=flat-square&logo=googlemaps&logoColor=7c3aed" /><img src="https://img.shields.io/badge/Pune,_IN-0e0a18?style=flat-square&logo=googlemaps&logoColor=c4a7ff" alt="Pune, India" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/B.Tech-class_of_2027-efeafb?style=flat-square" /><img src="https://img.shields.io/badge/B.Tech-class_of_2027-0e0a18?style=flat-square" alt="B.Tech class of 2027" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Honors-Embedded_Systems-efeafb?style=flat-square" /><img src="https://img.shields.io/badge/Honors-Embedded_Systems-0e0a18?style=flat-square" alt="Honors in Embedded Systems" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/DD_Robocon_2026-National_Finalist-efeafb?style=flat-square" /><img src="https://img.shields.io/badge/DD_Robocon_2026-National_Finalist-0e0a18?style=flat-square" alt="DD Robocon 2026 National Finalist" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/open_to-compiler_%2F_perf_internships-efeafb?style=flat-square" /><img src="https://img.shields.io/badge/open_to-compiler_%2F_perf_internships-0e0a18?style=flat-square" alt="Open to compiler and performance internships" /></picture>
 </p>
 
 <img src="assets/terminal.svg" width="100%" alt="Terminal: whoami, current projects, benchmark results" />
@@ -58,17 +58,17 @@ Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbios
 <picture><source media="(prefers-color-scheme: light)" srcset="assets/light/stack.svg" /><img src="assets/stack.svg" width="100%" alt="The stack: autonomy, kernels, compilers, silicon" /></picture>
 
 <p>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/C++-eaeef2?style=for-the-badge&logo=cplusplus&logoColor=1a7f37" /><img src="https://img.shields.io/badge/C++-0b0f14?style=for-the-badge&logo=cplusplus&logoColor=7ee787" alt="C++" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/C-eaeef2?style=for-the-badge&logo=c&logoColor=1a7f37" /><img src="https://img.shields.io/badge/C-0b0f14?style=for-the-badge&logo=c&logoColor=7ee787" alt="C" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/CUDA-eaeef2?style=for-the-badge&logo=nvidia&logoColor=1a7f37" /><img src="https://img.shields.io/badge/CUDA-0b0f14?style=for-the-badge&logo=nvidia&logoColor=7ee787" alt="CUDA" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/LLVM-eaeef2?style=for-the-badge&logo=llvm&logoColor=1a7f37" /><img src="https://img.shields.io/badge/LLVM-0b0f14?style=for-the-badge&logo=llvm&logoColor=7ee787" alt="LLVM" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Python-eaeef2?style=for-the-badge&logo=python&logoColor=1a7f37" /><img src="https://img.shields.io/badge/Python-0b0f14?style=for-the-badge&logo=python&logoColor=7ee787" alt="Python" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Linux-eaeef2?style=for-the-badge&logo=linux&logoColor=1a7f37" /><img src="https://img.shields.io/badge/Linux-0b0f14?style=for-the-badge&logo=linux&logoColor=7ee787" alt="Linux" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/CMake-eaeef2?style=for-the-badge&logo=cmake&logoColor=1a7f37" /><img src="https://img.shields.io/badge/CMake-0b0f14?style=for-the-badge&logo=cmake&logoColor=7ee787" alt="CMake" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Intel_VTune-eaeef2?style=for-the-badge&logo=intel&logoColor=1a7f37" /><img src="https://img.shields.io/badge/Intel_VTune-0b0f14?style=for-the-badge&logo=intel&logoColor=7ee787" alt="Intel VTune" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/ROS_2-eaeef2?style=for-the-badge&logo=ros&logoColor=1a7f37" /><img src="https://img.shields.io/badge/ROS_2-0b0f14?style=for-the-badge&logo=ros&logoColor=7ee787" alt="ROS 2" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/OpenCV-eaeef2?style=for-the-badge&logo=opencv&logoColor=1a7f37" /><img src="https://img.shields.io/badge/OpenCV-0b0f14?style=for-the-badge&logo=opencv&logoColor=7ee787" alt="OpenCV" /></picture>
-  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Git-eaeef2?style=for-the-badge&logo=git&logoColor=1a7f37" /><img src="https://img.shields.io/badge/Git-0b0f14?style=for-the-badge&logo=git&logoColor=7ee787" alt="Git" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/C++-efeafb?style=for-the-badge&logo=cplusplus&logoColor=7c3aed" /><img src="https://img.shields.io/badge/C++-0e0a18?style=for-the-badge&logo=cplusplus&logoColor=c4a7ff" alt="C++" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/C-efeafb?style=for-the-badge&logo=c&logoColor=7c3aed" /><img src="https://img.shields.io/badge/C-0e0a18?style=for-the-badge&logo=c&logoColor=c4a7ff" alt="C" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/CUDA-efeafb?style=for-the-badge&logo=nvidia&logoColor=7c3aed" /><img src="https://img.shields.io/badge/CUDA-0e0a18?style=for-the-badge&logo=nvidia&logoColor=c4a7ff" alt="CUDA" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/LLVM-efeafb?style=for-the-badge&logo=llvm&logoColor=7c3aed" /><img src="https://img.shields.io/badge/LLVM-0e0a18?style=for-the-badge&logo=llvm&logoColor=c4a7ff" alt="LLVM" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Python-efeafb?style=for-the-badge&logo=python&logoColor=7c3aed" /><img src="https://img.shields.io/badge/Python-0e0a18?style=for-the-badge&logo=python&logoColor=c4a7ff" alt="Python" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Linux-efeafb?style=for-the-badge&logo=linux&logoColor=7c3aed" /><img src="https://img.shields.io/badge/Linux-0e0a18?style=for-the-badge&logo=linux&logoColor=c4a7ff" alt="Linux" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/CMake-efeafb?style=for-the-badge&logo=cmake&logoColor=7c3aed" /><img src="https://img.shields.io/badge/CMake-0e0a18?style=for-the-badge&logo=cmake&logoColor=c4a7ff" alt="CMake" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Intel_VTune-efeafb?style=for-the-badge&logo=intel&logoColor=7c3aed" /><img src="https://img.shields.io/badge/Intel_VTune-0e0a18?style=for-the-badge&logo=intel&logoColor=c4a7ff" alt="Intel VTune" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/ROS_2-efeafb?style=for-the-badge&logo=ros&logoColor=7c3aed" /><img src="https://img.shields.io/badge/ROS_2-0e0a18?style=for-the-badge&logo=ros&logoColor=c4a7ff" alt="ROS 2" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/OpenCV-efeafb?style=for-the-badge&logo=opencv&logoColor=7c3aed" /><img src="https://img.shields.io/badge/OpenCV-0e0a18?style=for-the-badge&logo=opencv&logoColor=c4a7ff" alt="OpenCV" /></picture>
+  <picture><source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Git-efeafb?style=for-the-badge&logo=git&logoColor=7c3aed" /><img src="https://img.shields.io/badge/Git-0e0a18?style=for-the-badge&logo=git&logoColor=c4a7ff" alt="Git" /></picture>
 </p>
 
 | Compilers & performance | Parallel & GPU | Autonomy & embedded | ML & vision |
@@ -249,11 +249,11 @@ Drone assembly in Siemens NX, focused on packaging, structural layout and balanc
 
 **Working on compilers, GPU performance or autonomous systems that need to run faster? Say hello.**
 
-<a href="mailto:abhishekp135531@gmail.com"><img src="https://img.shields.io/badge/Email-0b0f14?style=for-the-badge&logo=gmail&logoColor=7ee787" alt="Email" /></a>
-<a href="https://www.linkedin.com/in/abhishek-singh-a2003b287/"><img src="https://img.shields.io/badge/LinkedIn-0b0f14?style=for-the-badge&logo=linkedin&logoColor=7ee787" alt="LinkedIn" /></a>
-<a href="https://github.com/Fe3w"><img src="https://img.shields.io/badge/GitHub-0b0f14?style=for-the-badge&logo=github&logoColor=7ee787" alt="GitHub" /></a>
-<a href="https://leetcode.com/u/Abhishek_P_S_/"><img src="https://img.shields.io/badge/LeetCode-0b0f14?style=for-the-badge&logo=leetcode&logoColor=7ee787" alt="LeetCode" /></a>
-<a href="https://x.com/Fe3ws_"><img src="https://img.shields.io/badge/@Fe3ws__-0b0f14?style=for-the-badge&logo=x&logoColor=7ee787" alt="X" /></a>
+<a href="mailto:abhishekp135531@gmail.com"><img src="https://img.shields.io/badge/Email-0e0a18?style=for-the-badge&logo=gmail&logoColor=c4a7ff" alt="Email" /></a>
+<a href="https://www.linkedin.com/in/abhishek-singh-a2003b287/"><img src="https://img.shields.io/badge/LinkedIn-0e0a18?style=for-the-badge&logo=linkedin&logoColor=c4a7ff" alt="LinkedIn" /></a>
+<a href="https://github.com/Fe3w"><img src="https://img.shields.io/badge/GitHub-0e0a18?style=for-the-badge&logo=github&logoColor=c4a7ff" alt="GitHub" /></a>
+<a href="https://leetcode.com/u/Abhishek_P_S_/"><img src="https://img.shields.io/badge/LeetCode-0e0a18?style=for-the-badge&logo=leetcode&logoColor=c4a7ff" alt="LeetCode" /></a>
+<a href="https://x.com/Fe3ws_"><img src="https://img.shields.io/badge/@Fe3ws__-0e0a18?style=for-the-badge&logo=x&logoColor=c4a7ff" alt="X" /></a>
 
 `COMPILERS · GPU PERFORMANCE · AUTONOMOUS SYSTEMS` · Pune, Maharashtra, IN
 
