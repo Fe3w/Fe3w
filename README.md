@@ -45,6 +45,8 @@
 
 ### `01 — WHOAMI`
 
+<a href="https://x.com/Ki11_5trike" title="Hourglass art by @Ki11_5trike"><img align="right" width="210" src="assets/media/art-hourglass.gif" alt="Animated glitch-art hourglass by @Ki11_5trike" /></a>
+
 Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbiosis Institute of Technology, Pune, **working my way down the stack**. I started with autonomous systems that perceive, decide and act. Now most of my time goes to what sits underneath them: the kernels, the compilers and the hardware that decide how fast any of it runs.
 
 - 🔭 **Currently building:** an LLVM loop-analysis pass, a C-like compiler with an LLVM IR backend, and an ML-workload extension to my roofline study
@@ -258,6 +260,12 @@ Drone assembly in Siemens NX, focused on packaging, structural layout and balanc
 <a href="https://x.com/Fe3ws_"><img src="https://img.shields.io/badge/@Fe3ws__-0b0f14?style=for-the-badge&logo=x&logoColor=7ee787" alt="X" /></a>
 
 `COMPILERS · GPU PERFORMANCE · AUTONOMOUS SYSTEMS` · Pune, Maharashtra, IN
+
+<br>
+
+<a href="https://x.com/Ki11_5trike" title="Umbrella art by @Ki11_5trike"><img src="assets/media/art-umbrella.gif" width="260" alt="Animated glitch-art figure under an umbrella by @Ki11_5trike" /></a>
+
+<sub>🎨 hourglass &amp; umbrella art by <a href="https://x.com/Ki11_5trike"><b>@Ki11_5trike</b></a></sub>
 
 <picture><source media="(prefers-color-scheme: light)" srcset="assets/light/footer.svg" /><img src="assets/footer.svg" width="100%" alt="" /></picture>
 
