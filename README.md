@@ -9,6 +9,24 @@
          the uploaded URLs (search for them).
 -->
 
+
+
+https://github.com/user-attachments/assets/113927a2-1523-44bc-97b1-f1e8f54ed114
+
+
+
+https://github.com/user-attachments/assets/8b71ba75-8a89-4cfd-ae5a-b8ca14dbee04
+
+
+
+https://github.com/user-attachments/assets/fcea9351-c6b0-4003-a7d3-23be096ce114
+
+
+
+https://github.com/user-attachments/assets/73e80c46-536a-4183-9f34-c6f3d2ca61bc
+
+
+
 <div align="center">
 
 <picture><source media="(prefers-color-scheme: light)" srcset="assets/light/hero.svg" /><img src="assets/hero.svg" width="100%" alt="Abhishek Singh — compilers, CPU/GPU performance, autonomous systems, with an animated GPU warp scheduler" /></picture>
