@@ -1,6 +1,6 @@
 <!--
   Style: black, white and greys; square frames; Inter + DejaVu Sans Mono.
-  Graphics: python tools/make_mono.py (banner, terminal, stack)
+  Graphics: python tools/make_mono.py (banner, stack)
             python tools/make_results_png.py (GPU-project result charts)
   Videos: a bare https://github.com/user-attachments/assets/<id> URL on its own
   line (blank line above and below) renders as GitHub's video player.
@@ -20,7 +20,6 @@
 
 <p align="center"><sub>Pune, IN · B.Tech, class of 2027 · Honors in Embedded Systems · DD Robocon 2026 National Finalist · open to compiler and performance internships</sub></p>
 
-<img src="assets/terminal.png" width="100%" alt="Terminal: whoami, current projects, benchmark results" />
 
 ---
 
@@ -41,7 +40,11 @@ Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbios
 
 ### `02 — STACK`
 
-<img src="assets/stack.png" width="100%" alt="The stack, top to bottom: autonomy, kernels, compilers, silicon" />
+<img src="assets/stack.png" width="100%" alt="The stack, top to bottom. Autonomy: ROS 2, Gazebo, Isaac Sim, VLMs, OpenCV, MATLAB. Kernels: CUDA, PTX, WMMA, Tensor Cores, OpenMP, AVX2/FMA. Compilers: LLVM, Clang, LLVM IR, pass plugins, Nsight Compute, VTune, roofline. Silicon: GPU SMs, memory hierarchy, STM32, ESP32, RTOS, UART/SPI/I2C/CAN, SystemVerilog. Languages: C, C++, Python, CMake, Linux, Git" />
+
+<details>
+<summary><b>Full skills list</b> (text)</summary>
+<br>
 
 | Compilers & performance | Parallel & GPU | Autonomy & embedded | ML & vision |
 |---|---|---|---|
@@ -50,6 +53,8 @@ Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbios
 | Roofline · arithmetic intensity | TF32 Tensor Cores | STM32 · ESP32 · RTOS concepts | OpenCV · MediaPipe |
 | Nsight Compute · Intel VTune | Cache blocking · shared-memory tiling | UART / SPI / I²C / CAN · MQTT | Keras · NumPy · Pandas |
 | GCC · micro-benchmarking | Ampere / Hopper SM architecture | MATLAB · Simulink · Stateflow | SystemVerilog · Intel Quartus |
+
+</details>
 
 ---
 
@@ -74,29 +79,27 @@ How far are textbook kernels from what the hardware can actually do, and *why*? 
 
 <table>
   <tr>
-    <td width="50%" valign="top"><a href="assets/media/results-speedup.png"><img src="assets/media/results-speedup.png" width="100%" alt="Speedup per kernel, log scale: vector add CPU 12.7x GPU 1.0x; dot product CPU 13.3x GPU 28.7x; GEMM CPU 121.6x GPU 3.7x" /></a></td>
-    <td width="50%" valign="top"><a href="assets/media/results-profiler.png"><img src="assets/media/results-profiler.png" width="100%" alt="Nsight Compute: vector add memory-bound, naive GEMM compute-bound, Tensor Core GEMM starved of data" /></a></td>
+    <td width="33%" valign="top"><a href="assets/media/results-speedup.png"><img src="assets/media/results-speedup.png" width="100%" alt="Results: speedup per kernel" /></a><br><sub><b>Results</b> · speedup per kernel</sub></td>
+    <td width="33%" valign="top"><a href="assets/media/results-profiler.png"><img src="assets/media/results-profiler.png" width="100%" alt="Results: profiler bottlenecks" /></a><br><sub><b>Results</b> · profiler bottlenecks</sub></td>
+    <td width="33%" valign="top"><a href="assets/media/arch-cpu-vs-gpu.png"><img src="assets/media/arch-cpu-vs-gpu.png" width="100%" alt="Architecture: where the silicon goes" /></a><br><sub><b>Architecture</b> · where the silicon goes</sub></td>
   </tr>
   <tr>
-    <td width="50%" valign="top"><a href="assets/media/arch-cpu-vs-gpu.png"><img src="assets/media/arch-cpu-vs-gpu.png" width="100%" alt="CPU vs GPU: where the silicon goes" /></a></td>
-    <td width="50%" valign="top"><a href="assets/media/arch-work-flow.png"><img src="assets/media/arch-work-flow.png" width="100%" alt="How work flows: one pipelined CPU thread vs GPU warps taking turns" /></a></td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center"><a href="assets/media/arch-memory-hierarchy.png"><img src="assets/media/arch-memory-hierarchy.png" width="80%" alt="Memory hierarchy of the i7-13650HX and RTX 4060 Laptop" /></a></td>
+    <td width="33%" valign="top"><a href="assets/media/arch-work-flow.png"><img src="assets/media/arch-work-flow.png" width="100%" alt="Architecture: how work flows" /></a><br><sub><b>Architecture</b> · how work flows</sub></td>
+    <td width="67%" valign="top" colspan="2"><a href="assets/media/arch-memory-hierarchy.png"><img src="assets/media/arch-memory-hierarchy.png" width="100%" alt="Architecture: memory hierarchy" /></a><br><sub><b>Architecture</b> · memory hierarchy</sub></td>
   </tr>
 </table>
 
 <sub>Click any chart or diagram to open it full size.</sub>
+
+**CPU vs GPU, explained with my measurements** · a 103-second walkthrough: where the silicon goes, how work flows through each processor, the memory hierarchy, the optimisation techniques, the measured results and which workloads suit which processor.
+
+https://github.com/user-attachments/assets/b8438f65-99d4-4611-a12c-56aaf073b32a
 
 **Real-time race on the GPU** · every kernel version runs against one shared clock until the slowest (the dot-product baseline) has finished three times; playback is slowed so the race is visible. In this run, block reduction takes the dot product from 227.48 ms to 6.50 ms (**34.98×**), GEMM goes 14.55 → 9.98 → 3.85 ms (tiled **1.46×**, TF32 Tensor Cores **3.78×**, 2,987 GFLOP/s), and coalescing leaves the memory-bound vector add unchanged (0.99×).
 
 https://github.com/user-attachments/assets/59c39e98-2050-4bd9-8ce8-9170273fc229
 
 <sub>A separate run from the report table above, so the figures differ slightly.</sub>
-
-**CPU vs GPU, explained with my measurements** · a 103-second walkthrough: where the silicon goes, how work flows through each processor, the memory hierarchy, the optimisation techniques, the measured results and which workloads suit which processor.
-
-https://github.com/user-attachments/assets/b8438f65-99d4-4611-a12c-56aaf073b32a
 
 **Next:** extending the study to ML workloads (in progress).
 

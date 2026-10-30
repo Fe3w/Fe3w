@@ -87,32 +87,46 @@ def terminal_html():
 
 STACK_CSS = """
 .head{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:28px;border-bottom:4px solid #111}
-h1{font:800 54px Inter;margin-top:10px}
-.legend{display:flex;flex-direction:column;gap:12px;font:22px 'DejaVu Sans Mono'}
-.legend span{display:flex;align-items:center;gap:14px}
-.sw{width:30px;height:30px;border:2px solid #111;display:inline-block}
-.stk{padding:60px 36px 40px;margin-top:56px}
-.card{width:312px;height:190px;border:3px solid #111;padding:20px 22px;display:flex;flex-direction:column}
-.card .n{font:22px 'DejaVu Sans Mono';color:#555}
-.card .t{font:800 40px Inter;margin-top:14px}
-.card .d{font:21px 'DejaVu Sans Mono';margin-top:auto}
-.card.hw{background:#111;color:#fff}.card.hw .n{color:#bbb}
-.axis{display:flex;justify-content:space-between;font:22px 'DejaVu Sans Mono';color:#555;margin-top:26px}
+h1{font:800 56px Inter;margin-top:10px}
+.scale{width:360px;font:20px 'DejaVu Sans Mono';color:#444}
+.scale .bar{height:26px;border:2px solid #111;background:linear-gradient(90deg,#fff,#111);margin-bottom:8px}
+.scale .ends{display:flex;justify-content:space-between}
+.stk{padding:56px 32px 36px;margin-top:56px}
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.lvl{border:3px solid #111}
+.top{padding:20px 22px 22px;border-bottom:3px solid #111}
+.top .n{font:22px 'DejaVu Sans Mono'}
+.top .t{font:800 42px Inter;margin-top:8px}
+.top .r{font:22px 'DejaVu Sans Mono';margin-top:10px}
+.list{padding:8px 22px 14px}
+.list div{font:500 25px/1.3 Inter;padding:13px 0;border-bottom:2px solid #e2e2e2}
+.list div:last-child{border-bottom:0}
+.tools{display:flex;gap:18px;align-items:center;margin-top:34px;font:22px 'DejaVu Sans Mono'}
+.tools b{font-weight:700;letter-spacing:.08em;margin-right:6px}
+.tools span{border:2px solid #111;padding:8px 14px}
 """
+
+LEVELS = [  # name, role, header fill, text colour, skills
+    ("Autonomy", "what the robot does", "#ffffff", "#111", ["ROS 2 · Gazebo", "NVIDIA Isaac Sim", "VLMs: Qwen · InternVL", "OpenCV · MediaPipe", "MATLAB · Simulink"]),
+    ("Kernels", "make the math fast", "#d6d6d6", "#111", ["CUDA · PTX · WMMA", "TF32 Tensor Cores", "OpenMP", "AVX2 / FMA SIMD", "tiling · cache blocking"]),
+    ("Compilers", "make the code fast", "#6e6e6e", "#fff", ["LLVM · Clang", "LLVM IR · SSA", "new-PM pass plugins", "Nsight Compute · VTune", "roofline analysis"]),
+    ("Silicon", "know why it's fast", "#111111", "#fff", ["Ampere / Hopper SMs", "memory hierarchy", "STM32 · ESP32 · RTOS", "UART · SPI · I²C · CAN", "SystemVerilog · Quartus"]),
+]
+LANGS = ["C", "C++", "Python", "CMake", "Linux", "Git"]
 
 
 def stack_html():
-    cards = [("01", "Autonomy", "VLMs · ROS 2", ""),
-             ("02", "Kernels", "CUDA · OpenMP", ""),
-             ("03", "Compilers", "LLVM IR · passes", ""),
-             ("04", "Silicon", "SMs · Tensor Cores", "hw")]
-    seq = ' <span class=chev>›</span> '.join(
-        f'<div class="card {c}"><div class=n>{n}</div><div class=t>{t}</div><div class=d>{d}</div></div>' for n, t, d, c in cards)
+    cols = ""
+    for i, (t, r, bg, fg, items) in enumerate(LEVELS):
+        lst = "".join(f"<div>{x}</div>" for x in items)
+        cols += (f'<div class=lvl><div class=top style="background:{bg};color:{fg}"><div class=n>0{i + 1}</div>'
+                 f'<div class=t>{t}</div><div class=r>{r}</div></div><div class=list>{lst}</div></div>')
+    tools = "".join(f"<span>{x}</span>" for x in LANGS)
     return page(f"""
 <div class=head><div><div class=kicker>THE STACK</div><h1>Where I work, top to bottom</h1></div>
-<div class=legend><span><i class=sw></i>software</span><span><i class=sw style="background:#111"></i>hardware</span></div></div>
-<div class="frame stk"><div class=tab>HIGHER LEVEL › CLOSER TO THE METAL</div><div class=seq>{seq}</div>
-<div class=axis><span>what runs</span><span>how fast it runs</span></div></div>
+<div class=scale><div class=bar></div><div class=ends><span>software</span><span>hardware</span></div></div></div>
+<div class="frame stk"><div class=tab>HIGHER LEVEL › CLOSER TO THE METAL</div><div class=cols>{cols}</div>
+<div class=tools><b>LANGUAGES &amp; TOOLS</b>{tools}</div></div>
 <div class=take>Higher levels decide what runs; lower levels decide how fast it runs.</div>""", STACK_CSS)
 
 
@@ -170,5 +184,4 @@ def hero():
 
 if __name__ == "__main__":
     hero()
-    shoot(terminal_html(), os.path.join(ASSETS, "terminal.png")); print("terminal.png")
     shoot(stack_html(), os.path.join(ASSETS, "stack.png")); print("stack.png")
