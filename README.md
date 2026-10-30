@@ -1,15 +1,8 @@
-
-https://github.com/user-attachments/assets/b8438f65-99d4-4611-a12c-56aaf073b32a
-
-
-https://github.com/user-attachments/assets/59c39e98-2050-4bd9-8ce8-9170273fc229
-
 <!--
-  Placeholders left: 2 (GPU section) — search "PLACEHOLDER".
   Videos: a bare https://github.com/user-attachments/assets/<id> URL on its own
   line (blank line above and below) renders as GitHub's video player.
-  Graphics: edit tools/gen_assets.py, run  python tools/gen_assets.py  then
-            python tools/make_hero_gif.py  (banner = hero.gif)
+  Graphics: python tools/gen_assets.py → python tools/make_hero_gif.py (banner)
+            python tools/make_results_png.py (GPU-project result charts)
 -->
 
 <div align="center">
@@ -94,35 +87,50 @@ Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbios
 #### ⚡ Heterogeneous CPU/GPU Performance Analysis & Roofline Profiling
 <sub><code>Honors project · 2026</code> · core benchmarks ✅ · ML-workload extension in progress · <code>C++ · OpenMP · AVX2/FMA · CUDA · WMMA · VTune · Nsight Compute</code></sub>
 
+📄 [**Project report**](https://drive.google.com/file/d/1XhWOYI6mYyLRbKIm25UFTFQibAgZOgr0/view?usp=sharing) · 📜 [**Seminar paper**](https://drive.google.com/file/d/1Iqg1ht8dw_D7Ud5cnDXnYjy3pSv4l__W/view?usp=sharing)
+
 How far are textbook kernels from what the hardware can actually do, and *why*? I benchmarked baseline kernels on an **Intel Core i7-13650HX** and an **NVIDIA RTX 4060 Laptop GPU**, optimized them step by step, and used profiling plus Roofline analysis to explain each gap: memory bandwidth, core utilization, register pressure, occupancy.
 
-<picture><source media="(prefers-color-scheme: light)" srcset="assets/light/speedup.svg" /><img src="assets/speedup.svg" width="100%" alt="Speedup chart: CPU GEMM 121.6x, dot product 13.3x, vector add 12.7x, GPU TF32 GEMM 3.7x" /></picture>
+<img src="assets/media/results-speedup.png" width="100%" alt="Speedup per kernel, log scale: vector add CPU 12.7x GPU 1.0x; dot product CPU 13.3x GPU 28.7x; GEMM CPU 121.6x GPU 3.7x. GEMM throughput: CPU 0.707 to 86.03 GFLOP/s, GPU 730 to 934 to 2,679 GFLOP/s" />
 
-| Kernel | Device | Throughput | Speedup | Key techniques |
+| Kernel | Arithmetic intensity | CPU speedup | GPU speedup | What limits the GPU (Nsight Compute) |
 |---|---|---|---|---|
-| GEMM | CPU | 0.707 → **86.03 GFLOP/s** | **121.6×** | cache blocking · OpenMP · AVX2/FMA |
-| Dot product | CPU | — | **13.3×** | OpenMP · AVX2/FMA |
-| Vector add | CPU | — | **12.7×** | OpenMP · AVX2/FMA |
-| GEMM (TF32) | GPU | **2,679 GFLOP/s** | **3.7×** | WMMA Tensor Cores · shared-memory tiling |
+| Vector add | 0.083 FLOP/byte | **12.7×** | **1.0×** | DRAM 92% busy → memory-bound |
+| Dot product | 0.25 FLOP/byte | **13.3×** | **28.7×** | tree reduction removes the serial chain |
+| GEMM | 170.7 FLOP/byte | **121.6×** · 0.707 → 86.03 GFLOP/s | **3.7×** · 730 → 2,679 GFLOP/s | naive: SM 99% (FP32 pipe) · Tensor Cores: starved of data |
 
-<sub>Correctness: every output validated against a reference implementation · TF32 GEMM max relative error <b>0.0686%</b>.</sub>
+<sub>CPU: cache blocking · OpenMP · AVX2/FMA. GPU: coalescing · block reduction · shared-memory tiling · TF32 WMMA Tensor Cores. Every output validated against a reference implementation · TF32 GEMM max relative error <b>0.0686%</b>.</sub>
 
-<!-- PLACEHOLDER 1/2: roofline plot (PNG/SVG from your data) → assets/media/ -->
-<p align="center"><img src="assets/placeholder-plot.svg" width="80%" alt="Placeholder: roofline plot" /><br><sub>📈 <b>Roofline</b> · baseline vs optimized kernels against the bandwidth & compute ceilings of each device</sub></p>
+<img src="assets/media/results-profiler.png" width="100%" alt="Nsight Compute utilisation: vector add SM 11% DRAM 92%, memory-bound; naive GEMM SM 99% DRAM 1%, compute-bound; Tensor Core GEMM SM 50% DRAM 8%, starved of data" />
 
-<!-- PLACEHOLDER 2/2: GPU project video. Replace this whole <p> block with the bare user-attachments URL (see guide at top). -->
-<p align="center"><img src="assets/placeholder-video.svg" width="80%" alt="Placeholder: benchmark walkthrough video" /><br><sub>🎬 <b>Benchmark walkthrough</b> · baseline → optimized runs, Nsight profile, final speedup · 60–90 s</sub></p>
+**▶ Real-time race on the GPU** · every kernel version runs against one shared clock until the slowest (the dot-product baseline) has finished three times; playback is slowed so the race is visible. In this run, block reduction takes the dot product from 227.48 ms to 6.50 ms (**34.98×**), GEMM goes 14.55 → 9.98 → 3.85 ms (tiled **1.46×**, TF32 Tensor Cores **3.78×**, 2,987 GFLOP/s), and coalescing leaves the memory-bound vector add unchanged (0.99×).
+
+https://github.com/user-attachments/assets/59c39e98-2050-4bd9-8ce8-9170273fc229
+
+<sub>A separate run from the report table above, so the figures differ slightly.</sub>
+
+**▶ CPU vs GPU, explained with my measurements** · a 103-second walkthrough: where the silicon goes, how work flows through each processor, the memory hierarchy, the optimisation techniques, the measured results and which workloads suit which processor.
+
+https://github.com/user-attachments/assets/b8438f65-99d4-4611-a12c-56aaf073b32a
+
+<details open>
+<summary><b>Architecture diagrams</b> · i7-13650HX vs RTX 4060 Laptop</summary>
+<br>
+
+<img src="assets/media/arch-cpu-vs-gpu.png" width="100%" alt="CPU vs GPU: where the silicon goes. CPU: 6 P-cores, 8 E-cores, 24 MB L3, DDR5 76.8 GB/s. GPU: 24 SMs, 3,072 lanes, shared L2, GDDR6 256 GB/s" />
+
+<img src="assets/media/arch-work-flow.png" width="100%" alt="How work flows: a pipelined CPU thread versus GPU warps taking turns to hide memory latency" />
+
+<img src="assets/media/arch-memory-hierarchy.png" width="100%" alt="Memory hierarchy of the i7-13650HX and RTX 4060 Laptop, from execution units down to DRAM, VRAM and storage" />
+
+</details>
 
 **Next:** extending the study to ML workloads (in progress).
 
-📄 [**Project report**](https://drive.google.com/file/d/1Iqg1ht8dw_D7Ud5cnDXnYjy3pSv4l__W/view?usp=sharing)
-
 #### 📜 Seminar paper · Breaking the Compute Bottleneck
-<sub><code>Honors seminar · 2026</code></sub>
+<sub><code>Honors seminar · 2026</code></sub> · 📜 [**Read the paper**](https://drive.google.com/file/d/1Iqg1ht8dw_D7Ud5cnDXnYjy3pSv4l__W/view?usp=sharing)
 
 How CPU, GPU and TPU/NPU architectures evolved for deep learning, and how the compiler stack (LLVM IR, MLIR, SSA, control-flow graphs, alias and dependence analysis) shapes code generation, loop transformations, fusion and vectorization. Applies Roofline analysis to published NVIDIA A100 GEMM results.
-
-📄 [**Read the paper**](https://drive.google.com/file/d/1XhWOYI6mYyLRbKIm25UFTFQibAgZOgr0/view?usp=sharing)
 
 ---
 
