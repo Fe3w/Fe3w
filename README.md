@@ -1,3 +1,9 @@
+
+https://github.com/user-attachments/assets/b8438f65-99d4-4611-a12c-56aaf073b32a
+
+
+https://github.com/user-attachments/assets/59c39e98-2050-4bd9-8ce8-9170273fc229
+
 <!--
   Placeholders left: 2 (GPU section) — search "PLACEHOLDER".
   Videos: a bare https://github.com/user-attachments/assets/<id> URL on its own
