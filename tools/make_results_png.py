@@ -12,18 +12,18 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "..", "assets", "media")
 
 SPEEDUP = [  # kernel, arithmetic intensity, CPU speedup, GPU speedup, GPU note
-    ("Vector add", "0.083 FLOP/byte", 12.7, 1.0, "GPU: memory-bound, DRAM ~92% busy"),
-    ("Dot product", "0.25 FLOP/byte", 13.3, 28.7, "GPU: tree reduction removes the serial chain"),
-    ("GEMM", "170.7 FLOP/byte", 121.6, 3.7, "CPU: cache blocking + OpenMP + AVX2/FMA"),
+    ("Vector add", "0.083 FLOP/byte", 10.3, 1.0, "GPU: memory-bound, 224 GB/s = 88% of DRAM peak"),
+    ("Dot product", "0.25 FLOP/byte", 16.0, 34.5, "GPU: block reduction removes the single-address bottleneck"),
+    ("GEMM", "171 FLOP/byte", 113.9, 5.2, "CPU: cache blocking + OpenMP + AVX2/FMA"),
+    ("Attention", "15 → 363 FLOP/byte", 92.1, 50.1, "GPU: fusion + FP16 Tensor Cores"),
 ]
 GEMM_STEPS = {
-    "CPU": [("baseline", "0.707"), ("optimised", "86.03")],
-    "GPU": [("naive", "730"), ("tiled", "934"), ("Tensor Cores", "2,679")],
+    "CPU": [("baseline", "0.732"), ("optimised", "83.4")],
+    "GPU": [("naive", "874"), ("tiled", "1,192"), ("Tensor Cores", "4,551")],
 }
-PROFILE = [  # kernel, SM %, DRAM %, verdict
+PROFILE = [  # kernel, SM %, DRAM %, verdict  (v1.1: Tensor-Core GEMM row removed, kernel rewritten)
     ("Vector add", 11, 92, "memory-bound"),
     ("GEMM · naive", 99, 1, "compute-bound (FP32 pipe)"),
-    ("GEMM · Tensor Cores", 50, 8, "Tensor Cores busy only ~10%: starved of data"),
 ]
 
 CSS = """
@@ -104,8 +104,8 @@ def speedup_html():
 <div class=row style="padding:0;border:0;margin-top:-30px"><div></div><div class=bar style="height:40px;margin:0"><div class=lab></div><div class=track>{ticks}</div></div></div>
 {rows}</div>
 <div class=frame><div class=tab>GEMM THROUGHPUT · GFLOP/s</div><div class=steps>{steps}</div></div>
-<div class=cap>Every optimised output validated against a reference implementation. TF32 GEMM max relative error 0.0686%.</div>
-<div class=take>The bottleneck decides the payoff: GEMM gains 121.6× on the CPU, memory-bound vector add 1.0× on the GPU.</div>"""
+<div class=cap>Every optimised output validated against a double-precision reference. TF32 GEMM max relative error 0.004%, FP16 attention 0.03%.</div>
+<div class=take>The bottleneck decides the payoff: GEMM gains 114× on the CPU, attention 50× on the GPU, memory-bound vector add 1.0×.</div>"""
     return page(body)
 
 
@@ -128,7 +128,7 @@ def profiler_html():
 <div class=row style="padding:0;border:0;margin-top:-30px"><div></div><div class=bar style="height:40px;margin:0"><div class=lab></div><div class=track>{grid}</div></div></div>
 {rows}</div>
 <div class=cap>Measured with NVIDIA Nsight Compute on the same kernels as the speedup chart.</div>
-<div class=take>Vector add waits on DRAM, naive GEMM on the FP32 pipe, Tensor-Core GEMM on data supply.</div>"""
+<div class=take>Vector add waits on DRAM; naive GEMM saturates the FP32 pipe.</div>"""
     return page(body)
 
 

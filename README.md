@@ -29,7 +29,8 @@
 
 Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbiosis Institute of Technology, Pune, **working my way down the stack**. I started with autonomous systems that perceive, decide and act. Now most of my time goes to what sits underneath them: the kernels, the compilers and the hardware that decide how fast any of it runs.
 
-- **Currently building:** an LLVM loop-analysis pass, a C-like compiler with an LLVM IR backend, and an ML-workload extension to my roofline study
+- **Currently building:** an LLVM loop-analysis pass and a C-like compiler with an LLVM IR backend
+- **Recently shipped:** a FlashAttention-style fused attention kernel, **50× faster** than naive on an RTX 4060 ([repo](https://github.com/Fe3w/GPU-CPU-Performance-Profiling_and-Optimization))
 - **Looking for:** internships in compiler optimization, CPU/GPU performance engineering, systems software and accelerated computing
 - **Ask me about:** roofline models, why a GEMM is memory-bound until it isn't, LLVM's new pass manager, perception-to-control pipelines in ROS 2
 - **Off-keyboard:** led design for Team Robominds to the DD Robocon 2026 National Finals at IIT Delhi
@@ -50,8 +51,8 @@ Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbios
 |---|---|---|---|
 | LLVM / Clang · LLVM IR | CUDA · PTX · WMMA | ROS 2 (Humble / Jazzy) · Gazebo | Qwen2.5-VL · InternVL3.5 fine-tuning |
 | New-pass-manager plugins | OpenMP · AVX2 / FMA | NVIDIA Isaac Sim · Dobot Magician | Synthetic data pipelines |
-| Roofline · arithmetic intensity | TF32 Tensor Cores | STM32 · ESP32 · RTOS concepts | OpenCV · MediaPipe |
-| Nsight Compute · Intel VTune | Cache blocking · shared-memory tiling | UART / SPI / I²C / CAN · MQTT | Keras · NumPy · Pandas |
+| Roofline · arithmetic intensity | TF32 / FP16 Tensor Cores | STM32 · ESP32 · RTOS concepts | OpenCV · MediaPipe |
+| Nsight Compute / Systems · Intel VTune | Cache blocking · shared-memory tiling · kernel fusion | UART / SPI / I²C / CAN · MQTT | Keras · NumPy · Pandas |
 | GCC · micro-benchmarking | Ampere / Hopper SM architecture | MATLAB · Simulink · Stateflow | SystemVerilog · Intel Quartus |
 
 </details>
@@ -63,24 +64,25 @@ Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbios
 ### `03 — PERFORMANCE ENGINEERING`
 
 #### Heterogeneous CPU/GPU Performance Analysis & Roofline Profiling
-<sub><code>Honors project · 2026</code> · core benchmarks done · ML-workload extension in progress · <code>C++ · OpenMP · AVX2/FMA · CUDA · WMMA · VTune · Nsight Compute</code></sub>
+<sub><code>Honors project · 2026</code> · complete · v1.1 · <code>C++ · CUDA · WMMA · OpenMP · AVX2/FMA · Nsight Compute · Nsight Systems · VTune</code></sub>
 
-[**Project report**](https://drive.google.com/file/d/1XhWOYI6mYyLRbKIm25UFTFQibAgZOgr0/view?usp=sharing) · [**Seminar paper**](https://drive.google.com/file/d/1Iqg1ht8dw_D7Ud5cnDXnYjy3pSv4l__W/view?usp=sharing)
+[**Repository →**](https://github.com/Fe3w/GPU-CPU-Performance-Profiling_and-Optimization) · [**Project report**](https://drive.google.com/file/d/1XhWOYI6mYyLRbKIm25UFTFQibAgZOgr0/view?usp=sharing) · [**Seminar paper**](https://drive.google.com/file/d/1Iqg1ht8dw_D7Ud5cnDXnYjy3pSv4l__W/view?usp=sharing)
 
-How far are textbook kernels from what the hardware can actually do, and *why*? I benchmarked baseline kernels on an **Intel Core i7-13650HX** and an **NVIDIA RTX 4060 Laptop GPU**, optimized them step by step, and used profiling plus Roofline analysis to explain each gap: memory bandwidth, core utilization, register pressure, occupancy.
+How far are textbook kernels from what the hardware can actually do, and *why*? Four workloads (vector add, dot product, matrix multiply and **Transformer attention**) optimized in three stages each on an **Intel Core i7-13650HX** and an **NVIDIA RTX 4060 Laptop GPU**, verified against double precision, and explained with profiling and Roofline analysis.
 
-| Kernel | Arithmetic intensity | CPU speedup | GPU speedup | What limits the GPU (Nsight Compute) |
+| Kernel | Arithmetic intensity | CPU speedup | GPU speedup | What limits it |
 |---|---|---|---|---|
-| Vector add | 0.083 FLOP/byte | **12.7×** | **1.0×** | DRAM 92% busy → memory-bound |
-| Dot product | 0.25 FLOP/byte | **13.3×** | **28.7×** | tree reduction removes the serial chain |
-| GEMM | 170.7 FLOP/byte | **121.6×** · 0.707 → 86.03 GFLOP/s | **3.7×** · 730 → 2,679 GFLOP/s | naive: SM 99% (FP32 pipe) · Tensor Cores: starved of data |
+| Vector add | 0.083 FLOP/byte | **10.3×** | **1.0×** | memory-bound: 224 GB/s, 88% of DRAM peak |
+| Dot product | 0.25 FLOP/byte | **16.0×** | **34.5×** | block reduction removes the single-address atomic bottleneck |
+| GEMM | 171 FLOP/byte | **114×** · 0.73 → 83.4 GFLOP/s | **5.2×** · 874 → 4,551 GFLOP/s | shared-memory tiling, then TF32 Tensor Cores |
+| Attention | 15 → 363 FLOP/byte | **92.1×** | **50.1×** · 13.5 TFLOP/s | fusion cuts DRAM traffic 24–31×, then FP16 Tensor Cores |
 
-<sub>CPU: cache blocking · OpenMP · AVX2/FMA. GPU: coalescing · block reduction · shared-memory tiling · TF32 WMMA Tensor Cores. Every output validated against a reference implementation · TF32 GEMM max relative error <b>0.0686%</b>.</sub>
+<sub>CPU: cache blocking · OpenMP · AVX2/FMA. GPU: coalescing · block reduction · shared-memory tiling · FlashAttention-style fusion · TF32/FP16 WMMA Tensor Cores. All 34 stage runs verified against a double-precision reference · TF32 GEMM error <b>0.004%</b> · FP16 attention <b>0.03%</b>. One session, run <code>20261106-151143</code>.</sub>
 
 <table>
   <tr>
-    <td width="33%" valign="top"><a href="assets/media/results-speedup.png"><img src="assets/media/results-speedup.png" width="100%" alt="Results: speedup per kernel" /></a><br><sub><b>Results</b> · speedup per kernel</sub></td>
-    <td width="33%" valign="top"><a href="assets/media/results-profiler.png"><img src="assets/media/results-profiler.png" width="100%" alt="Results: profiler bottlenecks" /></a><br><sub><b>Results</b> · profiler bottlenecks</sub></td>
+    <td width="33%" valign="top"><a href="assets/media/results-speedup.png"><img src="assets/media/results-speedup.png" width="100%" alt="Results: speedup per kernel, log scale. Vector add CPU 10.3x GPU 1.0x; dot product CPU 16.0x GPU 34.5x; GEMM CPU 113.9x GPU 5.2x; attention CPU 92.1x GPU 50.1x" /></a><br><sub><b>Results</b> · speedup per kernel</sub></td>
+    <td width="33%" valign="top"><a href="assets/media/results-profiler.png"><img src="assets/media/results-profiler.png" width="100%" alt="Results: Nsight Compute. Vector add memory-bound (SM 11%, DRAM 92%); naive GEMM compute-bound (SM 99%, DRAM 1%)" /></a><br><sub><b>Results</b> · profiler bottlenecks</sub></td>
     <td width="33%" valign="top"><a href="assets/media/arch-cpu-vs-gpu.png"><img src="assets/media/arch-cpu-vs-gpu.png" width="100%" alt="Architecture: where the silicon goes" /></a><br><sub><b>Architecture</b> · where the silicon goes</sub></td>
   </tr>
   <tr>
@@ -91,17 +93,15 @@ How far are textbook kernels from what the hardware can actually do, and *why*? 
 
 <sub>Click any chart or diagram to open it full size.</sub>
 
-**CPU vs GPU, explained with my measurements** · a 103-second walkthrough: where the silicon goes, how work flows through each processor, the memory hierarchy, the optimisation techniques, the measured results and which workloads suit which processor.
+**Every workload, CPU vs GPU, in 72 seconds** · animated from the final measurements: the optimization ladder, where each speedup comes from, the Roofline, and why the attention kernel ends up 50× faster.
 
-https://github.com/user-attachments/assets/b8438f65-99d4-4611-a12c-56aaf073b32a
+https://github.com/user-attachments/assets/09a2eef4-9177-4cbb-a606-08fad9ee938b
 
 **Real-time race on the GPU** · every kernel version runs against one shared clock until the slowest (the dot-product baseline) has finished three times; playback is slowed so the race is visible. In this run, block reduction takes the dot product from 227.48 ms to 6.50 ms (**34.98×**), GEMM goes 14.55 → 9.98 → 3.85 ms (tiled **1.46×**, TF32 Tensor Cores **3.78×**, 2,987 GFLOP/s), and coalescing leaves the memory-bound vector add unchanged (0.99×).
 
 https://github.com/user-attachments/assets/59c39e98-2050-4bd9-8ce8-9170273fc229
 
 <sub>A separate run from the report table above, so the figures differ slightly.</sub>
-
-**Next:** extending the study to ML workloads (in progress).
 
 #### Seminar paper · Breaking the Compute Bottleneck
 <sub><code>Honors seminar · 2026</code></sub> · [**Read the paper**](https://drive.google.com/file/d/1Iqg1ht8dw_D7Ud5cnDXnYjy3pSv4l__W/view?usp=sharing)
