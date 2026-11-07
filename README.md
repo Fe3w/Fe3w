@@ -97,7 +97,6 @@ https://github.com/user-attachments/assets/09a2eef4-9177-4cbb-a606-08fad9ee938b
 
 CPU vs GPU race · each workload races every CPU and GPU version on one shared clock until the slowest (the CPU baseline) finishes one run. Bar length is true to scale, and playback drops to ¼ speed halfway so the gaps are readable. Vector add (N = 33.5 M) is memory-bound: the two GPU kernels finish together (1.715 → 1.699 ms), and the best GPU is 59.3× faster than the scalar CPU baseline (100.8 ms). For the dot product, block reduction takes the GPU from 43.27 ms to 1.551 ms (27.9×), and 36.3× past the CPU baseline (56.24 ms). For GEMM at N = 1024, the CPU goes 3,036 → 89.15 → 24.96 ms (blocking + threads, then AVX2/FMA, 121.6×), and TF32 Tensor Cores reach 0.801 ms (2,679 GFLOP/s), 3,791× the CPU baseline and 31.2× the best CPU. CPU and GPU times come from separate runs at the same problem sizes.
 
-The 27.9× dot-product figure is from your report’s demo run (43.27 → 1.551 ms). The video shows 28× for it, so the two agree. That’s lower than the old caption’s 34.98× because the old race used larger inputs.
 
 https://github.com/user-attachments/assets/a5400db5-7f6c-4338-955a-6a75d21e6313
 
