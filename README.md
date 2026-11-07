@@ -132,14 +132,16 @@ Building the compiler side from both ends: a tool that **reads** optimized IR, a
 
 ### `05 — AUTONOMOUS SYSTEMS`
 
-#### Neuro-Symbolic Autonomous Sorting · VLM pipeline
-<sub><code>B.Tech project · 2026</code> · in progress · <code>Python · Isaac Sim · Dobot Magician · Qwen2.5-VL · InternVL3.5</code></sub>
+#### Language-Driven Robot Pick-and-Place · VLM + NVIDIA Isaac Sim &nbsp;·&nbsp; [`GitHub ↗`](https://github.com/Fe3w/dobot-vlm-vla-pick-place)
+<sub><code>B.Tech project · 2026</code> · in progress · <code>Python · NVIDIA Isaac Sim · PhysX · Dobot Magician · Vision-Language Models · OpenCV</code></sub>
 
-A vision-language-guided sorting system for autonomous manipulation that turns *"put the red parts in the left bin"* into arm motion, and explains each decision. Model predictions become segmentation masks, depth turns them into 3D targets, rule-based symbolic logic makes the sort decision, and inverse kinematics drives a Dobot Magician. Each task is validated in NVIDIA Isaac Sim, then run on the physical arm. To cut API dependence and latency, I'm fine-tuning smaller open-weight VLMs on synthetic data filtered for consistency.
+Type a task in plain English, such as *"pick up the green cube and place it next to the cylinder"*, and a Dobot Magician carries it out. There is no training data and there are no hand-taught waypoints. A vision-language model reads the task against an overhead camera image, but it only picks from numbered tags on the objects: what to pick, what to place it next to, and what to avoid. It never guesses coordinates. Camera rays cast into the scene turn those choices into 3D targets. Inverse kinematics and an obstacle-aware route planner then produce a collision-free path, and an automatic check confirms the object ended up where the task asked. Every task runs in NVIDIA Isaac Sim first. On the real arm, an ordinary phone camera, calibrated with ArUco markers, mirrors the table into the simulation, and the Dobot only replays a path that passed in simulation.
 
-**Simulation: language-conditioned pick-and-place in NVIDIA Isaac Sim** · task: *"pick up the green cube and place it next to the cylinder"*. The VLM interprets the scene, the planner avoids the remaining objects, and the arm executes the placement.
+**Simulation: language-conditioned pick-and-place in NVIDIA Isaac Sim** · task: *"pick up the green cube and place it next to the cylinder"*. The VLM picks the target and reference objects, the planner routes around the other objects, and the arm places the cube and returns home.
 
-https://github.com/user-attachments/assets/113927a2-1523-44bc-97b1-f1e8f54ed114
+
+https://github.com/user-attachments/assets/38b798d8-7d29-4f65-b8a3-b518c204e25b
+
 
 **On the real Dobot Magician** · phone camera, ArUco markers that map pixels to the robot frame, and live object detection with pick coordinates in mm, checked against the arm's reach envelope
 
