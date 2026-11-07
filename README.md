@@ -137,12 +137,14 @@ Building the compiler side from both ends: a tool that **reads** optimized IR, a
 
 Type a task in plain English, such as *"pick up the green cube and place it next to the cylinder"*, and a Dobot Magician carries it out. There is no training data and there are no hand-taught waypoints. A vision-language model reads the task against an overhead camera image, but it only picks from numbered tags on the objects: what to pick, what to place it next to, and what to avoid. It never guesses coordinates. Camera rays cast into the scene turn those choices into 3D targets. Inverse kinematics and an obstacle-aware route planner then produce a collision-free path, and an automatic check confirms the object ended up where the task asked. Every task runs in NVIDIA Isaac Sim first. On the real arm, an ordinary phone camera, calibrated with ArUco markers, mirrors the table into the simulation, and the Dobot only replays a path that passed in simulation.
 
-**Simulation: language-conditioned pick-and-place in NVIDIA Isaac Sim** · task: *"pick up the green cube and place it next to the cylinder"*. The VLM picks the target and reference objects, the planner routes around the other objects, and the arm places the cube and returns home.
+<p align="center">
+  <b>Simulation: language-conditioned pick-and-place in NVIDIA Isaac Sim</b><br>
+  <sub>Task: <i>"pick up the green cube and place it next to the cylinder"</i>. The VLM picks the target and reference objects, the planner routes around the other objects, and the arm places the cube and returns home.</sub>
+</p>
 
-
-https://github.com/user-attachments/assets/38b798d8-7d29-4f65-b8a3-b518c204e25b
-
-
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/38b798d8-7d29-4f65-b8a3-b518c204e25b" width="760" controls muted></video>
+</p>
 **On the real Dobot Magician** · phone camera, ArUco markers that map pixels to the robot frame, and live object detection with pick coordinates in mm, checked against the arm's reach envelope
 
 <table>
