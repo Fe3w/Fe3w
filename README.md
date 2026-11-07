@@ -142,7 +142,9 @@ Type a task in plain English, such as *"pick up the green cube and place it next
   <sub>Task: <i>"pick up the green cube and place it next to the cylinder"</i>. The VLM picks the target and reference objects, the planner routes around the other objects, and the arm places the cube and returns home.</sub>
 </p>
 <p align="center">
-  <video src="https://github.com/user-attachments/assets/e3a9f337-3918-49bd-9f3b-d6238060aa2d" width="760" controls muted></video>
+
+
+  <video src=" https://github.com/user-attachments/assets/72f1b7c5-dcc6-4cdb-b394-a746c9420f2f " width="760" controls muted></video>
 </p>
 **On the real Dobot Magician** · phone camera, ArUco markers that map pixels to the robot frame, and live object detection with pick coordinates in mm, checked against the arm's reach envelope
 
