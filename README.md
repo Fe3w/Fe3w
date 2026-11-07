@@ -97,11 +97,14 @@ https://github.com/user-attachments/assets/09a2eef4-9177-4cbb-a606-08fad9ee938b
 
 **CPU vs GPU race** · every version of each task races on one shared clock. The race ends when the slowest version (the simple CPU code) finishes once. Longer bars mean faster code, drawn to true scale. The race slows to ¼ speed halfway through so you can see the differences.
 
-- **Vector add:** the GPU is about **59×** faster than the simple CPU code. Better GPU code doesn't help, because memory speed is the limit.
-- **Dot product:** smarter GPU code makes it **28×** faster, and about **36×** faster than the simple CPU code.
-- **Matrix multiply:** optimising the CPU code makes it **122×** faster. The GPU's Tensor Cores go further: about **3,800×** faster than the simple CPU code and **31×** faster than the best CPU code.
+- **Vector add:** the GPU is about **45×** faster than the simple CPU code. Better GPU code doesn't help, because memory speed is the limit.
+- **Dot product:** smarter GPU code makes it **34.5×** faster, and about **50×** faster than the simple CPU code.
+- **Matrix multiply:** optimising the CPU code makes it **114×** faster. The GPU's Tensor Cores go further: about **6,200×** faster than the simple CPU code and **55×** faster than the best CPU code.
+- **Attention:** fusing the steps into one kernel, then using FP16 Tensor Cores, makes the GPU **50×** faster than its own simple version, and about **1,850×** faster than the simple CPU code.
 
-https://github.com/user-attachments/assets/a5400db5-7f6c-4338-955a-6a75d21e6313
+https://github.com/user-attachments/assets/d3523712-bdd1-449d-b2c5-de477e8fd905
+
+
 
 <sub>A separate run from the report table above, so the figures differ slightly.</sub>
 
