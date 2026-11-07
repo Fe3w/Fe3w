@@ -95,8 +95,11 @@ How far are textbook kernels from what the hardware can actually do, and *why*? 
 
 https://github.com/user-attachments/assets/09a2eef4-9177-4cbb-a606-08fad9ee938b
 
-CPU vs GPU race · each workload races every CPU and GPU version on one shared clock until the slowest (the CPU baseline) finishes one run. Bar length is true to scale, and playback drops to ¼ speed halfway so the gaps are readable. Vector add (N = 33.5 M) is memory-bound: the two GPU kernels finish together (1.715 → 1.699 ms), and the best GPU is 59.3× faster than the scalar CPU baseline (100.8 ms). For the dot product, block reduction takes the GPU from 43.27 ms to 1.551 ms (27.9×), and 36.3× past the CPU baseline (56.24 ms). For GEMM at N = 1024, the CPU goes 3,036 → 89.15 → 24.96 ms (blocking + threads, then AVX2/FMA, 121.6×), and TF32 Tensor Cores reach 0.801 ms (2,679 GFLOP/s), 3,791× the CPU baseline and 31.2× the best CPU. CPU and GPU times come from separate runs at the same problem sizes.
+**CPU vs GPU race** · every version of each task races on one shared clock. The race ends when the slowest version (the simple CPU code) finishes once. Longer bars mean faster code, drawn to true scale. The race slows to ¼ speed halfway through so you can see the differences.
 
+- **Vector add:** the GPU is about **59×** faster than the simple CPU code. Better GPU code doesn't help, because memory speed is the limit.
+- **Dot product:** smarter GPU code makes it **28×** faster, and about **36×** faster than the simple CPU code.
+- **Matrix multiply:** optimising the CPU code makes it **122×** faster. The GPU's Tensor Cores go further: about **3,800×** faster than the simple CPU code and **31×** faster than the best CPU code.
 
 https://github.com/user-attachments/assets/a5400db5-7f6c-4338-955a-6a75d21e6313
 
