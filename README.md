@@ -1,7 +1,6 @@
 <!--
   Style: black, white and greys; square frames; Inter + DejaVu Sans Mono.
   Graphics: python tools/make_mono.py (banner, stack)
-            python tools/make_results_png.py (GPU-project result charts)
   Videos: a bare https://github.com/user-attachments/assets/<id> URL on its own
   line (blank line above and below) renders as GitHub's video player.
 -->
@@ -81,17 +80,16 @@ How far are textbook kernels from what the hardware can actually do, and *why*? 
 
 <table>
   <tr>
-    <td width="33%" valign="top"><a href="assets/media/results-speedup.png"><img src="assets/media/results-speedup.png" width="100%" alt="Results: speedup per kernel, log scale. Vector add CPU 10.3x GPU 1.0x; dot product CPU 16.0x GPU 34.5x; GEMM CPU 113.9x GPU 5.2x; attention CPU 92.1x GPU 50.1x" /></a><br><sub><b>Results</b> · speedup per kernel</sub></td>
-    <td width="33%" valign="top"><a href="assets/media/results-profiler.png"><img src="assets/media/results-profiler.png" width="100%" alt="Results: Nsight Compute. Vector add memory-bound (SM 11%, DRAM 92%); naive GEMM compute-bound (SM 99%, DRAM 1%)" /></a><br><sub><b>Results</b> · profiler bottlenecks</sub></td>
-    <td width="33%" valign="top"><a href="assets/media/arch-cpu-vs-gpu.png"><img src="assets/media/arch-cpu-vs-gpu.png" width="100%" alt="Architecture: where the silicon goes" /></a><br><sub><b>Architecture</b> · where the silicon goes</sub></td>
+    <td width="50%" valign="top"><a href="assets/media/gpu-speedup.png"><img src="assets/media/gpu-speedup.png" width="100%" alt="Speedup per workload, log scale: attention CPU 92.1x GPU 50.1x; matrix multiply CPU 114x GPU 5.2x; dot product CPU 16.0x GPU 34.5x; vector add CPU 10.3x GPU 1.0x" /></a><br><sub><b>Speedup</b> · best version over the simple one, per workload</sub></td>
+    <td width="50%" valign="top"><a href="assets/media/gpu-roofline.png"><img src="assets/media/gpu-roofline.png" width="100%" alt="Roofline of the RTX 4060 Laptop GPU with every GPU stage and how close each kernel gets to its roof" /></a><br><sub><b>Roofline</b> · every GPU stage against the RTX 4060 roofs</sub></td>
   </tr>
   <tr>
-    <td width="33%" valign="top"><a href="assets/media/arch-work-flow.png"><img src="assets/media/arch-work-flow.png" width="100%" alt="Architecture: how work flows" /></a><br><sub><b>Architecture</b> · how work flows</sub></td>
-    <td width="67%" valign="top" colspan="2"><a href="assets/media/arch-memory-hierarchy.png"><img src="assets/media/arch-memory-hierarchy.png" width="100%" alt="Architecture: memory hierarchy" /></a><br><sub><b>Architecture</b> · memory hierarchy</sub></td>
+    <td width="50%" valign="top"><a href="assets/media/gpu-every-stage.png"><img src="assets/media/gpu-every-stage.png" width="100%" alt="Every optimization stage, CPU vs GPU, for vector add, dot product, GEMM and attention" /></a><br><sub><b>Every stage</b> · time per iteration, CPU vs GPU, W01 to W04</sub></td>
+    <td width="50%" valign="top"><a href="assets/media/gpu-attention-steps.png"><img src="assets/media/gpu-attention-steps.png" width="100%" alt="Attention speedup factored into kernel quality, fusion plus tiling, and FP16 Tensor Cores" /></a><br><sub><b>Attention</b> · where the 50× comes from: kernels, fusion, Tensor Cores</sub></td>
   </tr>
 </table>
 
-<sub>Click any chart or diagram to open it full size.</sub>
+<sub>Click any chart to open it full size. More figures in the <a href="https://github.com/Fe3w/GPU-CPU-Performance-Profiling_and-Optimization">repository</a>.</sub>
 
 **Every workload, CPU vs GPU, in 72 seconds** · animated from the final measurements: the optimization ladder, where each speedup comes from, the Roofline, and why the attention kernel ends up 50× faster.
 
