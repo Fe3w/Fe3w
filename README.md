@@ -5,7 +5,7 @@
   line (blank line above and below) renders as GitHub's video player.
 -->
 
-<img src="assets/hero.gif" width="100%" alt="Abhishek Singh. Compilers, CPU/GPU performance, autonomous systems." />
+<img src="assets/hero.gif" width="100%" alt="Abhishek Singh. GPU and CPU performance, compilers, AI integration, physical AI." />
 
 <p align="center"><sub>Pune, IN · B.Tech, class of 2027 · Honors in Embedded Systems · DD Robocon 2026 National Finalist · open to compiler and performance or FDE/SDE internships</sub></p>
 
@@ -287,22 +287,34 @@ https://github.com/user-attachments/assets/fcea9351-c6b0-4003-a7d3-23be096ce114
 
 **Open to internships and graduate roles in:**
 
-1. **Compilers, computer architecture and performance engineering:** GPU and CPU optimization, LLVM, hardware accelerators
-2. **Applied AI and forward-deployed engineering (FDE):** AI integration, model optimization and distillation, local and cloud AI agents
+1. **GPU & CPU performance, architecture and compilers:** GPU and CPU optimization, LLVM, hardware accelerators
+2. **AI integration and forward-deployed engineering (FDE):** bringing LLMs and AI agents into real products, model optimization and distillation, local and cloud AI
 
 #### Education
 
-- **B.Tech, Robotics & Automation Engineering** · Honors in **Embedded & Automotive Systems** · Symbiosis Institute of Technology, Pune · CGPA 7.65 · expected June 2027
+**Symbiosis Institute of Technology, Pune** · Jun 2027<br>
+B.Tech, Robotics & Automation Engineering (Honors: **Embedded Systems**) · CGPA 7.65/10
 
-#### Certifications & coursework
+- **Core coursework:** Data Structures and Algorithms, Operating Systems, Machine Learning, Deep Learning, Reinforcement Learning, Computer Vision, Probabilistic Robotics, Control Systems, Robotics Operating System, Microcontrollers and Embedded C, Database Management, Data Visualization and Reporting
+- **Embedded Systems specialization:** ARM Cortex-M4/M7 architecture (NVIC, MPU, AHB/APB buses), STM32 with an RTOS, CAN
+- **Specialization project and conference paper:** CPU and GPU kernel optimization and Roofline profiling, presented and defended before a review panel ([Report](https://drive.google.com/file/d/1XhWOYI6mYyLRbKIm25UFTFQibAgZOgr0/view?usp=sharing) · [Paper](https://drive.google.com/file/d/1Iqg1ht8dw_D7Ud5cnDXnYjy3pSv4l__W/view?usp=sharing))
+- **B.Tech project:** Vision-Language-Action (VLA) pipeline for robotic pick-and-place on a Dobot Magician ([GitHub & Video](https://github.com/Fe3w/dobot-vlm-vla-pick-place))
+- **Areas of focus:** GPU and CPU performance, compilers, hardware accelerators, AI integration, robotics and physical AI
 
-- **Independent study**
-  - [**Stanford CS143: Compilers**](https://www.edx.org/learn/computer-science/stanford-university-compilers) (Stanford Online on edX, taught by Alex Aiken): lexical analysis, parsing, semantic analysis, type checking, code generation and optimization
-  - [**Cornell CS 6120: Advanced Compilers**](https://www.cs.cornell.edu/courses/cs6120/2020fa/self-guided/): LLVM IR, analysis, optimization
-  - [**MIT 6.S894: Accelerated Computing**](https://accelerated-computing.academy/fall24/): GPU programming, CUDA
-- [**Advanced VLSI Design**](https://drive.google.com/file/d/14xbcO5Z9RVbw99O9yGVb4T5x_nLSX05l/view?usp=sharing) (Compcarta): SystemVerilog, digital design, testing
-- **NPTEL:** [Deep Learning for Computer Vision](https://nptel.ac.in/courses/106106224) (IIT Hyderabad) · [Advanced Robotics](https://nptel.ac.in/courses/112104316) (IIT Kanpur)
-- **MathWorks:** [MATLAB, Simulink, Stateflow Onramps](https://matlabacademy.mathworks.com/)
+#### Self-paced courses, certifications and competitions
+
+- [**Compilers (CS143)**](https://www.edx.org/learn/computer-science/stanford-university-compilers), Stanford: lexing and parsing · semantic analysis · code generation · optimization
+- [**Advanced Compilers (CS 6120)**](https://www.cs.cornell.edu/courses/cs6120/2025fa/syllabus/), Cornell: LLVM IR · SSA · dataflow analysis · loop optimization
+- [**Accelerated Computing (6.S894)**](https://accelerated-computing.academy/fall25/syllabus/), MIT: GPU architecture · memory hierarchy · CUDA · Tensor Cores
+- [**Advanced VLSI Design: Digital, Analog, Timing & Testability**](https://drive.google.com/file/d/14xbcO5Z9RVbw99O9yGVb4T5x_nLSX05l/view?usp=sharing), Compcarta: digital and analog design · timing analysis · design for testability
+- **NPTEL:**
+  - [Deep Learning for Computer Vision](https://nptel.ac.in/courses/106106224) (IIT Hyderabad): CNNs · vision transformers · generative models
+  - [Advanced Robotics](https://nptel.ac.in/courses/112104316) (IIT Kanpur): kinematics · dynamics · trajectory planning
+  - [Linear Systems Theory](https://nptel.ac.in/courses/108106150) (IIT Madras): state-space models · controllability · observability
+  - [Nonlinear Dynamical Systems and Control](https://nptel.ac.in/courses/117106483) (IIT Madras): Lyapunov stability · nonlinear control
+- **Anthropic Claude Academy:** [Claude Code 101](https://academy.claude.com/verify/18dee0f0a88d123aab179f09a9f28a62) · [Building Effective Human-Agent Teams](https://academy.claude.com/verify/5392f952781c03e24ed978f5051ba2d4) · [AI Fluency: Framework & Foundations](https://academy.claude.com/verify/c59696dd82b0b5935b39ae5b0767d094) · [Claude 101](https://academy.claude.com/verify/8a6a51e1f9494067b299650ba9b5cb2f) · [Introduction to Claude Cowork](https://academy.claude.com/verify/8a79c39b323411a5cf30831e3befc02e)
+- **MathWorks Onramps:** [MATLAB](https://matlabacademy.mathworks.com/progress/share/certificate.html?id=089e1020-fc5a-440d-ab63-7546c4606c4c&) · [Simulink](https://matlabacademy.mathworks.com/progress/share/certificate.html?id=297b731c-fbac-485c-9db2-23cec1a4b637&) · [Stateflow](https://matlabacademy.mathworks.com/progress/share/certificate.html?id=6c42719f-1760-40e9-81f2-1c84f375d3e6&) · [Signal Processing](https://matlabacademy.mathworks.com/progress/share/certificate.html?id=c0060d94-bd6f-455c-9f9b-27faee2f59d0&) · [Circuit Simulation](https://matlabacademy.mathworks.com/progress/share/certificate.html?id=e8de2635-0b29-4ba6-850b-248a567c2189&) · [System Composer](https://matlabacademy.mathworks.com/progress/share/certificate.html?id=0b91ad1e-85f7-443f-9585-c632a5bc386d&)
+- **Competition:** e-Yantra (IIT Bombay), FPGA track, **Team Lead**: SystemVerilog traffic-light controller on a Cyclone IV FPGA, reached round 3
 
 ---
 
@@ -313,20 +325,12 @@ https://github.com/user-attachments/assets/fcea9351-c6b0-4003-a7d3-23be096ce114
   <img src="assets/titles/09-light.svg" width="100%" alt="09 · Skills">
 </picture>
 
-- **Languages:** C++, C, Python, CUDA, SystemVerilog, Kotlin
-- **Compilers & performance:** LLVM, Clang, GCC, OpenMP, AVX2, Tensor Cores, NVIDIA Nsight, Intel VTune, Roofline analysis
-- **Hardware design:** systolic arrays, cocotb, Verilator, Yosys, nextpnr, OpenROAD (SKY130), FPGA (Lattice ECP5)
-- **AI & agents:** vision-language models, LoRA fine-tuning, model distillation, Ollama, local LLMs, Whisper, AI agents, OpenCV, MediaPipe
-- **Robotics & embedded:** ROS 2, Gazebo, NVIDIA Isaac Sim, STM32, ESP32, RTOS, UART/SPI/I2C/CAN, MQTT
-- **Tools & cloud:** Linux, Git, GitHub Actions, Google Cloud (OAuth, Drive API), MATLAB/Simulink, SolidWorks, Siemens NX, Fusion 360
-
-<details>
-<summary><b>Stack diagram</b></summary>
-<br>
-
-<img src="assets/stack.png" width="100%" alt="The stack, top to bottom: autonomy, kernels, compilers, silicon, languages and tools" />
-
-</details>
+- **Languages:** C++, C, Python, CUDA, SystemVerilog
+- **GPU, CPU & compiler performance:** GPU architecture, memory hierarchy, Tensor Cores, LLVM, Clang, GCC, OpenMP, AVX2, NVIDIA Nsight, Intel VTune, Roofline analysis
+- **AI integration & agents:** AI agents with tool use, LLM evals and guardrails, retrieval with cited sources, human-centered AI design and integration, local LLM serving (Ollama), speech-to-text (Whisper), cloud backend integration (Google Cloud, OAuth 2.0, REST APIs), Claude Code
+- **Model optimization:** LoRA fine-tuning, knowledge distillation, quantized inference, vision-language model latency reduction (**40 s → under 8 s** per decision)
+- **Robotics & physical AI:** ROS 2, Gazebo, NVIDIA Isaac Sim, NVIDIA Isaac Lab, OpenCV, STM32 (ARM Cortex-M), ESP32, RTOS, CAN
+- **Tools:** Linux, Git, GitHub Actions, MATLAB/Simulink, SolidWorks, Fusion 360
 
 ---
 
@@ -339,13 +343,13 @@ https://github.com/user-attachments/assets/fcea9351-c6b0-4003-a7d3-23be096ce114
 
 <div align="center">
 
-**Working on compilers, GPU performance or autonomous systems that need to run faster? Say hello.**
+**Working on GPU/CPU performance, compilers, AI integration or physical AI? Say hello.**
 
 **Email:** abhishekp135531@gmail.com
 
 [Email](mailto:abhishekp135531@gmail.com) · [LinkedIn](https://www.linkedin.com/in/abhishek-singh-a2003b287/) · [GitHub](https://github.com/Fe3w) · [LeetCode](https://leetcode.com/u/Abhishek_P_S_/) · [X](https://x.com/Fe3ws_)
 
-`COMPILERS · GPU PERFORMANCE · AUTONOMOUS SYSTEMS` · Pune, Maharashtra, IN
+`GPU & CPU PERFORMANCE & ARCHITECTURE · COMPILERS (LLVM, GCC) · AI INTEGRATION & AGENTS · ROBOTICS & PHYSICAL AI` · Pune, Maharashtra, IN
 
 <br>
 
