@@ -1,0 +1,72 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 486' width='960' height='486' role='img'>
+<title>AI research agent and voice notes: architecture</title><desc>The Android app records voice notes offline, encrypts each object with AES-256-GCM and uploads it to a hidden Google Drive app folder used as a serverless mailbox. The laptop runs speech-to-text and a local LLM on one 8 GB GPU, checks that every extracted item quotes the transcript, and writes workspace pages. If a note asks for something, a request check, a plan approved on the phone and a planner, executor, reader and writer agent produce a cited report. Results, plans and reports sync back to the phone.</desc>
+<defs><marker id='a' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f2933'/></marker></defs>
+<rect x='0.5' y='0.5' width='959' height='485' rx='10' fill='#fcfcfb' stroke='#e3e3e1'/>
+<text x='28' y='40' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='18' font-weight='600' fill='#0b0b0b'>AI research agent and voice notes: phone capture, local AI, human-approved agent</text>
+<text x='930' y='72' text-anchor='end' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='11' font-weight='600' letter-spacing='1' fill='#8a939e'>1 · CAPTURE AND SYNC</text>
+<text x='700' y='212' text-anchor='end' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='11' font-weight='600' letter-spacing='1' fill='#8a939e'>2 · LOCAL AI ON ONE 8 GB GPU</text>
+<text x='700' y='352' text-anchor='end' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='11' font-weight='600' letter-spacing='1' fill='#8a939e'>3 · RESEARCH AGENT, HUMAN-IN-THE-LOOP</text>
+<rect x='30' y='82' width='210' height='80' rx='8' fill='#ffffff' stroke='#c9ced6' stroke-width='1.5'/>
+<text x='135.0' y='112' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='15' font-weight='600' fill='#0b0b0b'>Android app</text>
+<text x='135.0' y='132' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>speak a note in English</text>
+<text x='135.0' y='148' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>or Hindi, works offline</text>
+<rect x='260' y='82' width='210' height='80' rx='8' fill='#ffffff' stroke='#c9ced6' stroke-width='1.5'/>
+<text x='365.0' y='112' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='15' font-weight='600' fill='#0b0b0b'>End-to-end encryption</text>
+<text x='365.0' y='132' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>AES-256-GCM, key never</text>
+<text x='365.0' y='148' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>leaves the two devices</text>
+<rect x='490' y='82' width='210' height='80' rx='8' fill='#ffffff' stroke='#c9ced6' stroke-width='1.5'/>
+<text x='595.0' y='112' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='15' font-weight='600' fill='#0b0b0b'>Google Drive app folder</text>
+<text x='595.0' y='132' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>serverless mailbox,</text>
+<text x='595.0' y='148' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>Google OAuth</text>
+<rect x='720' y='82' width='210' height='80' rx='8' fill='#1f2933' stroke='#1f2933' stroke-width='1.5'/>
+<text x='825.0' y='112' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='15' font-weight='600' fill='#ffffff'>Back on the phone</text>
+<text x='825.0' y='132' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#c9d1d9'>titles, summaries,</text>
+<text x='825.0' y='148' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#c9d1d9'>plans and reports</text>
+<rect x='30' y='222' width='210' height='80' rx='8' fill='#ffffff' stroke='#c9ced6' stroke-width='1.5'/>
+<text x='135.0' y='256' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='15' font-weight='600' fill='#0b0b0b'>Speech-to-text</text>
+<text x='135.0' y='276' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>Whisper on the local GPU</text>
+<rect x='260' y='222' width='210' height='80' rx='8' fill='#e8f3f6' stroke='#0b6e8a' stroke-width='1.5'/>
+<text x='365.0' y='252' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='15' font-weight='600' fill='#0b0b0b'>Local LLM (Ollama)</text>
+<text x='365.0' y='272' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#2f4b57'>summary, decisions,</text>
+<text x='365.0' y='288' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#2f4b57'>next actions</text>
+<rect x='490' y='222' width='210' height='80' rx='8' fill='#ffffff' stroke='#c9ced6' stroke-width='1.5'/>
+<text x='595.0' y='252' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='15' font-weight='600' fill='#0b0b0b'>Grounding check</text>
+<text x='595.0' y='272' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>every item must quote</text>
+<text x='595.0' y='288' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>the transcript</text>
+<rect x='720' y='222' width='210' height='80' rx='8' fill='#ffffff' stroke='#c9ced6' stroke-width='1.5'/>
+<text x='825.0' y='252' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='15' font-weight='600' fill='#0b0b0b'>Workspace pages</text>
+<text x='825.0' y='272' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>one structured page</text>
+<text x='825.0' y='288' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>per note</text>
+<rect x='30' y='362' width='210' height='80' rx='8' fill='#ffffff' stroke='#c9ced6' stroke-width='1.5'/>
+<text x='135.0' y='392' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='15' font-weight='600' fill='#0b0b0b'>Request check</text>
+<text x='135.0' y='412' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>model and rules</text>
+<text x='135.0' y='428' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>must agree</text>
+<rect x='260' y='362' width='210' height='80' rx='8' fill='#ffffff' stroke='#c9ced6' stroke-width='1.5'/>
+<text x='365.0' y='392' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='15' font-weight='600' fill='#0b0b0b'>Plan approved</text>
+<text x='365.0' y='412' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>on the phone</text>
+<text x='365.0' y='428' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>before anything runs</text>
+<rect x='490' y='362' width='210' height='80' rx='8' fill='#e8f3f6' stroke='#0b6e8a' stroke-width='1.5'/>
+<text x='595.0' y='392' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='15' font-weight='600' fill='#0b0b0b'>Agent loop</text>
+<text x='595.0' y='412' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#2f4b57'>plan, search, read,</text>
+<text x='595.0' y='428' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#2f4b57'>write, with time limits</text>
+<rect x='720' y='362' width='210' height='80' rx='8' fill='#ffffff' stroke='#c9ced6' stroke-width='1.5'/>
+<text x='825.0' y='392' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='15' font-weight='600' fill='#0b0b0b'>Cited report</text>
+<text x='825.0' y='412' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>only facts quoted from</text>
+<text x='825.0' y='428' text-anchor='middle' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='12.5' fill='#52606d'>fetched sources</text>
+<path d='M240,122 H258' fill='none' stroke='#1f2933' stroke-width='1.6' marker-end='url(#a)'/>
+<path d='M470,122 H488' fill='none' stroke='#1f2933' stroke-width='1.6' marker-end='url(#a)'/>
+<path d='M240,262 H258' fill='none' stroke='#1f2933' stroke-width='1.6' marker-end='url(#a)'/>
+<path d='M470,262 H488' fill='none' stroke='#1f2933' stroke-width='1.6' marker-end='url(#a)'/>
+<path d='M240,402 H258' fill='none' stroke='#1f2933' stroke-width='1.6' marker-end='url(#a)'/>
+<path d='M470,402 H488' fill='none' stroke='#1f2933' stroke-width='1.6' marker-end='url(#a)'/>
+<path d='M700,262 H718' fill='none' stroke='#1f2933' stroke-width='1.6' marker-end='url(#a)'/>
+<path d='M700,402 H718' fill='none' stroke='#1f2933' stroke-width='1.6' marker-end='url(#a)'/>
+<path d='M595,162 V192 H135 V220' fill='none' stroke='#1f2933' stroke-width='1.6' marker-end='url(#a)'/>
+<path d='M365,302 V332 H135 V360' fill='none' stroke='#1f2933' stroke-width='1.6' marker-end='url(#a)'/>
+<path d='M825,360 V304' fill='none' stroke='#1f2933' stroke-width='1.6' marker-end='url(#a)'/>
+<path d='M825,220 V164' fill='none' stroke='#1f2933' stroke-width='1.6' marker-end='url(#a)' stroke-dasharray="5 4"/>
+<text x='835' y='196' text-anchor='start' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='11.5' fill='#52606d'>results sync back</text>
+<text x='835' y='336' text-anchor='start' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='11.5' fill='#52606d'>report</text>
+<text x='145' y='186' text-anchor='start' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='11.5' fill='#52606d'>new notes pulled every 2 min</text>
+<text x='145' y='326' text-anchor='start' font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size='11.5' fill='#52606d'>note asks for something</text>
+</svg>
