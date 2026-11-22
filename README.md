@@ -1,65 +1,50 @@
 <!--
   Style: black, white and greys; square frames; Inter + DejaVu Sans Mono.
-  Graphics: python tools/make_mono.py (banner, stack)
+  Graphics: python tools/make_mono.py (banner, stack), python tools/make_titles.py (section title bars)
   Videos: a bare https://github.com/user-attachments/assets/<id> URL on its own
   line (blank line above and below) renders as GitHub's video player.
 -->
 
-<img src="assets/hero.gif" width="100%" alt="Abhishek Singh. Compilers, CPU/GPU performance, autonomous systems. Animated hourglass art by @Ki11_5trike." />
-
-<p align="center">
-  <a href="#performance"><code>01 PERFORMANCE</code></a> ·
-  <a href="#autonomy"><code>02 ROBOT LEARNING</code></a> ·
-  <a href="#accelerator"><code>03 ACCELERATOR</code></a> ·
-  <a href="#voice-notes"><code>04 LOCAL AI</code></a> ·
-  <a href="#compilers"><code>05 COMPILERS</code></a> ·
-  <a href="#builds"><code>06 BUILDS</code></a> ·
-  <a href="#whoami"><code>07 WHOAMI</code></a> ·
-  <a href="#stack"><code>08 STACK</code></a> ·
-  <a href="#contact"><code>09 CONTACT</code></a>
-</p>
+<img src="assets/hero.gif" width="100%" alt="Abhishek Singh. Compilers, CPU/GPU performance, autonomous systems." />
 
 <p align="center"><sub>Pune, IN · B.Tech, class of 2027 · Honors in Embedded Systems · DD Robocon 2026 National Finalist · open to compiler and performance internships</sub></p>
 
+### Projects
+
+1. **[GPU & CPU Performance Optimization for AI Workloads](#performance)**<br><sub>CUDA · Tensor Cores · NVIDIA Nsight · Intel VTune · OpenMP · AVX2</sub>
+2. **[VLA & VLM Fine-Tuning for Robotics Tasks](#autonomy)**<br><sub>VLMs · LoRA fine-tuning · model distillation · inference optimization · NVIDIA Isaac Sim</sub>
+3. **[Systolic-Array GEMM Hardware Accelerator](#accelerator)**<br><sub>SystemVerilog · simulation · FPGA · ASIC</sub>
+4. **[Local AI Voice Notes & Research Agent](#voice-notes)**<br><sub>Ollama · local LLMs · AI agent orchestration · human-in-the-loop · Google OAuth · cloud API integration · end-to-end encryption</sub>
+5. **[LLVM Loop Vectorization Analyzer](#compilers)**<br><sub>C++ · LLVM · compilers · GCC</sub>
+6. **[Leadership · DD Robocon 2026 National Finals](#leadership)**<br><sub>team of 55 · CAD design · robot integration</sub>
+7. **[Robotics Builds](#builds)**<br><sub>computer vision · ESP32 · MQTT · ROS 2</sub>
+
+**[About Me](#whoami)** · **[Skills](#stack)** · **[Contact](#contact)** · abhishekp135531@gmail.com · [LinkedIn](https://www.linkedin.com/in/abhishek-singh-a2003b287/) · [GitHub](https://github.com/Fe3w)
 
 ---
 
 <a id="performance"></a>
 
-### `01 — PERFORMANCE ENGINEERING`
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/titles/01-dark.svg">
+  <img src="assets/titles/01-light.svg" width="100%" alt="01 · GPU & CPU Performance Optimization for AI Workloads">
+</picture>
 
-#### Heterogeneous CPU/GPU Performance Analysis & Roofline Profiling
-<sub><code>Honors project · 2026</code> · complete · v1.1 · <code>C++ · CUDA · WMMA · OpenMP · AVX2/FMA · Nsight Compute · Nsight Systems · VTune</code></sub>
+<sub><code>B.Tech specialization project + conference paper · 2026</code> · <code>C++ · CUDA · WMMA Tensor Cores · OpenMP · AVX2/FMA · Nsight Compute · Nsight Systems · VTune</code></sub>
 
-[**Repository →**](https://github.com/Fe3w/GPU-CPU-Performance-Profiling_and-Optimization) · [**Project report**](https://drive.google.com/file/d/1XhWOYI6mYyLRbKIm25UFTFQibAgZOgr0/view?usp=sharing) · [**Seminar paper**](https://drive.google.com/file/d/1Iqg1ht8dw_D7Ud5cnDXnYjy3pSv4l__W/view?usp=sharing)
+**[Results, Comparisons, graphs & code](https://github.com/Fe3w/GPU-CPU-Performance-Profiling_and-Optimization)** · **[Project report](https://drive.google.com/file/d/1XhWOYI6mYyLRbKIm25UFTFQibAgZOgr0/view?usp=sharing)** · **[Conference paper](https://drive.google.com/file/d/1Iqg1ht8dw_D7Ud5cnDXnYjy3pSv4l__W/view?usp=sharing)**
 
-How far are textbook kernels from what the hardware can actually do, and *why*? Four workloads (vector add, dot product, matrix multiply and **Transformer attention**) optimized in three stages each on an **Intel Core i7-13650HX** and an **NVIDIA RTX 4060 Laptop GPU**, verified against double precision, and explained with profiling and Roofline analysis.
+How far are textbook kernels from what the hardware can actually do, and *why*? Four workloads (vector add, dot product, matrix multiply and **Transformer attention**) optimized in three stages each on an **Intel Core i7-13650HX** and an **NVIDIA RTX 4060 Laptop GPU**, verified against double precision, and explained with profiling and Roofline analysis. The conference paper, *Breaking the Compute Bottleneck*, presented and defended before a review panel, covers how CPU, GPU and NPU architectures and the compiler stack shape deep-learning performance.
 
-| Kernel | Arithmetic intensity | CPU speedup | GPU speedup | What limits it |
-|---|---|---|---|---|
-| Vector add | 0.083 FLOP/byte | **10.3×** | **1.0×** | memory-bound: 224 GB/s, 88% of DRAM peak |
-| Dot product | 0.25 FLOP/byte | **16.0×** | **34.5×** | block reduction removes the single-address atomic bottleneck |
-| GEMM | 171 FLOP/byte | **114×** · 0.73 → 83.4 GFLOP/s | **5.2×** · 874 → 4,551 GFLOP/s | shared-memory tiling, then TF32 Tensor Cores |
-| Attention | 15 → 363 FLOP/byte | **92.1×** | **50.1×** · 13.5 TFLOP/s | fusion cuts DRAM traffic 24–31×, then FP16 Tensor Cores |
+- **50.1×** for a FlashAttention-style fused attention kernel over an unfused baseline, at 0.03% error (online softmax, FP16 Tensor Cores).
+- **114×** on CPU GEMM (0.73 → 83.4 GFLOP/s) with cache blocking, OpenMP and AVX2.
+- **24×** less DRAM traffic from fusion but only 15% less runtime (Nsight Compute), so register tiling and Tensor Cores drove the speed-up. All 34 runs verified against a double-precision reference.
 
-<sub>CPU: cache blocking · OpenMP · AVX2/FMA. GPU: coalescing · block reduction · shared-memory tiling · FlashAttention-style fusion · TF32/FP16 WMMA Tensor Cores. All 34 stage runs verified against a double-precision reference · TF32 GEMM error <b>0.004%</b> · FP16 attention <b>0.03%</b>. One session, run <code>20261106-151143</code>.</sub>
+<p align="center"><a href="assets/media/gpu-speedup.png"><img src="assets/media/gpu-speedup.png" width="100%" alt="Speedup per workload, CPU and GPU, best version over the simple one" /></a><br><sub><b>The 4 workloads compared</b> · best version over the simple one, CPU and GPU</sub></p>
 
-<table>
-  <tr>
-    <td width="50%" valign="top"><a href="assets/media/gpu-speedup.png"><img src="assets/media/gpu-speedup.png" width="100%" alt="Speedup per workload, log scale: attention CPU 92.1x GPU 50.1x; matrix multiply CPU 114x GPU 5.2x; dot product CPU 16.0x GPU 34.5x; vector add CPU 10.3x GPU 1.0x" /></a><br><sub><b>Speedup</b> · best version over the simple one, per workload</sub></td>
-    <td width="50%" valign="top"><a href="assets/media/gpu-roofline.png"><img src="assets/media/gpu-roofline.png" width="100%" alt="Roofline of the RTX 4060 Laptop GPU with every GPU stage and how close each kernel gets to its roof" /></a><br><sub><b>Roofline</b> · every GPU stage against the RTX 4060 roofs</sub></td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top"><a href="assets/media/gpu-every-stage.png"><img src="assets/media/gpu-every-stage.png" width="100%" alt="Every optimization stage, CPU vs GPU, for vector add, dot product, GEMM and attention" /></a><br><sub><b>Every stage</b> · time per iteration, CPU vs GPU, W01 to W04</sub></td>
-    <td width="50%" valign="top"><a href="assets/media/gpu-attention-steps.png"><img src="assets/media/gpu-attention-steps.png" width="100%" alt="Attention speedup factored into kernel quality, fusion plus tiling, and FP16 Tensor Cores" /></a><br><sub><b>Attention</b> · where the 50× comes from: kernels, fusion, Tensor Cores</sub></td>
-  </tr>
-</table>
+<p align="center"><a href="assets/media/gpu-roofline.png"><img src="assets/media/gpu-roofline.png" width="100%" alt="Roofline of the RTX 4060 Laptop GPU with every GPU stage and how close each kernel gets to its roof" /></a><br><sub><b>Roofline</b> · every GPU stage against the RTX 4060 roofs</sub></p>
 
-<sub>Click any chart to open it full size. More figures in the <a href="https://github.com/Fe3w/GPU-CPU-Performance-Profiling_and-Optimization">repository</a>.</sub>
-
-**Every workload, CPU vs GPU, in 72 seconds** · animated from the final measurements: the optimization ladder, where each speedup comes from, the Roofline, and why the attention kernel ends up 50× faster.
-
-https://github.com/user-attachments/assets/09a2eef4-9177-4cbb-a606-08fad9ee938b
+<p align="center"><a href="assets/media/gpu-every-stage.png"><img src="assets/media/gpu-every-stage.png" width="100%" alt="Every optimization stage, CPU vs GPU, for vector add, dot product, GEMM and attention" /></a><br><sub><b>Every optimization step</b> · time per iteration, CPU vs GPU, for each workload</sub></p>
 
 **CPU vs GPU race** · every version of each task races on one shared clock. The race ends when the slowest version (the simple CPU code) finishes once. Longer bars mean faster code, drawn to true scale. The race slows to ¼ speed halfway through so you can see the differences.
 
@@ -70,38 +55,40 @@ https://github.com/user-attachments/assets/09a2eef4-9177-4cbb-a606-08fad9ee938b
 
 https://github.com/user-attachments/assets/d3523712-bdd1-449d-b2c5-de477e8fd905
 
+<sub>The race is a separate run from the charts above, so the figures differ slightly.</sub>
 
+<details>
+<summary><b>Full walkthrough video (72 s)</b> · explains the comparison results: goes over each workload, each optimization step and the CPU vs GPU comparison</summary>
+<br>
 
-<sub>A separate run from the report table above, so the figures differ slightly.</sub>
+https://github.com/user-attachments/assets/09a2eef4-9177-4cbb-a606-08fad9ee938b
 
-#### Seminar paper · Breaking the Compute Bottleneck
-<sub><code>Honors seminar · 2026</code></sub> · [**Read the paper**](https://drive.google.com/file/d/1Iqg1ht8dw_D7Ud5cnDXnYjy3pSv4l__W/view?usp=sharing)
-
-How CPU, GPU and TPU/NPU architectures evolved for deep learning, and how the compiler stack (LLVM IR, MLIR, SSA, control-flow graphs, alias and dependence analysis) shapes code generation, loop transformations, fusion and vectorization. Applies Roofline analysis to published NVIDIA A100 GEMM results.
+</details>
 
 ---
 
 <a id="autonomy"></a>
 
-### `02 — ROBOT LEARNING`
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/titles/02-dark.svg">
+  <img src="assets/titles/02-light.svg" width="100%" alt="02 · VLA & VLM Fine-Tuning for Robotics Tasks">
+</picture>
 
-#### Language-Driven Robot Pick-and-Place · VLM + NVIDIA Isaac Sim &nbsp;·&nbsp; [`GitHub ↗`](https://github.com/Fe3w/dobot-vlm-vla-pick-place)
-<sub><code>B.Tech project · 2026</code> · complete · <code>Python · NVIDIA Isaac Sim · PhysX · Dobot Magician · Vision-Language Models · OpenCV</code></sub>
+<sub><code>B.Tech project · 2026</code> · complete · <code>Python · NVIDIA Isaac Sim · PhysX · VLMs · LoRA · OpenCV · ArUco · Dobot Magician</code></sub>
 
-Type a task in plain English, such as *"pick up the green cube and place it next to the cylinder"*, and a Dobot Magician carries it out. There is no training data and there are no hand-taught waypoints. A vision-language model reads the task against an overhead camera image, but it only picks from numbered tags on the objects: what to pick, what to place it next to, and what to avoid. It never guesses coordinates. Camera rays cast into the scene turn those choices into 3D targets. Inverse kinematics and an obstacle-aware route planner then produce a collision-free path, and an automatic check confirms the object ended up where the task asked. Every task runs in NVIDIA Isaac Sim first. On the real arm, an ordinary phone camera, calibrated with ArUco markers, mirrors the table into the simulation, and the Dobot only replays a path that passed in simulation.
+**[Results, Comparisons, graphs & code](https://github.com/Fe3w/dobot-vlm-vla-pick-place)**
 
 - **40 s → under 8 s** decision time, with no paid-API dependence, by distilling larger models into local VLMs with LoRA.
 - Consensus across up to **4** model providers before the arm acts. Python serial driver for the Dobot and ArUco-marker localization.
 
-<p align="center">
-  <b>Simulation: language-conditioned pick-and-place in NVIDIA Isaac Sim</b><br>
-  <sub>Task: <i>"pick up the green cube and place it next to the cylinder"</i>. The VLM picks the target and reference objects, the planner routes around the other objects, and the arm places the cube and returns home.</sub>
-</p>
-<p align="center">
+<p align="center"><b>Simulation: language-conditioned pick-and-place in NVIDIA Isaac Sim</b><br><sub>Task: <i>"pick up the green cube and place it next to the cylinder"</i>. The VLM picks the target and reference objects, the planner routes around the other objects, and the arm places the cube and returns home.</sub></p>
 
+<p align="center"><video src="https://github.com/user-attachments/assets/72f1b7c5-dcc6-4cdb-b394-a746c9420f2f" width="760" controls muted></video></p>
 
-  <video src="https://github.com/user-attachments/assets/72f1b7c5-dcc6-4cdb-b394-a746c9420f2f" width="760" controls muted></video>
-</p>
+Type a task in plain English, such as *"pick up the green cube and place it next to the cylinder"*, and a Dobot Magician carries it out. There is no training data and there are no hand-taught waypoints. A vision-language model reads the task against an overhead camera image, but it only picks from numbered tags on the objects: what to pick, what to place it next to, and what to avoid. It never guesses coordinates. Camera rays cast into the scene turn those choices into 3D targets. Inverse kinematics and an obstacle-aware route planner then produce a collision-free path, and an automatic check confirms the object ended up where the task asked. Every task runs in NVIDIA Isaac Sim first. On the real arm, an ordinary phone camera, calibrated with ArUco markers, mirrors the table into the simulation, and the Dobot only replays a path that passed in simulation.
+
+<p align="center"><a href="assets/media/vla-architecture.svg"><img src="assets/media/vla-architecture.svg" width="100%" alt="VLA pipeline: a local VLM picks target, reference and relation from tagged objects, 4 providers must agree, camera rays give 3D targets, motion planning and an Isaac Sim check run first, then the real Dobot replays the checked path after a re-scan" /></a><br><sub><b>Architecture</b> · decide with a VLM, check in simulation, then run on the real arm</sub></p>
+
 **On the real Dobot Magician** · phone camera, ArUco markers that map pixels to the robot frame, and live object detection with pick coordinates in mm, checked against the arm's reach envelope
 
 <table>
@@ -111,29 +98,33 @@ Type a task in plain English, such as *"pick up the green cube and place it next
   </tr>
 </table>
 
-<p align="center"><img src="assets/media/dobot-detection-1.jpg" width="100%" alt="Height map and live camera view with detected objects and their robot-frame coordinates" /><br><img src="assets/media/dobot-detection-2.jpg" width="100%" alt="The same detection after the objects are rearranged" /><br><sub><b>Live detection</b> · height map (left) and camera view (right): each object is labelled with its x / y in mm and checked against the dashed reach rings. The second frame shows a rearranged scene.</sub></p>
+<p align="center"><img src="assets/media/dobot-detection-1.jpg" width="100%" alt="Height map and live camera view with detected objects and their robot-frame coordinates" /><br><sub><b>Live detection</b> · height map (left) and camera view (right): each object is labelled with its x / y in mm and checked against the dashed reach rings</sub></p>
 
-```mermaid
-%%{init: {"theme": "neutral"}}%%
-flowchart LR
-  CAM[RGB-D camera] --> VLM[fine-tuned VLM<br/>Qwen2.5-VL / InternVL3.5]
-  VLM --> PX[pixel coordinates] --> M[segmentation mask]
-  M --> D[depth → 3D target]
-  VLM --> R[symbolic rules<br/>explainable decision]
-  D --> IK[inverse kinematics] --> ARM[Dobot Magician]
-  R --> IK
-  SYN[synthetic data<br/>multi-model + consistency filter] -.fine-tune.-> VLM
-```
+<details>
+<summary><b>Second detection frame</b> · the same detection after the objects are rearranged</summary>
+<br>
+<img src="assets/media/dobot-detection-2.jpg" width="100%" alt="The same detection after the objects are rearranged" />
+</details>
+
 ---
 
 <a id="accelerator"></a>
 
-### `03 — HARDWARE ACCELERATOR`
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/titles/03-dark.svg">
+  <img src="assets/titles/03-light.svg" width="100%" alt="03 · Systolic-Array GEMM Hardware Accelerator">
+</picture>
 
-#### SysArray · 8×8 int8 Systolic-Array GEMM Accelerator &nbsp;·&nbsp; [`GitHub ↗`](https://github.com/Fe3w/systolic-array-gemm-accelerator)
 <sub><code>Personal project · Nov 2026</code> · complete · <code>SystemVerilog · Python · cocotb · Verilator · Yosys · nextpnr · OpenROAD (SKY130)</code></sub>
 
+**[Results, Comparisons, graphs & code](https://github.com/Fe3w/systolic-array-gemm-accelerator)**
+
 A matrix-multiply engine built from scratch, in the style of a TPU matrix unit: a weight-stationary **8×8 array** of multiply-add units in SystemVerilog with DMA, ping-pong buffers, an int32 accumulator and a command controller, plus a **Python tiling compiler** that splits any GEMM into hardware commands and a cycle-accurate performance model that predicts the cycle count before the hardware runs.
+
+<p align="center">
+  <img src="assets/media/sysarray-tile.gif" width="560" alt="The systolic array computing one tile, cycle by cycle, from the RTL simulation" /><br>
+  <sub><b>The array at work</b> · one frame per clock cycle (4×4 version, straight from RTL simulation): weights load from the top, inputs flow in from the left, sums flow down</sub>
+</p>
 
 | Result | Value |
 |---|---|
@@ -142,11 +133,6 @@ A matrix-multiply engine built from scratch, in the style of a TPU matrix unit: 
 | Performance model vs measured hardware cycles | **16 / 16** exact |
 | FPGA flow · Lattice ECP5 (Yosys + nextpnr) | core clock **60.55 → 98.93 MHz** |
 | ASIC flow · SkyWater SKY130 (OpenROAD) | **1.05 mm² core**, placed and routed, timing met at 66.7 MHz |
-
-<p align="center">
-  <img src="assets/media/sysarray-tile.gif" width="560" alt="The systolic array computing one tile, cycle by cycle, from the RTL simulation" /><br>
-  <sub><b>The array at work</b> · one frame per clock cycle (4×4 version, straight from RTL simulation): weights load from the top, inputs flow in from the left, sums flow down</sub>
-</p>
 
 <p align="center"><a href="assets/media/sysarray-architecture.png"><img src="assets/media/sysarray-architecture.png" width="100%" alt="SysArray architecture: Python compiler sends commands to the controller, DMA moves data between memory, the weight buffer and the ping-pong input buffer, the 8x8 PE array feeds an int32 accumulator" /></a><br><sub><b>Architecture</b> · compiler → controller → DMA → buffers → 8×8 PE array → accumulator</sub></p>
 
@@ -157,30 +143,33 @@ A matrix-multiply engine built from scratch, in the style of a TPU matrix unit: 
   </tr>
 </table>
 
-<sub>More figures, waveforms and the full write-up in the <a href="https://github.com/Fe3w/systolic-array-gemm-accelerator">repository</a>.</sub>
-
 ---
 
 <a id="voice-notes"></a>
 
-### `04 — LOCAL AI` <sub>code private · demo coming soon</sub>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/titles/04-dark.svg">
+  <img src="assets/titles/04-light.svg" width="100%" alt="04 · Local AI Voice Notes & Research Agent">
+</picture>
 
-#### Private Voice Notes with Local AI · Android + Linux
-<sub><code>Personal project · Oct to Nov 2026</code> · <code>Kotlin · Jetpack Compose · Python · faster-whisper · Ollama · SQLite · AES-256-GCM · Google Drive API · Trilium</code></sub>
+<sub><code>Personal project · Oct to Nov 2026</code> · code private · demo coming soon · <code>Ollama · local LLMs · Whisper · Python · Kotlin (Android) · Google OAuth · Google Cloud APIs · AES-256-GCM · SQLite · Trilium</code></sub>
 
 Speak a thought into the phone ("research idea…", "gym…", "journal…") and it becomes a structured English page on the laptop, with **no cloud AI and no server**. The Android app records offline and uploads end-to-end encrypted objects to Google Drive's hidden app folder. The laptop transcribes them with Whisper and a local LLM on an 8 GB GPU, turns English and Hindi speech into a title, summary, decisions and next actions, each item backed by a quote from the transcript, and syncs the result back to the phone. If a note asks for something ("research the last three years of X"), the laptop drafts a plan, I approve it on the phone, and it writes a cited report using free tools.
 
+The laptop coordinates every stage on one 8 GB GPU: speech-to-text and the LLM never run at the same time, a planner, executor, reader and writer run the research agent with checkpoints and time budgets, and agent jobs pause whenever a new voice note arrives so notes always go first.
+
 - **6 of 6** Hindi test notes translated by the chosen model (vs 1 of 6 for a larger model), with all **62** extracted items quoted from the transcript.
 - **0** notes lost and **0** duplicates when a proxy cut **35%** of connections, using AES-256-GCM objects authenticated by name and UUIDv7 idempotency keys.
-- Research agent with plan-and-approve on the phone: false automatic runs cut from **5 to 0** on 36 test phrasings.
+- Research agent with plan-and-approve on the phone: false automatic runs cut from **5 to 0** on 36 test phrasings, by requiring the model and a deterministic rule check to agree.
 
 ```mermaid
 %%{init: {"theme": "neutral"}}%%
 flowchart LR
-  P[Android app<br/>offline capture] -->|AES-256-GCM| D[Drive hidden<br/>app folder]
-  D --> W[Whisper<br/>local GPU]
+  P[Android app<br/>offline capture] -->|AES-256-GCM| D[Google Drive<br/>hidden app folder]
+  D --> W[speech-to-text<br/>local GPU]
   W --> L[local LLM<br/>quote-grounded output]
   L --> T[Trilium workspace]
+  L --> A[research agent<br/>plan, approve, cite]
   L -->|results, plans, reports| D
   D --> P
 ```
@@ -198,12 +187,14 @@ flowchart LR
 
 <a id="compilers"></a>
 
-### `05 — COMPILERS`
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/titles/05-dark.svg">
+  <img src="assets/titles/05-light.svg" width="100%" alt="05 · LLVM Loop Vectorization Analyzer">
+</picture>
 
-#### Loop Vectorization Analyzer · LLVM 20 Pass Plugin &nbsp;·&nbsp; [`GitHub ↗`](https://github.com/Fe3w/Loop-Vectorization-Analyzer)
 <sub><code>Personal project · Nov 2026</code> · complete · <code>C++ · LLVM 20 · Clang · ScalarEvolution · DependenceAnalysis · lit / FileCheck · GitHub Actions</code></sub>
 
-[**Repository →**](https://github.com/Fe3w/Loop-Vectorization-Analyzer) · [**Write-up**](https://github.com/Fe3w/Loop-Vectorization-Analyzer/blob/main/docs/writeup.md) · [**Bug reproducer**](https://github.com/Fe3w/Loop-Vectorization-Analyzer/blob/main/test/interchange/confused-miscompile.test)
+**[Results, Comparisons, graphs & code](https://github.com/Fe3w/Loop-Vectorization-Analyzer)** · **[Write-up](https://github.com/Fe3w/Loop-Vectorization-Analyzer/blob/main/docs/writeup.md)** · **[Bug reproducer](https://github.com/Fe3w/Loop-Vectorization-Analyzer/blob/main/test/interchange/confused-miscompile.test)**
 
 Why did LLVM leave this loop scalar? A plugin that runs inside `clang -O3` just before the loop vectorizer, explains each rejected loop from LLVM's own analyses with a category, the evidence and a source-level fix, checks its answers against LLVM, and repairs one class of blocked loops. 204 lit/FileCheck tests run in GitHub Actions.
 
@@ -225,30 +216,50 @@ Why did LLVM leave this loop scalar? A plugin that runs inside `clang -O3` just 
   </tr>
 </table>
 
-<sub>Click any chart to open it full size.</sub>
+---
+
+<a id="leadership"></a>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/titles/06-dark.svg">
+  <img src="assets/titles/06-light.svg" width="100%" alt="06 · Leadership · DD Robocon 2026 National Finals">
+</picture>
+
+<sub><code>Jan to Jun 2026</code> · <b>Design Lead and Team Co-Head</b> · Team Robominds, Symbiosis Institute of Technology · National Robotics Competition</sub>
+
+Responsible for CAD design and integration of both robots, oversaw and coordinated the build, and kept the simulation in line with the physical robots.
+
+- Reached the **National Finals at IIT Delhi**, one of **39 institutions** in India's qualifier for ABU Robocon, after scoring **90/100** in Stage 1.
+- Led the largest sub-team (about 10 designers) through **9 major design iterations** of two robots under the contest's weight and size limits, managing fabrication and keeping simulation and electrical work aligned with the design.
+- Designed a 25 kg omni-wheel robot and a 20 kg six-wheel rocker-bogie robot, a scissor lift sized with a **3,000 N** actuator against a 1,320 N worst-case load (safety factor 2.27), and a 5-DoF arm sized for 113.6 kg-cm torque.
+- Grew the team from **6 core members to 55** (35 active daily) through recruitment, an outreach event for over 80 students and design, computer vision and simulation workshops.
+
+**[Technical Document](https://drive.google.com/file/d/1hJCpC_qRZUSHyYDyhoY7EmVvnCkF-aHr/view?usp=sharing)** · **[Stage 1 Result](https://www.linkedin.com/posts/robocon2026-robotics-innovation-ugcPost-7437088494499414016-Bv9j/)** · **[Finals Selection](https://www.linkedin.com/posts/vulavakattu-ena-vamsi_ddrobocon2026-teamrobominds-sitpune-share-7467160726441431040-KbPs/)** · **[LinkedIn Post](https://www.linkedin.com/posts/abhishek-singh-a2003b287_robocon2026-teamrobominds-automation-ugcPost-7438862846412771328-uZSR)**
+
+https://github.com/user-attachments/assets/18fe45f4-467c-4aaa-97d2-063ad31eb409
 
 ---
 
 <a id="builds"></a>
 
-### `06 — MORE BUILDS & LEADERSHIP`
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/titles/07-dark.svg">
+  <img src="assets/titles/07-light.svg" width="100%" alt="07 · Robotics Builds">
+</picture>
 
 #### Gesture-Controlled Robotic Hand (Computer Vision)
 3D-printed hand driven by real-time OpenCV/MediaPipe hand tracking. Commands stream over MQTT to an ESP32 in **under 100 ms**. I wrote the ESP32 subscriber firmware and made CAD changes for mechanical alignment.
 
 https://github.com/user-attachments/assets/1f63cb8e-624d-42df-a676-d73537d68324
 
-#### Team Robominds · DD Robocon 2026 — Design Lead & Co-Head
-<sub>Jan – Jun 2026</sub>
+#### ROS 2 TurtleBot3 Target Tracking with LiDAR Collision Avoidance
+<sub><code>Python · ROS 2 Humble · Gazebo · TurtleBot3 · OpenCV</code> · **[Results, Comparisons, graphs & code](https://github.com/Fe3w/Pepermint_task1_abhishek)**</sub>
 
-Reached the **National Finals at IIT Delhi** (one of **39** institutions in India's qualifier for ABU Robocon) after scoring **90/100** in Stage 1. Led the largest sub-team (about **10** designers) through **9** major design iterations of two robots, as the team grew from **6** core members to **55**. Owned planning and technical decisions on component selection, structural load analysis and actuation design under strict weight and geometry limits, following a V-Model lifecycle. [Event update on LinkedIn →](https://www.linkedin.com/posts/abhishek-singh-a2003b287_robocon2026-teamrobominds-automation-ugcPost-7438862846412771328-uZSR)
+A two-node ROS 2 package: OpenCV visual servoing chases a target, and a LiDAR check stops the robot at 0.5 m, in Gazebo.
 
-https://github.com/user-attachments/assets/18fe45f4-467c-4aaa-97d2-063ad31eb409
-
-#### Vision-Based Target Tracking with LiDAR Collision Avoidance (ROS 2)
-<sub><code>Python · ROS 2 Humble · Gazebo · TurtleBot3 · OpenCV</code> · [**repo →**](https://github.com/Fe3w/Pepermint_task1_abhishek)</sub>
-
-A two-node ROS 2 package: HSV segmentation and contour centroids feed a proportional visual-servoing controller; the robot spins to reacquire a lost target, and a LiDAR check (0.5 m in a 20° frontal cone) stops it before a collision. All gains and thresholds are ROS 2 parameters, with a one-command launch file.
+<details>
+<summary><b>TurtleBot3 videos</b> · target pursuit and LiDAR stop</summary>
+<br>
 
 **Target search, acquisition and pursuit** · the TurtleBot3 rotates in place to locate the target, then follows it using proportional visual servoing on the image-centre error.
 
@@ -257,6 +268,8 @@ https://github.com/user-attachments/assets/8b71ba75-8a89-4cfd-ae5a-b8ca14dbee04
 **LiDAR-based collision avoidance** · as the robot closes in, the frontal-cone range check commands zero velocity before contact.
 
 https://github.com/user-attachments/assets/fcea9351-c6b0-4003-a7d3-23be096ce114
+
+</details>
 
 <details>
 <summary><b>Python tooling</b></summary>
@@ -273,7 +286,10 @@ https://github.com/user-attachments/assets/fcea9351-c6b0-4003-a7d3-23be096ce114
 
 <a id="whoami"></a>
 
-### `07 — WHOAMI`
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/titles/08-dark.svg">
+  <img src="assets/titles/08-light.svg" width="100%" alt="08 · About Me">
+</picture>
 
 Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbiosis Institute of Technology, Pune, **working my way down the stack**. I started with autonomous systems that perceive, decide and act. Now most of my time goes to what sits underneath them: the kernels, the compilers and the hardware that decide how fast any of it runs.
 
@@ -299,7 +315,10 @@ Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbios
 
 <a id="stack"></a>
 
-### `08 — STACK`
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/titles/09-dark.svg">
+  <img src="assets/titles/09-light.svg" width="100%" alt="09 · Skills">
+</picture>
 
 <img src="assets/stack.png" width="100%" alt="The stack, top to bottom. Autonomy: ROS 2, Gazebo, Isaac Sim, VLMs, OpenCV, MATLAB. Kernels: CUDA, PTX, WMMA, Tensor Cores, OpenMP, AVX2/FMA. Compilers: LLVM, Clang, LLVM IR, pass plugins, Nsight Compute, VTune, roofline. Silicon: GPU SMs, memory hierarchy, STM32, ESP32, RTOS, UART/SPI/I2C/CAN, SystemVerilog. Languages: C, C++, Python, CMake, Linux, Git" />
 
@@ -321,13 +340,19 @@ Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbios
 </details>
 
 ---
+
 <a id="contact"></a>
 
-### `09 — CONTACT`
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/titles/10-dark.svg">
+  <img src="assets/titles/10-light.svg" width="100%" alt="10 · Contact">
+</picture>
 
 <div align="center">
 
 **Working on compilers, GPU performance or autonomous systems that need to run faster? Say hello.**
+
+**Email:** abhishekp135531@gmail.com
 
 [Email](mailto:abhishekp135531@gmail.com) · [LinkedIn](https://www.linkedin.com/in/abhishek-singh-a2003b287/) · [GitHub](https://github.com/Fe3w) · [LeetCode](https://leetcode.com/u/Abhishek_P_S_/) · [X](https://x.com/Fe3ws_)
 
@@ -335,9 +360,6 @@ Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbios
 
 <br>
 
-<a href="https://x.com/Ki11_5trike" title="Umbrella art by @Ki11_5trike"><img src="assets/media/art-umbrella.gif" width="260" alt="Animated glitch-art figure under an umbrella by @Ki11_5trike" /></a>
-
-<sub>Hourglass and umbrella art by <a href="https://x.com/Ki11_5trike"><b>@Ki11_5trike</b></a></sub>
-
+<img src="assets/media/art-umbrella.gif" width="260" alt="Animated glitch-art figure under an umbrella" />
 
 </div>
