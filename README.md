@@ -233,15 +233,15 @@ Why did LLVM leave this loop scalar? A plugin that runs inside `clang -O3` just 
 
 ### `06 — MORE BUILDS & LEADERSHIP`
 
-#### EMG + Computer-Vision Robotic Hand
-3D-printed hand driven by EMG input and a real-time OpenCV/MediaPipe gesture tracker; commands stream over MQTT to an ESP32 with **<100 ms** actuator response. I wrote the ESP32 subscriber firmware and made CAD changes for mechanical alignment.
+#### Gesture-Controlled Robotic Hand (Computer Vision)
+3D-printed hand driven by real-time OpenCV/MediaPipe hand tracking. Commands stream over MQTT to an ESP32 in **under 100 ms**. I wrote the ESP32 subscriber firmware and made CAD changes for mechanical alignment.
 
 https://github.com/user-attachments/assets/1f63cb8e-624d-42df-a676-d73537d68324
 
 #### Team Robominds · DD Robocon 2026 — Design Lead & Co-Head
 <sub>Jan – Jun 2026</sub>
 
-Led a **30-member** cross-functional team through rapid design iterations: **90/100** in the preliminary round and a place in the **National Finals (Stage 3) at IIT Delhi**. Owned planning and technical decisions on component selection, structural load analysis and actuation design under strict weight and geometry limits, following a V-Model lifecycle. [Event update on LinkedIn →](https://www.linkedin.com/posts/abhishek-singh-a2003b287_robocon2026-teamrobominds-automation-ugcPost-7438862846412771328-uZSR)
+Reached the **National Finals at IIT Delhi** (one of **39** institutions in India's qualifier for ABU Robocon) after scoring **90/100** in Stage 1. Led the largest sub-team (about **10** designers) through **9** major design iterations of two robots, as the team grew from **6** core members to **55**. Owned planning and technical decisions on component selection, structural load analysis and actuation design under strict weight and geometry limits, following a V-Model lifecycle. [Event update on LinkedIn →](https://www.linkedin.com/posts/abhishek-singh-a2003b287_robocon2026-teamrobominds-automation-ugcPost-7438862846412771328-uZSR)
 
 https://github.com/user-attachments/assets/18fe45f4-467c-4aaa-97d2-063ad31eb409
 
