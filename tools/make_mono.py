@@ -1,6 +1,6 @@
 """Black-and-white profile graphics (square corners, framed groups, Inter + DejaVu Sans Mono).
 Builds:
-  assets/hero.gif        banner, with the animated hourglass (art by @Ki11_5trike) in its frame
+  assets/hero.gif        banner, with the animated hourglass in its frame
   assets/terminal.png    whoami / now / bench panel
   assets/stack.png       the stack, top to bottom
 Run:  python tools/make_mono.py      (needs playwright, pillow)
@@ -39,7 +39,7 @@ h1{font:800 104px/1.02 Inter;letter-spacing:-.02em;margin-top:22px}
 .step{border:3px solid #111;padding:12px 18px;font:24px 'DejaVu Sans Mono'}
 .step.last{background:#111;color:#fff}
 #art{width:292px;height:440px;border:4px solid #111;position:relative;background:#ddd}
-.credit{font:18px 'DejaVu Sans Mono';color:#555;margin-top:10px;text-align:right}
+.hero .kicker{font-size:21px;letter-spacing:.04em;white-space:nowrap}
 """
 
 
@@ -49,11 +49,11 @@ def hero_html():
         for i, s in enumerate(["autonomous systems", "CUDA kernels", "LLVM IR", "silicon"]))
     return page(f"""
 <div class="frame hero"><div class=tab>~/fe3w · README.md</div>
-<div><div class=kicker>COMPILERS · CPU/GPU PERFORMANCE · AUTONOMOUS SYSTEMS</div>
+<div><div class=kicker>GPU &amp; CPU PERFORMANCE · COMPILERS · AI INTEGRATION · PHYSICAL AI</div>
 <h1>Abhishek<br>Singh</h1>
 <div class=sub>Working down the stack, from robots to silicon.</div>
 <div class=seq>{steps}</div></div>
-<div><div id=art></div><div class=credit>art · @Ki11_5trike</div></div>
+<div><div id=art></div></div>
 </div>""", HERO_CSS)
 
 
