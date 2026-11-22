@@ -20,7 +20,7 @@ LLVM 20 pass plugin in C++ that explains why the loop vectorizer rejects a loop,
 - **13 of 14** suggested fixes make LLVM vectorize the loop. The repair transform reached up to **5.79x** on cholesky with `-ffast-math -march=native` (1.05x in strict FP), with 60 of 60 strict-FP outputs byte-identical.
 - **Wrong-result bug** in LLVM 20.1.2's loop-interchange pass found and reproduced (checksum 1,961,666 to 171,990), fixed in LLVM 21.
 
-**SysArray: 8x8 int8 systolic-array GEMM accelerator** · Personal Project · Nov 2026 · Code: coming soon
+**SysArray: 8x8 int8 systolic-array GEMM accelerator** · Personal Project · Nov 2026 · [Repo](https://github.com/Fe3w/systolic-array-gemm-accelerator)
 
 Weight-stationary 8x8 array in SystemVerilog with DMA, buffers, int32 accumulator and command controller, plus a Python tiling compiler and cycle-accurate performance model.
 
