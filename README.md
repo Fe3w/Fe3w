@@ -11,7 +11,7 @@
 
 ## Projects
 
-### 01 · [GPU & CPU Performance Optimization for AI Workloads](#performance)
+### 01 · [GPU & CPU Performance Optimization for AI Workloads , Confrence paper & Project](#performance)
 CUDA · Tensor Cores · NVIDIA Nsight · Intel VTune · OpenMP · AVX2
 
 ### 02 · [Vision-Language-Action (VLA) Pipeline & Vision-Language Model Fine-Tuning for Robotics](#autonomy)
