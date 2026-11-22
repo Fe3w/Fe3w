@@ -283,14 +283,14 @@ https://github.com/user-attachments/assets/fcea9351-c6b0-4003-a7d3-23be096ce114
   <img src="assets/titles/08-light.svg" width="100%" alt="08 · About Me">
 </picture>
 
-**Robotics & Automation** engineering student (Honors in **Embedded Systems**, class of 2027) from Symbiosis Institute of Technology, Pune. I work across the stack: at the low end, the **kernels, compilers and hardware** that decide how fast AI runs, and at the high end, **perception, high-level robotics and physical AI**.
+**Robotics & Automation** engineering student (Honors in **Embedded Systems**, class of 2027) from Symbiosis Institute of Technology, Pune. I work on two things: making AI run fast, through **GPU kernels, compilers and CPU/GPU architecture**, and putting AI to work, by **integrating LLMs and AI agents into real products** as a forward-deployed engineer. A robotics background adds **physical AI** to the mix.
 
-**Open to internships and graduate roles in:**
+### Open to internships and graduate roles in
 
 1. **GPU & CPU performance, architecture and compilers:** GPU and CPU optimization, LLVM, hardware accelerators
 2. **AI integration and forward-deployed engineering (FDE):** bringing LLMs and AI agents into real products, model optimization and distillation, local and cloud AI
 
-#### Education
+### Education
 
 **Symbiosis Institute of Technology, Pune** · Jun 2027<br>
 B.Tech, Robotics & Automation Engineering (Honors: **Embedded Systems**) · CGPA 7.65/10
@@ -301,7 +301,7 @@ B.Tech, Robotics & Automation Engineering (Honors: **Embedded Systems**) · CGPA
 - **B.Tech project:** Vision-Language-Action (VLA) pipeline for robotic pick-and-place on a Dobot Magician ([GitHub & Video](https://github.com/Fe3w/dobot-vlm-vla-pick-place))
 - **Areas of focus:** GPU and CPU performance, compilers, hardware accelerators, AI integration, robotics and physical AI
 
-#### Self-paced courses, certifications and competitions
+### Self-paced courses, certifications and competitions
 
 - [**Compilers (CS143)**](https://www.edx.org/learn/computer-science/stanford-university-compilers), Stanford: lexing and parsing · semantic analysis · code generation · optimization
 - [**Advanced Compilers (CS 6120)**](https://www.cs.cornell.edu/courses/cs6120/2025fa/syllabus/), Cornell: LLVM IR · SSA · dataflow analysis · loop optimization
@@ -325,12 +325,16 @@ B.Tech, Robotics & Automation Engineering (Honors: **Embedded Systems**) · CGPA
   <img src="assets/titles/09-light.svg" width="100%" alt="09 · Skills">
 </picture>
 
-- **Languages:** C++, C, Python, CUDA, SystemVerilog
-- **GPU, CPU & compiler performance:** GPU architecture, memory hierarchy, Tensor Cores, LLVM, Clang, GCC, OpenMP, AVX2, NVIDIA Nsight, Intel VTune, Roofline analysis
-- **AI integration & agents:** AI agents with tool use, LLM evals and guardrails, retrieval with cited sources, human-centered AI design and integration, local LLM serving (Ollama), speech-to-text (Whisper), cloud backend integration (Google Cloud, OAuth 2.0, REST APIs), Claude Code
-- **Model optimization:** LoRA fine-tuning, knowledge distillation, quantized inference, vision-language model latency reduction (**40 s → under 8 s** per decision)
-- **Robotics & physical AI:** ROS 2, Gazebo, NVIDIA Isaac Sim, NVIDIA Isaac Lab, OpenCV, STM32 (ARM Cortex-M), ESP32, RTOS, CAN
-- **Tools:** Linux, Git, GitHub Actions, MATLAB/Simulink, SolidWorks, Fusion 360
+| Area | Skills |
+|---|---|
+| **Languages** | C++ · C · Python · CUDA · SystemVerilog |
+| **GPU & CPU performance** | GPU architecture · memory hierarchy · Tensor Cores · OpenMP · AVX2 · NVIDIA Nsight · Intel VTune · Roofline analysis |
+| **Compilers** | LLVM · Clang · GCC |
+| **AI integration** | AI agents · LLM evals & guardrails · retrieval with citations · local LLMs (Ollama) · Google Cloud integration · Claude Code |
+| **Model optimization** | LoRA fine-tuning · knowledge distillation · quantized inference · vision-language model latency **40 s → under 8 s** |
+| **Robotics & physical AI** | ROS 2 · Gazebo · NVIDIA Isaac Sim · NVIDIA Isaac Lab · OpenCV |
+| **Embedded** | STM32 (ARM Cortex-M) · ESP32 · RTOS · CAN |
+| **Tools** | Linux · Git · GitHub Actions · MATLAB/Simulink · SolidWorks · Fusion 360 |
 
 ---
 
