@@ -7,7 +7,7 @@
 
 <img src="assets/hero.gif" width="100%" alt="Abhishek Singh. Compilers, CPU/GPU performance, autonomous systems." />
 
-<p align="center"><sub>Pune, IN · B.Tech, class of 2027 · Honors in Embedded Systems · DD Robocon 2026 National Finalist · open to compiler and performance internships</sub></p>
+<p align="center"><sub>Pune, IN · B.Tech, class of 2027 · Honors in Embedded Systems · DD Robocon 2026 National Finalist · open to compiler and performance or FDE/SDE internships</sub></p>
 
 ## Projects
 
