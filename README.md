@@ -9,17 +9,32 @@
 
 <p align="center"><sub>Pune, IN · B.Tech, class of 2027 · Honors in Embedded Systems · DD Robocon 2026 National Finalist · open to compiler and performance internships</sub></p>
 
-### Projects
+## Projects
 
-1. **[GPU & CPU Performance Optimization for AI Workloads](#performance)**<br><sub>CUDA · Tensor Cores · NVIDIA Nsight · Intel VTune · OpenMP · AVX2</sub>
-2. **[VLA & VLM Fine-Tuning for Robotics Tasks](#autonomy)**<br><sub>VLMs · LoRA fine-tuning · model distillation · inference optimization · NVIDIA Isaac Sim</sub>
-3. **[Systolic-Array GEMM Hardware Accelerator](#accelerator)**<br><sub>SystemVerilog · simulation · FPGA · ASIC</sub>
-4. **[Local AI Voice Notes & Research Agent](#voice-notes)**<br><sub>Ollama · local LLMs · AI agent orchestration · human-in-the-loop · Google OAuth · cloud API integration · end-to-end encryption</sub>
-5. **[LLVM Loop Vectorization Analyzer](#compilers)**<br><sub>C++ · LLVM · compilers · GCC</sub>
-6. **[Leadership · DD Robocon 2026 National Finals](#leadership)**<br><sub>team of 55 · CAD design · robot integration</sub>
-7. **[Robotics Builds](#builds)**<br><sub>computer vision · ESP32 · MQTT · ROS 2</sub>
+### 01 · [GPU & CPU Performance Optimization for AI Workloads](#performance)
+CUDA · Tensor Cores · NVIDIA Nsight · Intel VTune · OpenMP · AVX2
 
-**[About Me](#whoami)** · **[Skills](#stack)** · **[Contact](#contact)** · abhishekp135531@gmail.com · [LinkedIn](https://www.linkedin.com/in/abhishek-singh-a2003b287/) · [GitHub](https://github.com/Fe3w)
+### 02 · [Vision-Language-Action (VLA) Pipeline & Vision-Language Model Fine-Tuning for Robotics](#autonomy)
+vision-language models · LoRA fine-tuning · model distillation · inference optimization · NVIDIA Isaac Sim
+
+### 03 · [Systolic-Array GEMM Hardware Accelerator](#accelerator)
+SystemVerilog · simulation · FPGA · ASIC
+
+### 04 · [AI Research Agent & Voice-Activated Notes, Running on Local LLMs](#voice-notes)
+Ollama · local LLMs · AI agent orchestration · human-in-the-loop · Google OAuth · cloud API integration · end-to-end encryption
+
+### 05 · [LLVM 20 Loop Vectorization Analyzer](#compilers)
+C++ · LLVM 20 · compilers · GCC
+
+### 06 · [Design Lead & Team Co-Head · DD Robocon 2026 National Finals](#leadership)
+national-level robotics competition · team coordination · dispute resolution · recruitment and mentoring · CAD design and integration
+
+### 07 · [Robotics Builds: Computer Vision, ROS 2 & CAD](#builds)
+OpenCV · ROS 2 · Gazebo · CAD design (SolidWorks) · ESP32 · MQTT
+
+### [About Me](#whoami) · [Skills](#stack) · [Contact](#contact)
+
+**Email:** abhishekp135531@gmail.com · [LinkedIn](https://www.linkedin.com/in/abhishek-singh-a2003b287/) · [GitHub](https://github.com/Fe3w)
 
 ---
 
@@ -71,23 +86,23 @@ https://github.com/user-attachments/assets/09a2eef4-9177-4cbb-a606-08fad9ee938b
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/titles/02-dark.svg">
-  <img src="assets/titles/02-light.svg" width="100%" alt="02 · VLA & VLM Fine-Tuning for Robotics Tasks">
+  <img src="assets/titles/02-light.svg" width="100%" alt="02 · Vision-Language-Action Pipeline & Vision-Language Model Fine-Tuning for Robotics">
 </picture>
 
-<sub><code>B.Tech project · 2026</code> · complete · <code>Python · NVIDIA Isaac Sim · PhysX · VLMs · LoRA · OpenCV · ArUco · Dobot Magician</code></sub>
+<sub><code>B.Tech project · 2026</code> · complete · <code>Python · NVIDIA Isaac Sim · PhysX · vision-language models (VLMs) · LoRA · OpenCV · ArUco · Dobot Magician</code></sub>
 
 **[Results, Comparisons, graphs & code](https://github.com/Fe3w/dobot-vlm-vla-pick-place)**
 
-- **40 s → under 8 s** decision time, with no paid-API dependence, by distilling larger models into local VLMs with LoRA.
+- **40 s → under 8 s** decision time, with no paid-API dependence, by distilling larger models into local vision-language models with LoRA.
 - Consensus across up to **4** model providers before the arm acts. Python serial driver for the Dobot and ArUco-marker localization.
 
-<p align="center"><b>Simulation: language-conditioned pick-and-place in NVIDIA Isaac Sim</b><br><sub>Task: <i>"pick up the green cube and place it next to the cylinder"</i>. The VLM picks the target and reference objects, the planner routes around the other objects, and the arm places the cube and returns home.</sub></p>
+<p align="center"><b>Simulation: language-conditioned pick-and-place in NVIDIA Isaac Sim</b><br><sub>Task: <i>"pick up the green cube and place it next to the cylinder"</i>. The vision-language model picks the target and reference objects, the planner routes around the other objects, and the arm places the cube and returns home.</sub></p>
 
 <p align="center"><video src="https://github.com/user-attachments/assets/72f1b7c5-dcc6-4cdb-b394-a746c9420f2f" width="760" controls muted></video></p>
 
 Type a task in plain English, such as *"pick up the green cube and place it next to the cylinder"*, and a Dobot Magician carries it out. There is no training data and there are no hand-taught waypoints. A vision-language model reads the task against an overhead camera image, but it only picks from numbered tags on the objects: what to pick, what to place it next to, and what to avoid. It never guesses coordinates. Camera rays cast into the scene turn those choices into 3D targets. Inverse kinematics and an obstacle-aware route planner then produce a collision-free path, and an automatic check confirms the object ended up where the task asked. Every task runs in NVIDIA Isaac Sim first. On the real arm, an ordinary phone camera, calibrated with ArUco markers, mirrors the table into the simulation, and the Dobot only replays a path that passed in simulation.
 
-<p align="center"><a href="assets/media/vla-architecture.svg"><img src="assets/media/vla-architecture.svg" width="100%" alt="VLA pipeline: a local VLM picks target, reference and relation from tagged objects, 4 providers must agree, camera rays give 3D targets, motion planning and an Isaac Sim check run first, then the real Dobot replays the checked path after a re-scan" /></a><br><sub><b>Architecture</b> · decide with a VLM, check in simulation, then run on the real arm</sub></p>
+<p align="center"><a href="assets/media/vla-architecture.svg"><img src="assets/media/vla-architecture.svg" width="100%" alt="Vision-Language-Action pipeline: a local vision-language model picks target, reference and relation from tagged objects, 4 providers must agree, camera rays give 3D targets, motion planning and an Isaac Sim check run first, then the real Dobot replays the checked path after a re-scan" /></a><br><sub><b>Vision-Language-Action (VLA) architecture</b> · decide with a vision-language model, check in simulation, then run on the real arm</sub></p>
 
 **On the real Dobot Magician** · phone camera, ArUco markers that map pixels to the robot frame, and live object detection with pick coordinates in mm, checked against the arm's reach envelope
 
@@ -149,7 +164,7 @@ A matrix-multiply engine built from scratch, in the style of a TPU matrix unit: 
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/titles/04-dark.svg">
-  <img src="assets/titles/04-light.svg" width="100%" alt="04 · Local AI Voice Notes & Research Agent">
+  <img src="assets/titles/04-light.svg" width="100%" alt="04 · AI Research Agent & Voice-Activated Notes, Running on Local LLMs">
 </picture>
 
 <sub><code>Personal project · Oct to Nov 2026</code> · code private · demo coming soon · <code>Ollama · local LLMs · Whisper · Python · Kotlin (Android) · Google OAuth · Google Cloud APIs · AES-256-GCM · SQLite · Trilium</code></sub>
@@ -162,22 +177,12 @@ The laptop coordinates every stage on one 8 GB GPU: speech-to-text and the LLM n
 - **0** notes lost and **0** duplicates when a proxy cut **35%** of connections, using AES-256-GCM objects authenticated by name and UUIDv7 idempotency keys.
 - Research agent with plan-and-approve on the phone: false automatic runs cut from **5 to 0** on 36 test phrasings, by requiring the model and a deterministic rule check to agree.
 
-```mermaid
-%%{init: {"theme": "neutral"}}%%
-flowchart LR
-  P[Android app<br/>offline capture] -->|AES-256-GCM| D[Google Drive<br/>hidden app folder]
-  D --> W[speech-to-text<br/>local GPU]
-  W --> L[local LLM<br/>quote-grounded output]
-  L --> T[Trilium workspace]
-  L --> A[research agent<br/>plan, approve, cite]
-  L -->|results, plans, reports| D
-  D --> P
-```
+<p align="center"><a href="assets/media/voice-notes-architecture.svg"><img src="assets/media/voice-notes-architecture.svg" width="100%" alt="Architecture: the Android app encrypts voice notes and syncs them through a Google Drive app folder. The laptop runs speech-to-text and a local LLM on one GPU, checks every item against the transcript and writes workspace pages. A research agent runs only after the plan is approved on the phone and returns a cited report." /></a><br><sub><b>Architecture</b> · phone capture, local AI on one GPU, human-approved research agent</sub></p>
 
 <table>
   <tr>
     <td width="50%" valign="top"><img src="assets/placeholder-video.svg" width="100%" alt="Placeholder: demo video coming soon" /><br><sub><b>Demo video</b> · coming soon</sub></td>
-    <td width="50%" valign="top"><img src="assets/placeholder-image.svg" width="100%" alt="Placeholder: screenshots and architecture diagram coming soon" /><br><sub><b>Screenshots and architecture diagram</b> · coming soon</sub></td>
+    <td width="50%" valign="top"><img src="assets/placeholder-image.svg" width="100%" alt="Placeholder: screenshots coming soon" /><br><sub><b>Screenshots</b> · coming soon</sub></td>
   </tr>
 </table>
 
@@ -189,10 +194,10 @@ flowchart LR
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/titles/05-dark.svg">
-  <img src="assets/titles/05-light.svg" width="100%" alt="05 · LLVM Loop Vectorization Analyzer">
+  <img src="assets/titles/05-light.svg" width="100%" alt="05 · LLVM 20 Loop Vectorization Analyzer">
 </picture>
 
-<sub><code>Personal project · Nov 2026</code> · complete · <code>C++ · LLVM 20 · Clang · ScalarEvolution · DependenceAnalysis · lit / FileCheck · GitHub Actions</code></sub>
+<sub><code>Personal project · Nov 2026</code> · complete · <code>C++ · LLVM 20 · compilers · Clang · GCC · ScalarEvolution · DependenceAnalysis · lit / FileCheck · GitHub Actions</code></sub>
 
 **[Results, Comparisons, graphs & code](https://github.com/Fe3w/Loop-Vectorization-Analyzer)** · **[Write-up](https://github.com/Fe3w/Loop-Vectorization-Analyzer/blob/main/docs/writeup.md)** · **[Bug reproducer](https://github.com/Fe3w/Loop-Vectorization-Analyzer/blob/main/test/interchange/confused-miscompile.test)**
 
@@ -222,7 +227,7 @@ Why did LLVM leave this loop scalar? A plugin that runs inside `clang -O3` just 
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/titles/06-dark.svg">
-  <img src="assets/titles/06-light.svg" width="100%" alt="06 · Leadership · DD Robocon 2026 National Finals">
+  <img src="assets/titles/06-light.svg" width="100%" alt="06 · Design Lead & Team Co-Head · DD Robocon 2026 National Finals">
 </picture>
 
 <sub><code>Jan to Jun 2026</code> · <b>Design Lead and Team Co-Head</b> · Team Robominds, Symbiosis Institute of Technology · National Robotics Competition</sub>
@@ -244,7 +249,7 @@ https://github.com/user-attachments/assets/18fe45f4-467c-4aaa-97d2-063ad31eb409
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/titles/07-dark.svg">
-  <img src="assets/titles/07-light.svg" width="100%" alt="07 · Robotics Builds">
+  <img src="assets/titles/07-light.svg" width="100%" alt="07 · Robotics Builds: Computer Vision, ROS 2 & CAD">
 </picture>
 
 #### Gesture-Controlled Robotic Hand (Computer Vision)
@@ -291,25 +296,25 @@ https://github.com/user-attachments/assets/fcea9351-c6b0-4003-a7d3-23be096ce114
   <img src="assets/titles/08-light.svg" width="100%" alt="08 · About Me">
 </picture>
 
-Final-year Robotics & Automation student (Honors in Embedded Systems) at Symbiosis Institute of Technology, Pune, **working my way down the stack**. I started with autonomous systems that perceive, decide and act. Now most of my time goes to what sits underneath them: the kernels, the compilers and the hardware that decide how fast any of it runs.
+Robotics & Automation engineering student (Honors in Embedded Systems, class of 2027) from Symbiosis Institute of Technology, Pune. I work across the stack: at the low end, the kernels, compilers and hardware that decide how fast AI runs, and at the high end, perception, high-level robotics and physical AI.
 
-- **Recently shipped:** an [LLVM 20 plugin](https://github.com/Fe3w/Loop-Vectorization-Analyzer) that explains why loops don't vectorize, an [8×8 systolic-array GEMM accelerator](https://github.com/Fe3w/systolic-array-gemm-accelerator), and a FlashAttention-style fused attention kernel **50× faster** than naive on an RTX 4060 ([repo](https://github.com/Fe3w/GPU-CPU-Performance-Profiling_and-Optimization))
-- **Next:** a C-like compiler with an LLVM IR backend
-- **Looking for:** internships in compiler optimization, CPU/GPU performance engineering, systems software and accelerated computing
-- **Ask me about:** roofline models, why a GEMM is memory-bound until it isn't, LLVM's new pass manager, perception-to-control pipelines in ROS 2
-- **Off-keyboard:** led design for Team Robominds to the DD Robocon 2026 National Finals at IIT Delhi
+**Open to internships and graduate roles in:**
 
-<details>
-<summary><b>Education, coursework & certifications</b></summary>
-<br>
+1. **Compilers, computer architecture and performance engineering:** GPU and CPU optimization, LLVM, hardware accelerators
+2. **Applied AI and forward-deployed engineering (FDE):** AI integration, model optimization and distillation, local and cloud AI agents
+3. **Perception, high-level robotics and physical AI**
+
+#### Education
 
 - **B.Tech, Robotics & Automation Engineering** · Honors in Embedded & Automotive Systems · Symbiosis Institute of Technology, Pune · CGPA 7.65 · expected June 2027
+
+#### Certifications & coursework
+
+- **Stanford Online:** [Compilers](https://www.edx.org/learn/computer-science/stanford-university-compilers) (edX)
 - **Independent study:** Cornell CS 6120 Advanced Compilers (LLVM IR, analysis, optimization) · MIT 6.S894 Accelerated Computing (GPU programming, CUDA)
 - **Advanced VLSI Design** (Compcarta): SystemVerilog, digital design, testing
 - **NPTEL:** Deep Learning for Computer Vision (IIT Hyderabad) · Advanced Robotics (IIT Kanpur)
 - **MathWorks:** MATLAB, Simulink, Stateflow Onramps
-
-</details>
 
 ---
 
