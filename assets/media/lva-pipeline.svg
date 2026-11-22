@@ -1,0 +1,95 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 600' width='960' height='600' role='img'>
+<title>How it works</title>
+<desc>The Loop Vectorization Analyzer runs inside clang -O3 at LLVM's VectorizerStart extension point, right before LoopVectorize. It diagnoses each loop from LLVM's own analyses; a script scores the diagnoses against LoopVectorize's remarks. The opt-in repair versions loops and is checked by differential tests and timing.</desc>
+<defs>
+  <marker id='a' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'>
+    <path d='M0,0 L10,5 L0,10 z' fill='#52514e'/>
+  </marker>
+</defs>
+<style>
+  text { font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #0b0b0b; }
+  .t { font-size: 13px; font-weight: 600; }
+  .s { font-size: 11.5px; fill: #52514e; }
+  .m { font-size: 10.5px; fill: #898781; }
+  .box { fill: #ffffff; stroke: #c3c2b7; stroke-width: 1; }
+  .ll { fill: #eef5fd; stroke: #2a78d6; stroke-width: 1.5; }
+  .step { fill: #ffffff; stroke: #86b6ef; stroke-width: 1; }
+  .opt { fill: #ffffff; stroke: #86b6ef; stroke-width: 1; stroke-dasharray: 4 3; }
+  .res { fill: #f6f6f3; stroke: #c3c2b7; stroke-width: 1; }
+  .ar { stroke: #52514e; stroke-width: 1.5; fill: none; marker-end: url(#a); }
+  .ard { stroke: #52514e; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; marker-end: url(#a); }
+  .chip { fill: #ffffff; stroke: #e1e0d9; stroke-width: 1; }
+</style>
+<rect x='0.5' y='0.5' width='959' height='599' rx='10' fill='#fcfcfb' stroke='#e3e3e1'/>
+<text x='28' y='46' style='font-size:18px;font-weight:600'>How it works</text>
+<text x='28' y='68' class='s' style='font-size:12.5px'>Runs inside clang -O3, just before LLVM's vectorizer, and is checked against LLVM's own verdict.</text>
+
+<!-- main row -->
+<rect class='box' x='28' y='132' width='110' height='56' rx='8'/>
+<text x='83' y='156' class='t' text-anchor='middle'>your C file</text>
+<text x='83' y='173' class='s' text-anchor='middle'>loops</text>
+<path class='ar' d='M138,160 H164'/>
+
+<rect class='box' x='166' y='132' width='140' height='56' rx='8'/>
+<text x='236' y='156' class='t' text-anchor='middle'>clang-20 -O3</text>
+<text x='236' y='173' class='s' text-anchor='middle'>front end + early passes</text>
+<path class='ar' d='M306,160 H332'/>
+
+<rect class='ll' x='334' y='88' width='270' height='160' rx='10'/>
+<text x='348' y='108' class='t' style='fill:#1c5cab'>Loop Vectorization Analyzer</text>
+<rect class='opt' x='348' y='118' width='242' height='36' rx='6'/>
+<text x='360' y='134' class='t' style='font-size:12px'>Repair pass (opt-in)</text>
+<text x='360' y='148' class='s' style='font-size:10.5px'>versions the loop, keeps the sum in a register</text>
+<rect class='step' x='348' y='160' width='242' height='30' rx='6'/>
+<text x='360' y='179' class='s'>Canonicalize: LoopSimplify + LCSSA</text>
+<rect class='step' x='348' y='196' width='242' height='40' rx='6' style='stroke:#2a78d6;stroke-width:1.5'/>
+<text x='360' y='213' class='t' style='font-size:12px'>Analysis pass</text>
+<text x='360' y='228' class='s' style='font-size:10.5px'>13 rules, in LoopVectorize's order</text>
+<path class='ar' d='M604,160 H630'/>
+
+<rect class='box' x='632' y='132' width='150' height='56' rx='8'/>
+<text x='707' y='156' class='t' text-anchor='middle'>LoopVectorize</text>
+<text x='707' y='173' class='s' text-anchor='middle'>vectorizes or gives up</text>
+<path class='ar' d='M782,160 H808'/>
+
+<rect class='box' x='810' y='132' width='122' height='56' rx='8'/>
+<text x='871' y='156' class='t' text-anchor='middle'>object code</text>
+<text x='871' y='173' class='s' text-anchor='middle'>unchanged by analysis</text>
+
+<!-- outputs -->
+<path class='ar' d='M469,248 V318'/>
+<rect class='box' x='334' y='320' width='270' height='66' rx='8'/>
+<text x='348' y='342' class='t'>Diagnosis per loop</text>
+<text x='348' y='360' class='s'>category · evidence · fix</text>
+<text x='348' y='376' class='m'>LLVM remarks · JSON</text>
+
+<path class='ar' d='M707,188 V318'/>
+<rect class='box' x='632' y='320' width='300' height='66' rx='8'/>
+<text x='646' y='342' class='t'>LLVM's verdict per loop</text>
+<text x='646' y='360' class='s'>vectorized, or why not</text>
+<text x='646' y='376' class='m'>-Rpass-missed=loop-vectorize</text>
+
+<path class='ar' d='M469,386 V428'/>
+<path class='ar' d='M782,386 V408 H640 V428'/>
+<rect class='res' x='334' y='430' width='598' height='56' rx='8'/>
+<text x='348' y='452' class='t'>Agreement score</text>
+<text x='348' y='470' class='s'>loops paired by source line · PolyBench/C and TSVC · three targets</text>
+
+<path class='ard' d='M380,248 V280 H167 V318'/>
+<rect class='res' x='28' y='320' width='278' height='136' rx='8'/>
+<text x='42' y='342' class='t'>Repair checks</text>
+<text x='42' y='362' class='s'>differential tests: original vs repaired,</text>
+<text x='42' y='378' class='s'>byte for byte, strict FP</text>
+<text x='42' y='398' class='s'>overlap driver + mutation test:</text>
+<text x='42' y='414' class='s'>both loop copies exercised</text>
+<text x='42' y='434' class='s'>timing: same flags, pinned, median</text>
+
+<!-- analyses band -->
+<text x='28' y='526' class='s' style='font-weight:600;fill:#0b0b0b'>Built on LLVM's own analyses</text>
+<rect class='chip' x='28' y='538' width='78' height='26' rx='13'/><text x='67' y='555' class='s' text-anchor='middle'>LoopInfo</text>
+<rect class='chip' x='114' y='538' width='118' height='26' rx='13'/><text x='173' y='555' class='s' text-anchor='middle'>ScalarEvolution</text>
+<rect class='chip' x='240' y='538' width='146' height='26' rx='13'/><text x='313' y='555' class='s' text-anchor='middle'>LoopAccessAnalysis</text>
+<rect class='chip' x='394' y='538' width='144' height='26' rx='13'/><text x='466' y='555' class='s' text-anchor='middle'>DependenceAnalysis</text>
+<rect class='chip' x='546' y='538' width='188' height='26' rx='13'/><text x='640' y='555' class='s' text-anchor='middle'>Induction/RecurrenceDescriptor</text>
+<rect class='chip' x='742' y='538' width='130' height='26' rx='13'/><text x='807' y='555' class='s' text-anchor='middle'>TTI + TargetLibInfo</text>
+</svg>

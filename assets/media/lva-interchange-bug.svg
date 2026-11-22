@@ -1,0 +1,48 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 443' width='960' height='443' role='img'>
+<title>LLVM 20.1.2 loop-interchange bug, fixed in LLVM 21</title><desc>A loop nest whose arrays overlap; checksum after loop-interchange per LLVM release.</desc>
+<rect x='0.5' y='0.5' width='959' height='442' rx='10' fill='#fcfcfb' stroke='#e3e3e1'/>
+<text x='28.0' y='48.0' font-size='18' text-anchor='start' font-weight='600' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>LLVM 20.1.2 loop-interchange bug, fixed in LLVM 21</text>
+<text x='28.0' y='72.0' font-size='12' text-anchor='start' font-weight='400' fill='#52514e' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>The same loop nest, run through loop-interchange in each LLVM release.</text>
+<rect x='28.0' y='92.0' width='444.0' height='164' rx='8' fill='#ffffff' stroke='#e3e3e1'/>
+<text x='44.0' y='118.0' font-size='13' text-anchor='start' font-weight='600' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>The loop</text>
+<text x='44.0' y='148.0' font-size='13' text-anchor='start' font-weight='400' fill='#0b0b0b' font-family='ui-monospace, SFMono-Regular, Menlo, Consolas, monospace'>for (j = 0; j &lt; 64; j++)</text>
+<text x='59.6' y='169.0' font-size='13' text-anchor='start' font-weight='400' fill='#0b0b0b' font-family='ui-monospace, SFMono-Regular, Menlo, Consolas, monospace'>for (i = 0; i &lt; 64; i++)</text>
+<text x='75.2' y='190.0' font-size='13' text-anchor='start' font-weight='400' fill='#0b0b0b' font-family='ui-monospace, SFMono-Regular, Menlo, Consolas, monospace'>A[i][j] = A[i][j] + B[i][j];</text>
+<text x='44.0' y='238.0' font-size='12' text-anchor='start' font-weight='400' fill='#52514e' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>B points into A:  B[i][j] is A[i+1][j−1]</text>
+<rect x='488.0' y='92.0' width='444.0' height='164' rx='8' fill='#ffffff' stroke='#e3e3e1'/>
+<text x='504.0' y='118.0' font-size='13' text-anchor='start' font-weight='600' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>Why swapping the loops is illegal</text>
+<text x='504.0' y='148.0' font-size='12' text-anchor='start' font-weight='400' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>A[i+1][j−1] is written at iteration (j−1, i+1)</text>
+<text x='504.0' y='168.0' font-size='12' text-anchor='start' font-weight='400' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>and read later, at iteration (j, i).</text>
+<text x='504.0' y='188.0' font-size='12' text-anchor='start' font-weight='400' fill='#52514e' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>Direction (j, i) = (&lt;, &gt;): with i outside, the read</text>
+<text x='504.0' y='208.0' font-size='12' text-anchor='start' font-weight='400' fill='#52514e' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>would run before the write.</text>
+<text x='504.0' y='238.0' font-size='12' text-anchor='start' font-weight='400' fill='#52514e' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>LLVM cannot see the overlap: the dependence is “confused”.</text>
+<rect x='28.0' y='276.0' width='217.0' height='112' rx='8' fill='#ffffff' stroke='#d03b3b' stroke-width='1.5'/>
+<text x='42.0' y='302.0' font-size='13' text-anchor='start' font-weight='600' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>LLVM 20.1.2</text>
+<circle cx='223.0' cy='297.0' r='9' fill='#d03b3b'/>
+<text x='223.0' y='301.5' font-size='12' text-anchor='middle' font-weight='700' fill='#ffffff' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>✗</text>
+<text x='42.0' y='328.0' font-size='12' text-anchor='start' font-weight='400' fill='#52514e' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>swapped the loops</text>
+<text x='42.0' y='356.0' font-size='18' text-anchor='start' font-weight='600' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>171990.0</text>
+<text x='42.0' y='375.0' font-size='11' text-anchor='start' font-weight='600' fill='#d03b3b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>wrong result</text>
+<rect x='257.0' y='276.0' width='217.0' height='112' rx='8' fill='#ffffff' stroke='#e3e3e1' stroke-width='1'/>
+<text x='271.0' y='302.0' font-size='13' text-anchor='start' font-weight='600' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>LLVM 21.1.8</text>
+<circle cx='452.0' cy='297.0' r='9' fill='#0ca30c'/>
+<text x='452.0' y='301.5' font-size='12' text-anchor='middle' font-weight='700' fill='#ffffff' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>✓</text>
+<text x='271.0' y='328.0' font-size='12' text-anchor='start' font-weight='400' fill='#52514e' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>refused the swap</text>
+<text x='271.0' y='356.0' font-size='18' text-anchor='start' font-weight='600' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>1961666.0</text>
+<text x='271.0' y='375.0' font-size='11' text-anchor='start' font-weight='600' fill='#0ca30c' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>correct result</text>
+<rect x='486.0' y='276.0' width='217.0' height='112' rx='8' fill='#ffffff' stroke='#e3e3e1' stroke-width='1'/>
+<text x='500.0' y='302.0' font-size='13' text-anchor='start' font-weight='600' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>LLVM 22.1.8</text>
+<circle cx='681.0' cy='297.0' r='9' fill='#0ca30c'/>
+<text x='681.0' y='301.5' font-size='12' text-anchor='middle' font-weight='700' fill='#ffffff' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>✓</text>
+<text x='500.0' y='328.0' font-size='12' text-anchor='start' font-weight='400' fill='#52514e' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>refused the swap</text>
+<text x='500.0' y='356.0' font-size='18' text-anchor='start' font-weight='600' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>1961666.0</text>
+<text x='500.0' y='375.0' font-size='11' text-anchor='start' font-weight='600' fill='#0ca30c' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>correct result</text>
+<rect x='715.0' y='276.0' width='217.0' height='112' rx='8' fill='#ffffff' stroke='#e3e3e1' stroke-width='1'/>
+<text x='729.0' y='302.0' font-size='13' text-anchor='start' font-weight='600' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>LLVM 23.1.5</text>
+<circle cx='910.0' cy='297.0' r='9' fill='#0ca30c'/>
+<text x='910.0' y='301.5' font-size='12' text-anchor='middle' font-weight='700' fill='#ffffff' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>✓</text>
+<text x='729.0' y='328.0' font-size='12' text-anchor='start' font-weight='400' fill='#52514e' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>refused the swap</text>
+<text x='729.0' y='356.0' font-size='18' text-anchor='start' font-weight='600' fill='#0b0b0b' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>1961666.0</text>
+<text x='729.0' y='375.0' font-size='11' text-anchor='start' font-weight='600' fill='#0ca30c' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>correct result</text>
+<text x='28.0' y='413.0' font-size='11' text-anchor='start' font-weight='400' fill='#52514e' font-family='system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif'>Correct checksum: 1961666.0. The pass is off by default in LLVM 20.</text>
+</svg>
