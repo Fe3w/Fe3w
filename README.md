@@ -179,7 +179,12 @@ The laptop **coordinates every stage on one 8 GB GPU**: speech-to-text and the L
   </tr>
 </table>
 
-<p align="center"><img src="assets/placeholder-video.svg" width="60%" alt="Placeholder: demo video coming soon" /><br><sub><b>Demo video</b> · coming soon</sub></p>
+<table>
+  <tr>
+    <td width="50%" valign="top" align="center"><video src="assets/media/voice-notes-research-report-demo.mp4" width="100%" controls muted></video><br><sub><b>Research report demo</b> · opening a report, then key findings, sources, gaps and how it was made</sub></td>
+    <td width="50%" valign="top" align="center"><video src="assets/media/voice-notes-app-tour-demo.mp4" width="100%" controls muted></video><br><sub><b>App tour</b> · notes filtered by spoken category, then Google sign-in, laptop pairing and sync</sub></td>
+  </tr>
+</table>
 
 <!-- voice-notes media -->
 
