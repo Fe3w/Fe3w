@@ -181,8 +181,8 @@ The laptop **coordinates every stage on one 8 GB GPU**: speech-to-text and the L
 
 <table>
   <tr>
-    <td width="50%" valign="top" align="center"><a href="https://github.com/Fe3w/Fe3w/raw/main/assets/media/voice-notes-research-report-demo.mp4"><img src="assets/media/voice-notes-research-report-demo-poster.jpg" width="100%" alt="Play the research report demo video" /></a><br><sub><b>Research report demo</b> · opening a report, then key findings, sources, gaps and how it was made</sub></td>
-    <td width="50%" valign="top" align="center"><a href="https://github.com/Fe3w/Fe3w/raw/main/assets/media/voice-notes-app-tour-demo.mp4"><img src="assets/media/voice-notes-app-tour-demo-poster.jpg" width="100%" alt="Play the app tour video" /></a><br><sub><b>App tour</b> · notes filtered by spoken category, then Google sign-in, laptop pairing and sync</sub></td>
+    <td width="50%" valign="top" align="center"><a href="https://github.com/Fe3w/Fe3w/raw/main/assets/media/voice-notes-research-report-demo.mp4"><img src="assets/media/voice-notes-research-report-demo.webp" width="100%" alt="Research report demo, playing automatically" /></a><br><sub><b>Research report demo</b> · opening a report, then key findings, sources, gaps and how it was made · click for the full-quality video</sub></td>
+    <td width="50%" valign="top" align="center"><a href="https://github.com/Fe3w/Fe3w/raw/main/assets/media/voice-notes-app-tour-demo.mp4"><img src="assets/media/voice-notes-app-tour-demo.webp" width="100%" alt="App tour, playing automatically" /></a><br><sub><b>App tour</b> · notes filtered by spoken category, then Google sign-in, laptop pairing and sync · click for the full-quality video</sub></td>
   </tr>
 </table>
 
