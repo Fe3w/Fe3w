@@ -156,7 +156,7 @@ A matrix-multiply engine built from scratch, in the style of a **TPU matrix unit
 
 <sub><code>Personal project · Oct to Nov 2026</code> · code private · demo coming soon · <code>Ollama · local LLMs · Whisper · Python · Kotlin (Android) · Google OAuth · Google Cloud APIs · AES-256-GCM · SQLite · Trilium</code></sub>
 
-Speak a thought into the phone ("research idea…", "gym…", "journal…") and it becomes a structured English page on the laptop. All AI runs **locally**, and **Google Cloud is the only backend** (**Google OAuth** and the **Google Drive API**), so there is no self-hosted server. The **Android app** records offline and uploads **end-to-end encrypted** objects to Google Drive's hidden app folder. The laptop transcribes them with **Whisper** and a **local LLM (Ollama)** on an 8 GB GPU, turns **English and Hindi** speech into a title, summary, decisions and next actions, each item **backed by a quote from the transcript**, and syncs the result back to the phone. If a note asks for something ("research the last three years of X"), the laptop drafts a plan, I **approve it on the phone**, and it writes a **cited report** using free tools.
+Speak a thought into the phone ("research idea…", "gym…", "journal…") and it becomes a structured English page on the laptop. Voice notes are processed by **local AI**, the research agent can also run on **free online models** (FreeLLMAPI), and **Google Cloud is the only backend** (**Google OAuth** and the **Google Drive API**), so there is no self-hosted server. The **Android app** records offline and uploads **end-to-end encrypted** objects to Google Drive's hidden app folder. The laptop transcribes them with **Whisper** and a **local LLM (Ollama)** on an 8 GB GPU, turns **English and Hindi** speech into a title, summary, decisions and next actions, each item **backed by a quote from the transcript**, and syncs the result back to the phone. If a note asks for something ("research the last three years of X"), the laptop drafts a plan, I **approve it on the phone**, and it writes a **cited report** using free tools.
 
 The laptop **coordinates every stage on one 8 GB GPU**: speech-to-text and the LLM never run at the same time, a **planner, executor, reader and writer** run the **research agent** with **checkpoints and time budgets**, and agent jobs pause whenever a new voice note arrives so notes always go first.
 
@@ -168,10 +168,18 @@ The laptop **coordinates every stage on one 8 GB GPU**: speech-to-text and the L
 
 <table>
   <tr>
-    <td width="50%" valign="top"><img src="assets/placeholder-video.svg" width="100%" alt="Placeholder: demo video coming soon" /><br><sub><b>Demo video</b> · coming soon</sub></td>
-    <td width="50%" valign="top"><img src="assets/placeholder-image.svg" width="100%" alt="Placeholder: screenshots coming soon" /><br><sub><b>Screenshots</b> · coming soon</sub></td>
+    <td width="33%" valign="top"><a href="assets/media/voice-notes-home-jobs.jpg"><img src="assets/media/voice-notes-home-jobs.jpg" width="100%" alt="Home screen with the record button and agent jobs queued and running on the laptop" /></a><br><sub><b>Home</b> · tap to record, agent jobs queued and running</sub></td>
+    <td width="33%" valign="top"><a href="assets/media/voice-notes-all-notes.jpg"><img src="assets/media/voice-notes-all-notes.jpg" width="100%" alt="All notes, filtered by spoken category, with AI summaries" /></a><br><sub><b>All notes</b> · sorted by spoken category, AI summaries</sub></td>
+    <td width="33%" valign="top"><a href="assets/media/voice-notes-plan-approved.jpg"><img src="assets/media/voice-notes-plan-approved.jpg" width="100%" alt="A request in plan mode, approved on the phone before it runs" /></a><br><sub><b>Plan mode</b> · the job waits until I approve it</sub></td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top"><a href="assets/media/voice-notes-auto-mode.jpg"><img src="assets/media/voice-notes-auto-mode.jpg" width="100%" alt="The same request in auto mode, with a switch back to plan mode" /></a><br><sub><b>Auto mode</b> · runs at once, can switch back to plan</sub></td>
+    <td width="33%" valign="top"><a href="assets/media/voice-notes-research-report.jpg"><img src="assets/media/voice-notes-research-report.jpg" width="100%" alt="Research report on multi-agent orchestration with linked papers" /></a><br><sub><b>Research report</b> · summary with linked papers</sub></td>
+    <td width="33%" valign="top"><a href="assets/media/voice-notes-price-report.jpg"><img src="assets/media/voice-notes-price-report.jpg" width="100%" alt="Price report for zoos near Pune and Mumbai with numbered source citations" /></a><br><sub><b>Price report</b> · every figure cites its source</sub></td>
   </tr>
 </table>
+
+<p align="center"><img src="assets/placeholder-video.svg" width="60%" alt="Placeholder: demo video coming soon" /><br><sub><b>Demo video</b> · coming soon</sub></p>
 
 <!-- voice-notes media -->
 
