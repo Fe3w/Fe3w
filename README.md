@@ -181,8 +181,8 @@ The laptop **coordinates every stage on one 8 GB GPU**: speech-to-text and the L
 
 <table>
   <tr>
-    <td width="50%" valign="top" align="center"><a href="https://github.com/Fe3w/Fe3w/raw/main/assets/media/voice-notes-research-report-demo.mp4"><img src="assets/media/voice-notes-research-report-demo.webp" width="100%" alt="Research report demo, playing automatically" /></a><br><sub><b>Research report demo</b> · opening a report, then key findings, sources, gaps and how it was made · click for the full-quality video</sub></td>
-    <td width="50%" valign="top" align="center"><a href="https://github.com/Fe3w/Fe3w/raw/main/assets/media/voice-notes-app-tour-demo.mp4"><img src="assets/media/voice-notes-app-tour-demo.webp" width="100%" alt="App tour, playing automatically" /></a><br><sub><b>App tour</b> · notes filtered by spoken category, then Google sign-in, laptop pairing and sync · click for the full-quality video</sub></td>
+    <td width="50%" valign="top" align="center"><a href="https://github.com/Fe3w/Fe3w/raw/main/assets/media/voice-notes-research-report-demo.mp4"><img src="https://github.com/user-attachments/assets/72032124-4091-4995-8508-e5d6ac47b5d4" width="100%" alt="Research report demo, playing automatically" /></a><br><sub><b>Research report demo</b> · opening a report, then key findings, sources, gaps and how it was made · click for the full-quality video</sub></td>
+    <td width="50%" valign="top" align="center"><a href="https://github.com/Fe3w/Fe3w/raw/main/assets/media/voice-notes-app-tour-demo.mp4"><img src="https://github.com/user-attachments/assets/a2213cbc-5e5a-4c14-8f60-8c89e8024d45" width="100%" alt="App tour, playing automatically" /></a><br><sub><b>App tour</b> · notes filtered by spoken category, then Google sign-in, laptop pairing and sync · click for the full-quality video</sub></td>
   </tr>
 </table>
 
